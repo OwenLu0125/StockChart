@@ -18,6 +18,7 @@ const Home = () => {
           {/* <Route path='*' element={<HomePage />} /> */}
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 };
