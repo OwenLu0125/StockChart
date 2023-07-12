@@ -1,6 +1,6 @@
-import './AuthInput.scss';
+import './Input.scss';
 
-const AuthInput = ({ type, label, name, value, placeholder, onChange }) => {
+const Input = ({ type, label, name, value, placeholder, onChange }) => {
   return (
     <>
       <div className='label'>{label}</div>
@@ -16,4 +16,4 @@ const AuthInput = ({ type, label, name, value, placeholder, onChange }) => {
   );
 };
 
-export default AuthInput;
+export default Input;
