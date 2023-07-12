@@ -7,7 +7,6 @@ import './loginPage.scss';
 /*
 TODO:
   - base css settings
-  - input component settings
 */
 
 const LoginPage = () => {
