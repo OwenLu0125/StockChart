@@ -1,34 +1,26 @@
-.authContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: #f5f8fa;
-  width: auto;
+.label {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 18px;
+}
+
+.input {
+  width: 472px;
   height: 54px;
-  border-bottom: 2px solid #657786;
-  padding: 2px 10.55px;
-  margin: 15px 0;
-  box-sizing: border-box;
-  font-weight: 400;
-  &.error {
-    border-bottom: 2px solid var(--Error);
+  outline: solid 1px #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 14px;
+  &::placeholder {
+    color: var(--gray-500);
   }
-
-  .label {
-    font-size: 14px;
-    color: var(--gray-700);
-    text-align: start;
-  }
-
-  .input {
-    outline: none;
-    border: none;
-    background-color: #f5f8fa;
-    border-radius: 0px;
-    font-size: 16px;
-    padding: 0;
-    &::placeholder {
-      color: var(--gray-500);
-    }
+  &:focus {
+    border: 1px solid rgba(90, 64, 164, 1);
   }
 }
