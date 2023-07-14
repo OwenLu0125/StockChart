@@ -1,5 +1,6 @@
 // react
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
@@ -18,8 +19,14 @@ const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    if (username.length === 0 || password.length === 0 || email.length === 0) {
+      console.error('Input cannot be empty');
+      return;
+    }
+
     try {
       const { success } = await register({
         account,
@@ -28,15 +35,15 @@ const SignupPage = () => {
         checkPassword,
         email,
       });
-      // console.log(success);
       if (success) {
         Swal.fire({
           position: 'top',
-          title: '登入成功',
+          title: '註冊成功',
           timer: 1000,
           icon: 'success',
           showConfirmButton: true,
         });
+        navigate('/*');
       }
     } catch (error) {
       console.error('[Registration]:', error);
