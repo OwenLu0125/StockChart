@@ -23,7 +23,13 @@ const SignupPage = () => {
 
   const handleSubmit = async () => {
     if (username.length === 0 || password.length === 0 || email.length === 0) {
-      console.error('Input cannot be empty');
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: '註冊失敗',
+        text: '欄位不可有空值',
+        showConfirmButton: true,
+      });
       return;
     }
 
