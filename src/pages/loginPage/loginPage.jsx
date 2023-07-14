@@ -1,5 +1,6 @@
 // react
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
@@ -7,40 +8,52 @@ import PurpleButton from '../../components/button/PurpleButton/PurpleButton';
 import WhiteButton from '../../components/button/WhiteButton/WhiteButton';
 import Input from '../../components/input/Input';
 // api
-import { login } from '../../api/auth';
+import { login, checkPermission } from '../../api/auth';
 // icon
 import logo from '../../assets/logo.svg';
 // styles
 import './loginPage.scss';
 
-/*
-TODO:
-  - feat: page turn function 
-*/
-
 const LoginPage = () => {
   const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const success = await login({
+      const { success, token } = await login({
         account,
         password,
       });
-
       if (success) {
+        localStorage.setItem('authToken', token);
         Swal.fire({
           position: 'top',
           title: '登入成功!',
           icon: 'success',
           showConfirmButton: true,
         });
+        navigate('/main');
       }
     } catch (error) {
       console.error('[Login Failed]:', error);
     }
   };
+
+  useEffect(() => {
+    const checkTokenIsValid = async () => {
+      const authToken = localStorage.getItem('authToken');
+      if (!authToken) {
+        return;
+      }
+      const result = await checkPermission(authToken);
+      if (result) {
+        navigate('/main');
+      }
+    };
+
+    checkTokenIsValid();
+  }, [navigate]);
 
   return (
     <div className='container'>
