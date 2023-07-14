@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginPage from '../loginPage/loginPage';
 import SignupPage from '../signupPage/signupPage';
 import AdminLoginPage from '../adminLoginPage/adminLoginPage';
+import MainPage from '../mainPage/mainPage';
 // style
 import './reset.scss'
 import './base.scss'
@@ -17,7 +18,7 @@ const Home = () => {
           <Route path='*' element={<LoginPage />} />
           <Route path='signup' element={<SignupPage />} />
           <Route path='admin' element={<AdminLoginPage />} />
-          {/* <Route path='*' element={<HomePage />} /> */}
+          <Route path='main' element={<MainPage />} />
         </Routes>
       </BrowserRouter>
     </div>
