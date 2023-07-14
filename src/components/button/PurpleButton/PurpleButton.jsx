@@ -1,10 +1,12 @@
 import React from 'react';
 import './PurpleButton.scss';
 
-const PurpleButton = ({text}) => {
+const PurpleButton = ({ text, onClick }) => {
   return (
     <div>
-      <button className='p-btn'>{text}</button>
+      <button className='p-btn' onClick={onClick}>
+        {text}
+      </button>
     </div>
   );
 };
