@@ -1,5 +1,7 @@
 // react
 import { createContext, useState } from 'react';
+// package
+import { decodeToken } from 'react-jwt';
 // api
 import { login, register } from '../api/auth';
 
@@ -12,7 +14,7 @@ const defaultAuthContext = {
 };
 
 const AuthContext = createContext(defaultAuthContext);
-const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
   return (
@@ -35,6 +37,29 @@ const AuthProvider = ({ children }) => {
           }
           return success;
         },
-      }}></AuthContext.Provider>
+        login: async (data) => {
+          const { success, token } = await login({
+            account: data.account,
+            password: data.password,
+          });
+          const tempPayload = decodeToken(token);
+          if (tempPayload) {
+            setPayload(tempPayload);
+            setIsAuthenticated(true);
+            localStorage.setItem('authToken', token);
+          } else {
+            setPayload(null);
+            setIsAuthenticated(false);
+          }
+          return success;
+        },
+        logout: () => {
+          localStorage.removeItem('authToken');
+          setPayload(null);
+          setIsAuthenticated(false);
+        },
+      }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
