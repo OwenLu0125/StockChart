@@ -1,5 +1,5 @@
 // react
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 // package
 import { decodeToken } from 'react-jwt';
@@ -15,6 +15,7 @@ const defaultAuthContext = {
 };
 
 const AuthContext = createContext(defaultAuthContext);
+export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
@@ -32,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         setPayload(null);
       }
     };
-    
+
     checkTokenIsValid();
   }, [pathname]);
 
