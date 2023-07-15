@@ -1,5 +1,6 @@
 // react
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 // package
 import { decodeToken } from 'react-jwt';
 // api
@@ -17,6 +18,24 @@ const AuthContext = createContext(defaultAuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const checkTokenIsValid = async () => {
+      const authToken = localStorage.getItem('authToken');
+      if (authToken) {
+        setIsAuthenticated(true);
+        const tempPayload = decodeToken(authToken);
+        setPayload(tempPayload);
+      } else {
+        setIsAuthenticated(false);
+        setPayload(null);
+      }
+    };
+    
+    checkTokenIsValid();
+  }, [pathname]);
+
   return (
     <AuthContext.Provider
       value={{
