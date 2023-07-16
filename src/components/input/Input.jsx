@@ -2,7 +2,7 @@ import './Input.scss';
 
 const Input = ({ type, label, name, value, placeholder, onChange }) => {
   return (
-    <>
+    <div>
       <div className='label'>{label}</div>
       <input
         className='input'
@@ -12,7 +12,7 @@ const Input = ({ type, label, name, value, placeholder, onChange }) => {
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
       />
-    </>
+    </div>
   );
 };
 
