@@ -30,4 +30,22 @@
       height: 42px;
     }
   }
+
+  .dailySec {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    .dailyDiagram {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-gray);
+      border-radius: 4px;
+    }
+
+    .listSec {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
 }
