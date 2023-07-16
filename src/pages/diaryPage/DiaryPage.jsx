@@ -1,6 +1,7 @@
 import PrimaryInput from '../../components/primaryInput/PrimaryInput';
 import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
+import DailyRecord from '../../components/dailyRecord/DailyRecord';
 import arrowIcon from '../../assets/arrow-purple.svg';
 import './DiaryPage.scss';
 
@@ -55,7 +56,13 @@ const DiaryPage = () => {
           <button className='btn secondary-button bold-16'>載入資料</button>
           <button className='btn primary-button bold-16'>送出</button>
         </div>
-        <DailySummary />
+        <div className='dailySec'>
+          <div className='dailyDiagram'></div>
+          <div className='listSec'>
+            <DailyRecord />
+            <DailySummary />
+          </div>
+        </div>
       </div>
     </>
   );
