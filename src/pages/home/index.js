@@ -6,7 +6,7 @@ import LoginPage from '../loginPage/loginPage';
 import SignupPage from '../signupPage/signupPage';
 import AdminLoginPage from '../adminLoginPage/adminLoginPage';
 import MainPage from '../mainPage/mainPage';
-import DiaryPage from '../diaryPage/DiaryPage';
+import DiaryPage from '../diaryPage/diaryPage';
 // style
 import './reset.scss';
 import './base.scss';
