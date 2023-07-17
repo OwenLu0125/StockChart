@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
-import PurpleButton from '../../components/button/PurpleButton/PurpleButton';
+import PurpleButton from '../../components/button/purpleButton/PurpleButton';
 import Input from '../../components/input/Input';
 // api
 import { register } from '../../api/auth';
 // icons
 import logo from '../../assets/logo.svg';
 // styles
-import './signupPage.scss';
+import './SignupPage.scss';
 
 const SignupPage = () => {
   const [account, setAccount] = useState('');
