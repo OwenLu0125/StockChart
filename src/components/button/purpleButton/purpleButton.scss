@@ -1,0 +1,13 @@
+.p-btn {
+  width: 472px;
+  height: 52px;
+  color: white;
+  font-family: Noto Sans TC;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: rgba(90, 64, 164, 1);
+  border-radius: 4px;
+  &:hover {
+    background-color: rgba(106, 75, 193, 1);
+  }
+}
