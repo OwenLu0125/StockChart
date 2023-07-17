@@ -1,8 +1,8 @@
- import PurpleButton from '../../components/button/PurpleButton/PurpleButton';
- import WhiteButton from '../../components/button/WhiteButton/WhiteButton';
+ import PurpleButton from '../../components/button/purpleButton/PurpleButton';
+ import WhiteButton from '../../components/button/whiteButton/WhiteButton';
  import Input from '../../components/input/Input';
  import logo from '../../assets/logo.svg';
- import './adminLoginPage.scss';
+ import './AdminLoginPage.scss';
 
  const AdminLoginPage = () => {
    return (

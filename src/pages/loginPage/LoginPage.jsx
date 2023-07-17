@@ -4,15 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
-import PurpleButton from '../../components/button/PurpleButton/PurpleButton';
-import WhiteButton from '../../components/button/WhiteButton/WhiteButton';
+import PurpleButton from '../../components/button/purpleButton/PurpleButton';
+import WhiteButton from '../../components/button/whiteButton/WhiteButton';
 import Input from '../../components/input/Input';
 // api
 import { login, checkPermission } from '../../api/auth';
 // icon
 import logo from '../../assets/logo.svg';
 // styles
-import './loginPage.scss';
+import './LoginPage.scss';
 
 const LoginPage = () => {
   const [account, setAccount] = useState('');

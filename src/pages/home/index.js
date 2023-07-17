@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // context
 import { AuthProvider } from '../../contexts/AuthContext';
 // page
-import LoginPage from '../loginPage/loginPage';
-import SignupPage from '../signupPage/signupPage';
-import AdminLoginPage from '../adminLoginPage/adminLoginPage';
-import MainPage from '../mainPage/mainPage';
-import DiaryPage from '../diaryPage/diaryPage';
+import LoginPage from '../loginPage/LoginPage';
+import SignupPage from '../signupPage/SignupPage';
+import AdminLoginPage from '../adminLoginPage/AdminLoginPage';
+import MainPage from '../mainPage/MainPage';
+import DiaryPage from '../diaryPage/DiaryPage';
 // style
 import './reset.scss';
 import './base.scss';
