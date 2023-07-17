@@ -6,7 +6,6 @@
     grid-gap: 18px 24px;
     margin: 20px 0 30px 0;
   }
-
   .collapse {
     display: flex;
     justify-content: end;
@@ -15,19 +14,33 @@
     color: var(--primary-purple);
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border-gray);
-
     .arrow {
       width: 16px;
       height: 16px;
     }
   }
-
   .btnSec {
     display: flex;
     gap: 12px;
     .btn {
       width: 200px;
       height: 42px;
+    }
+  }
+  .dailySec {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    .dailyDiagram {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-gray);
+      border-radius: 4px;
+    }
+    .listSec {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
   }
 }
