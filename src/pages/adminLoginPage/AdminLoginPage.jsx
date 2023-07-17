@@ -1,5 +1,5 @@
- import PurpleButton from '../../components/button/purpleButton/PurpleButton';
- import WhiteButton from '../../components/button/whiteButton/WhiteButton';
+ import PurpleButton from '../../components/button/purpleButton/purpleButton';
+ import WhiteButton from '../../components/button/whiteButton/whiteButton';
  import Input from '../../components/input/Input';
  import logo from '../../assets/logo.svg';
  import './AdminLoginPage.scss';

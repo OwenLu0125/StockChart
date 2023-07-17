@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
-import PurpleButton from '../../components/button/purpleButton/PurpleButton';
-import WhiteButton from '../../components/button/whiteButton/WhiteButton';
+import PurpleButton from '../../components/button/purpleButton/purpleButton';
+import WhiteButton from '../../components/button/whiteButton/whiteButton';
 import Input from '../../components/input/Input';
 // api
 import { login, checkPermission } from '../../api/auth';
