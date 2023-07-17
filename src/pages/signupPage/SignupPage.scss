@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  .loginLeftContainer {
+    width: 50vw;
+    height: 95vh;
+    margin: 20px 0 20px 20px;
+    border-radius: 6px;
+    background-color: rgba(217, 217, 217, 1);
+  }
+  .loginContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-top: 64px;
+    .loginPrompt {
+      a {
+        font-family: Noto Sans TC;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(90, 64, 164, 1);
+        border-bottom: 1px dotted rgba(90, 64, 164, 1);
+      }
+    }
+    .title {
+      margin-top: 56px;
+      display: flex;
+      img {
+        width: 45px;
+        height: 45px;
+      }
+      h1 {
+        margin-left: 13px;
+        color: rgba(90, 64, 164, 1);
+      }
+    }
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 23px;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-top: 16px;
+    }
+    .inputContainer {
+      margin-top: 48px;
+    }
+    .buttonContainer {
+      margin-top: 42px;
+    }
+  }
+}
