@@ -59,6 +59,38 @@ const HistoryForm = () => {
             <img src={msgIcon} alt='message-icon' />
           </li>
         </ul>
+        <ul>
+          <li>2023/07/24</li>
+          <li>+20</li>
+          <li>100%</li>
+          <li>16.00 : 0</li>
+          <li>1</li>
+          <li>1</li>
+          <li>1</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>
+            <img src={msgIcon} alt='message-icon' />
+          </li>
+        </ul>
+        <ul>
+          <li>2023/07/24</li>
+          <li>+20</li>
+          <li>100%</li>
+          <li>16.00 : 0</li>
+          <li>1</li>
+          <li>1</li>
+          <li>1</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>0%</li>
+          <li>
+            <img src={msgIcon} alt='message-icon' />
+          </li>
+        </ul>
       </div>
       <div className='subBody regular-14'>
         <ul>
