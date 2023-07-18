@@ -1,14 +1,28 @@
+// react
+import { useState } from 'react';
+// package
+import axios from 'axios';
 // component
 import PrimaryInput from '../../components/primaryInput/PrimaryInput';
 import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
 import DailyRecord from '../../components/dailyRecord/DailyRecord';
-// icon 
+// icon
 import arrowIcon from '../../assets/arrow-purple.svg';
 // style
 import './DiaryPage.scss';
 
 const DiaryPage = () => {
+  const [action, setAction] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [price, setPrice] = useState('');
+  const [transactionDate, setTransactionDate] = useState('');
+  const [description, setDescription] = useState('');
+
+  const handleSubmit = async() => {
+
+  };
+
   return (
     <>
       <Header />
@@ -19,45 +33,41 @@ const DiaryPage = () => {
         </div>
         <div className='inputSec'>
           <PrimaryInput
-            label='Email'
+            label='action'
             placeholder='請輸入資料'
-            value=''
-            onChange=''
+            value={action}
+            onChange={setAction}
           />
           <PrimaryInput
-            label='Email'
+            label='quantity'
             placeholder='請輸入資料'
-            value=''
-            onChange=''
+            value={quantity}
+            onChange={setQuantity}
           />
           <PrimaryInput
-            label='Email'
+            label='price'
             placeholder='請輸入資料'
-            value=''
-            onChange=''
+            value={price}
+            onChange={setPrice}
           />
           <PrimaryInput
-            label='Email'
+            label='transaction_date'
             placeholder='請輸入資料'
-            value=''
-            onChange=''
+            value={transactionDate}
+            onChange={setTransactionDate}
           />
           <PrimaryInput
-            label='Email'
+            label='description'
             placeholder='請輸入資料'
-            value=''
-            onChange=''
-          />
-          <PrimaryInput
-            label='Email'
-            placeholder='請輸入資料'
-            value=''
-            onChange=''
+            value={description}
+            onChange={setDescription}
           />
         </div>
         <div className='btnSec'>
           <button className='btn secondary-button bold-16'>載入資料</button>
-          <button className='btn primary-button bold-16'>送出</button>
+          <button className='btn primary-button bold-16' onClick={handleSubmit}>
+            送出
+          </button>
         </div>
         <DailySummary />
         <div className='dailySec'>
