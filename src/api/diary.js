@@ -1,22 +1,11 @@
-import axios from 'axios';
+import axiosInstance, { baseUrl } from './axiosInstance';
 
-const authURL = 'https://trade-tracker.onrender.com/api';
-
-export const createDiary = async ({
-  quantity,
-  price,
-  transactionDate,
-  description,
-}) => {
+export const createDiary = async (data) => {
   try {
-    const res = await axios.post(`${authURL}/transactions`, {
-      quantity,
-      price,
-      transactionDate,
-      description,
-    });
+    const res = await axiosInstance.post(`${baseUrl}/transactions`, data);
     return res;
   } catch (error) {
     console.error('creatDiary fail !!!', error);
+    return error;
   }
 };

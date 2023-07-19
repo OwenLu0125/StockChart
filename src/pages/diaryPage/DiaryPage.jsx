@@ -1,12 +1,14 @@
 // react
 import { useState } from 'react';
 // package
-import axios from 'axios';
+import Swal from 'sweetalert2';
 // component
 import PrimaryInput from '../../components/primaryInput/PrimaryInput';
 import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
 import DailyRecord from '../../components/dailyRecord/DailyRecord';
+// api
+import { createDiary } from '../../api/diary';
 // icon
 import arrowIcon from '../../assets/arrow-purple.svg';
 // style
@@ -19,8 +21,30 @@ const DiaryPage = () => {
   const [transactionDate, setTransactionDate] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = async() => {
-
+  const handleSubmit = async () => {
+    const res = await createDiary({
+      action,
+      quantity,
+      price,
+      transaction_date: transactionDate,
+      description,
+    });
+    if (res.status === 200) {
+      Swal.fire({
+        position: 'top',
+        title: '日記創建成功!',
+        icon: 'success',
+        showConfirmButton: true,
+      });
+    } else {
+      Swal.fire({
+        position: 'top',
+        title: '日記創建失敗!',
+        text: `${res.response.data.message}`,
+        icon: 'error',
+        showConfirmButton: true,
+      });
+    }
   };
 
   return (
@@ -69,7 +93,6 @@ const DiaryPage = () => {
             送出
           </button>
         </div>
-        <DailySummary />
         <div className='dailySec'>
           <div className='dailyDiagram'></div>
           <div className='listSec'>
