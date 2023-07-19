@@ -1,8 +1,9 @@
 .historyForm {
-  width: 1024px;
+  width: 100%;
   border: 1px solid var(--border-gray);
   padding: 24px;
   border-radius: 4px;
+  background-color: white;
   ul {
     display: flex;
     li:first-child {

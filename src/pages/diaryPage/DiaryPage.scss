@@ -1,11 +1,14 @@
 .diaryMain {
-  margin: 26px 38px 38px 38px;
+  margin-top: 72px;
+  padding: 26px 38px 38px 38px;
+
   .inputSec {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 18px 24px;
     margin: 20px 0 30px 0;
   }
+
   .collapse {
     display: flex;
     justify-content: end;
@@ -14,11 +17,13 @@
     color: var(--primary-purple);
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border-gray);
+
     .arrow {
       width: 16px;
       height: 16px;
     }
   }
+
   .btnSec {
     display: flex;
     gap: 12px;
@@ -27,6 +32,7 @@
       height: 42px;
     }
   }
+
   .dailySec {
     display: flex;
     gap: 12px;
@@ -37,6 +43,7 @@
       border: 1px solid var(--border-gray);
       border-radius: 4px;
     }
+
     .listSec {
       display: flex;
       flex-direction: column;

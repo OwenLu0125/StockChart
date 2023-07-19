@@ -1,0 +1,46 @@
+.historyBody {
+  .historyMain {
+    margin-top: 72px;
+    padding: 26px 38px 38px 38px;
+    background-color: var(--background-gray);
+
+    .dateFilter {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 16px;
+
+      .btn {
+        width: 100px;
+        height: 42px;
+      }
+
+      .datePicker {
+        display: flex;
+        align-items: center;
+        width: 192px;
+        height: 42px;
+        border: 1px solid var(--border-gray);
+        border-radius: 4px;
+        background-color: white;
+
+        img:first-child {
+          padding-left: 14px;
+        }
+
+        .react-datepicker-wrapper {
+          padding-left: 10px;
+          .react-datepicker__input-container {
+            display: flex;
+            align-items: center;
+            input {
+              padding: 0;
+              font-size: 14px;
+              font-weight: 500;
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
