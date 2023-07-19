@@ -52,7 +52,7 @@ const DiaryPage = () => {
 
   useEffect(() => {
     const dateString = new Date().toLocaleDateString();
-    console.log(dateString);
+    console.log(dateString); // 觀察資料用
     const transactionData = async () => {
       const res = await getTransactions({
         startDate: dateString,
