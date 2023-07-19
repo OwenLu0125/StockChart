@@ -59,7 +59,12 @@ const DiaryPage = () => {
         endDate: dateString,
       });
       console.log(res); // 觀察資料用
-      setTodayTransactions(res.data.transactions);
+
+      const newData = res.data.transactions.map((item, index) => ({
+        ...item,
+        listNumber: index + 1,
+      }));
+      setTodayTransactions(newData);
     };
     transactionData();
   }, [switcher]);
@@ -67,7 +72,7 @@ const DiaryPage = () => {
   // 觀察資料用
   useEffect(() => {
     console.log(todayTransactions);
-  }, [todayTransactions]); 
+  }, [todayTransactions]);
 
   return (
     <>
@@ -118,7 +123,7 @@ const DiaryPage = () => {
         <div className='dailySec'>
           <div className='dailyDiagram'></div>
           <div className='listSec'>
-            <DailyRecord />
+            <DailyRecord todayTransactions={todayTransactions} />
             <DailySummary />
           </div>
         </div>
