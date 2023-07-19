@@ -1,5 +1,5 @@
 // react
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // package
 import Swal from 'sweetalert2';
 // component
@@ -8,7 +8,7 @@ import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
 import DailyRecord from '../../components/dailyRecord/DailyRecord';
 // api
-import { createDiary } from '../../api/diary';
+import { createDiary, getTransactions } from '../../api/diary';
 // icon
 import arrowIcon from '../../assets/arrow-purple.svg';
 // style
@@ -20,6 +20,8 @@ const DiaryPage = () => {
   const [price, setPrice] = useState('');
   const [transactionDate, setTransactionDate] = useState('');
   const [description, setDescription] = useState('');
+  const [todayTransactions, setTodayTransactions] = useState('');
+  const [switcher, setSwitcher] = useState(false); // 用於判斷是否有資料送出
 
   const handleSubmit = async () => {
     const res = await createDiary({
@@ -36,6 +38,7 @@ const DiaryPage = () => {
         icon: 'success',
         showConfirmButton: true,
       });
+      setSwitcher((current) => !current);
     } else {
       Swal.fire({
         position: 'top',
@@ -46,6 +49,25 @@ const DiaryPage = () => {
       });
     }
   };
+
+  useEffect(() => {
+    const dateString = new Date().toLocaleDateString();
+    console.log(dateString);
+    const transactionData = async () => {
+      const res = await getTransactions({
+        startDate: dateString,
+        endDate: dateString,
+      });
+      console.log(res); // 觀察資料用
+      setTodayTransactions(res.data.transactions);
+    };
+    transactionData();
+  }, [switcher]);
+
+  // 觀察資料用
+  useEffect(() => {
+    console.log(todayTransactions);
+  }, [todayTransactions]); 
 
   return (
     <>
