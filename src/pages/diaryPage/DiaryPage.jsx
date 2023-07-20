@@ -7,6 +7,7 @@ import PrimaryInput from '../../components/primaryInput/PrimaryInput';
 import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
 import DailyRecord from '../../components/dailyRecord/DailyRecord';
+import Navbar from '../../components/navbar/Navbar';
 // api
 import { createDiary, getTransactions } from '../../api/diary';
 // icon
@@ -76,9 +77,12 @@ const DiaryPage = () => {
   }, [todayTransactions]);
 
   return (
-    <>
-      <Header />
-      <div className='diaryMain'>
+    <div className='diaryContainer'>
+      <div className='navbarSection'>
+        <Navbar />
+      </div>
+      <div className='rightContainer'>
+          <Header />
         <div className='collapse'>
           <span className='bold-16'>隱藏輸入表單</span>
           <img className='arrow' src={arrowIcon} alt='arrow-icon' />
@@ -129,7 +133,7 @@ const DiaryPage = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
