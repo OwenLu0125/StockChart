@@ -89,32 +89,32 @@ const DiaryPage = () => {
         </div>
         <div className='inputSec'>
           <PrimaryInput
-            label='action'
-            placeholder='請輸入資料'
+            label='買/賣'
+            placeholder='buy'
             value={action}
             onChange={setAction}
           />
           <PrimaryInput
-            label='quantity'
-            placeholder='請輸入資料'
+            label='數量'
+            placeholder='請輸入數量'
             value={quantity}
             onChange={setQuantity}
           />
           <PrimaryInput
-            label='price'
-            placeholder='請輸入資料'
+            label='價格'
+            placeholder='請輸入價格'
             value={price}
             onChange={setPrice}
           />
           <PrimaryInput
-            label='transaction_date'
+            label='交易日期'
             placeholder={date}
             value={transactionDate}
             onChange={setTransactionDate}
           />
           <PrimaryInput
-            label='description'
-            placeholder='請輸入資料'
+            label='備註'
+            placeholder='請輸入備註'
             value={description}
             onChange={setDescription}
           />
