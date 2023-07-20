@@ -82,7 +82,7 @@ const DiaryPage = () => {
         <Navbar />
       </div>
       <div className='rightContainer'>
-          <Header />
+        <Header />
         <div className='collapse'>
           <span className='bold-16'>隱藏輸入表單</span>
           <img className='arrow' src={arrowIcon} alt='arrow-icon' />
@@ -128,7 +128,7 @@ const DiaryPage = () => {
         <div className='dailySec'>
           <div className='dailyDiagram'></div>
           <div className='listSec'>
-            <DailyRecord todayTransactions={todayTransactions} />
+            <DailyRecord todayTransactions={todayTransactions} date={date} />
             <DailySummary />
           </div>
         </div>

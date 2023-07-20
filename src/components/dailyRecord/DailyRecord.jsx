@@ -5,7 +5,7 @@ import clockIcon from '../../assets/clock.svg';
 // style
 import './DailyRecord.scss';
 
-const DailyRecord = ({ todayTransactions }) => {
+const DailyRecord = ({ todayTransactions, date }) => {
   console.log(todayTransactions);
   return (
     <div className='dailyRecord'>
@@ -14,7 +14,7 @@ const DailyRecord = ({ todayTransactions }) => {
         <span>
           <img src={clockIcon} alt='clock-icon' />
           <p className='medium-12'>日期</p>
-          <p className='medium-12'>2023/07/15</p>
+          <p className='medium-12'>{date}</p>
         </span>
       </div>
       <ul className='tradeList'>
