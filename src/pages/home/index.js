@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       <BrowserRouter>
-        <AuthProvider>
+        {/* <AuthProvider> */}
           <Routes>
             <Route path='*' element={<LoginPage />} />
             <Route path='signup' element={<SignupPage />} />
@@ -25,7 +25,7 @@ const Home = () => {
             <Route path='main' element={<MainPage />} />
             <Route path='diary' element={<DiaryPage />} />
           </Routes>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </BrowserRouter>
     </div>
   );
