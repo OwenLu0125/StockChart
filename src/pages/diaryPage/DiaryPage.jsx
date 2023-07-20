@@ -19,6 +19,7 @@ const DiaryPage = () => {
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
   const [transactionDate, setTransactionDate] = useState('');
+  const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
   const [todayTransactions, setTodayTransactions] = useState('');
   const [switcher, setSwitcher] = useState(false); // 用於判斷是否有資料送出
@@ -52,7 +53,7 @@ const DiaryPage = () => {
 
   useEffect(() => {
     const dateString = new Date().toLocaleDateString();
-    console.log(dateString); // 觀察資料用
+    setDate(dateString);
     const transactionData = async () => {
       const res = await getTransactions({
         startDate: dateString,
@@ -103,7 +104,7 @@ const DiaryPage = () => {
           />
           <PrimaryInput
             label='transaction_date'
-            placeholder='請輸入資料'
+            placeholder={date}
             value={transactionDate}
             onChange={setTransactionDate}
           />
