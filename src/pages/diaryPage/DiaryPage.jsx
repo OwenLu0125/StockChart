@@ -90,7 +90,7 @@ const DiaryPage = () => {
         <div className='inputSec'>
           <PrimaryInput
             label='買/賣'
-            placeholder='buy'
+            placeholder='buy or sell'
             value={action}
             onChange={setAction}
           />
