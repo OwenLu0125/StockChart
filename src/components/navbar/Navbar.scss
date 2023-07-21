@@ -1,0 +1,42 @@
+.navbar {
+  width: 340px;
+  height: 100vh;
+  padding: 18px 32px;
+  border: 1px solid var(--border-gray);
+
+  .navbarItemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    font-family: Noto Sans TC;
+    font-size: 18px;
+    font-weight: 700;
+    .title {
+      display: flex;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 35px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+    .navbarItem {
+      display: flex;
+      gap: 24px;
+      color: var(--secondary-gray);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .logout {
+      display: flex;
+      gap: 24px;
+      color: var(--secondary-gray);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .line {
+      border: 1px solid rgba(224, 224, 224, 1);
+    }
+  }
+}

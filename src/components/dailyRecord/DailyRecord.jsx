@@ -1,8 +1,12 @@
+// component
+import DailyItem from './dailyItem/DailyItem';
+// icon
 import clockIcon from '../../assets/clock.svg';
-import msgIcon from '../../assets/message.svg';
+// style
 import './DailyRecord.scss';
 
-const DailyRecord = () => {
+const DailyRecord = ({ todayTransactions, date }) => {
+  console.log(todayTransactions);
   return (
     <div className='dailyRecord'>
       <div className='titleSec'>
@@ -10,58 +14,20 @@ const DailyRecord = () => {
         <span>
           <img src={clockIcon} alt='clock-icon' />
           <p className='medium-12'>日期</p>
-          <p className='medium-12'>2023/07/15</p>
+          <p className='medium-12'>{date}</p>
         </span>
       </div>
       <ul className='tradeList'>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
-        <li>
-          <p className='regular-14'>#1</p>
-          <p className='regular-14'>賣</p>
-          <p className='regular-14'>12:55:23</p>
-          <p className='regular-14'>x1</p>
-          <p className='regular-14'>$17,083</p>
-          <img src={msgIcon} alt='message-icon' />
-        </li>
+        {todayTransactions?.map?.((item) => (
+          <DailyItem
+            key={item.id}
+            listNumber={item.listNumber}
+            action={item.action}
+            created_on={item.created_on}
+            quantity={item.quantity}
+            price={item.price}
+          />
+        ))}
       </ul>
     </div>
   );
