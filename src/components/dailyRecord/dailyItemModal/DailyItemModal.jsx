@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import msgIcon from '../../../assets/message.svg';
+import './DailyItemModal.scss';
 
 export const DailyItemModal = () => {
   const [modal, setModal] = useState(false);
@@ -13,7 +14,7 @@ export const DailyItemModal = () => {
 
       {modal && (
         <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+          <div className="overlay"></div>
           <div className="modal-content">
             <h2>Modal</h2>
             <p>
