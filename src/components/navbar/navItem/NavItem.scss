@@ -1,0 +1,41 @@
+.navbarItem {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-gray);
+  height: 54px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 4px;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-gray);
+  }
+
+  img {
+    width: 22px;
+    height: 22px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  span:nth-child(2) {
+    padding: 0 10px 0 24px;
+  }
+
+  .whiten {
+    color: white;
+  }
+}
+
+.seleted {
+  background-color: var(--primary-purple);
+}

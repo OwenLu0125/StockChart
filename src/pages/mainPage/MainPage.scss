@@ -1,0 +1,14 @@
+.homePage {
+  display: flex;
+
+  .homeBody {
+    height: 100vh;
+    flex: 1;
+
+    .homeMain {
+      margin-top: 72px;
+      height: calc(100vh - 72px);
+      overflow-y: scroll;
+    }
+  }
+}
