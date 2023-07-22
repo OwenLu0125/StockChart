@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HistoryForm from '../../components/historyForm/HistoryForm';
 import Header from '../../components/header/Header';
 import DatePicker from 'react-datepicker';
+import Navbar from '../../components/navbar/Navbar';
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
 import { postDates } from '../../api/trans';
@@ -162,54 +163,57 @@ const HistoryPage = () => {
 
   return (
     <>
-      <div className='historyBody'>
-        <Header />
-        <div className='historyMain'>
-          <div className='dateFilter'>
-            <div className='datePicker'>
-              <img src={clockIcon} alt='clock-icon' />
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat='yyyy/MM/dd'
-                maxDate={new Date()}
-                showYearDropdown
-                scrollableYearDropdown
-              />
-              <img src={arrowIcon} alt='arrow-icon' />
+      <div className='historyPage'>
+        <Navbar />
+        <div className='historyBody'>
+          <Header />
+          <div className='historyMain'>
+            <div className='dateFilter'>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <button
+                className='btn primary-button bold-16'
+                onClick={handleSearchHistory}
+              >
+                查詢
+              </button>
+              <button
+                className='btn secondary-button bold-16'
+                onClick={handlePrevMonth}
+              >
+                上個月
+              </button>
+              <button
+                className='btn secondary-button bold-16'
+                onClick={handleNextMonth}
+              >
+                下個月
+              </button>
             </div>
-            <div className='datePicker'>
-              <img src={clockIcon} alt='clock-icon' />
-              <DatePicker
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                dateFormat='yyyy/MM/dd'
-                maxDate={new Date()}
-                showYearDropdown
-                scrollableYearDropdown
-              />
-              <img src={arrowIcon} alt='arrow-icon' />
-            </div>
-            <button
-              className='btn primary-button bold-16'
-              onClick={handleSearchHistory}
-            >
-              查詢
-            </button>
-            <button
-              className='btn secondary-button bold-16'
-              onClick={handlePrevMonth}
-            >
-              上個月
-            </button>
-            <button
-              className='btn secondary-button bold-16'
-              onClick={handleNextMonth}
-            >
-              下個月
-            </button>
+            <HistoryForm />
           </div>
-          <HistoryForm />
         </div>
       </div>
     </>

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
 import Navbar from '../../components/navbar/Navbar';
+import Header from '../../components/header/Header';
+import RankingList from '../../components/rankingList/RankingList';
+import './MainPage.scss';
 
 export const MainPage = () => {
   const navigate = useNavigate();
-
-  const { isAuthenticated } = useAuth();
 
   // useEffect(() => {
   //   if (!isAuthenticated) {
@@ -16,8 +16,15 @@ export const MainPage = () => {
 
   return (
     <>
-      {/* <h1>MainPage</h1> */}
-      <Navbar></Navbar>
+      <div className='homePage'>
+        <Navbar />
+        <div className='homeBody'>
+          <Header />
+          <div className='homeMain'>
+            <RankingList />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
