@@ -1,3 +1,4 @@
+import DailyItemModal from '../dailyItemModal/DailyItemModal';
 import msgIcon from '../../../assets/message.svg';
 import './DailyItem.scss';
 
@@ -17,7 +18,7 @@ export const DailyItem = ({
         <p className='regular-14'>{time}</p>
         <p className='regular-14'>{quantity}</p>
         <p className='regular-14'>{price}</p>
-        <img src={msgIcon} alt='message-icon' />
+        <DailyItemModal />
       </li>
     </>
   );
