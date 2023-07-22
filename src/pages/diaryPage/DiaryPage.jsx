@@ -1,4 +1,3 @@
-
 // react
 import { useState, useEffect } from 'react';
 // package
@@ -58,20 +57,20 @@ const DiaryPage = () => {
   useEffect(() => {
     const dateString = new Date().toLocaleDateString();
     setDate(dateString);
-    const transactionData = async () => {
-      const res = await getTransactions({
-        startDate: dateString,
-        endDate: dateString,
-      });
-      console.log(res); // 觀察資料用
+    // const transactionData = async () => {
+    //   const res = await getTransactions({
+    //     startDate: dateString,
+    //     endDate: dateString,
+    //   });
+    //   console.log(res); // 觀察資料用
 
-      const newData = res.data.transactions.map((item, index) => ({
-        ...item,
-        listNumber: index + 1,
-      }));
-      setTodayTransactions(newData);
-    };
-    transactionData();
+    //   const newData = res.data.transactions.map((item, index) => ({
+    //     ...item,
+    //     listNumber: index + 1,
+    //   }));
+    //   setTodayTransactions(newData);
+    // };
+    // transactionData();
   }, [switcher]);
 
   // 觀察資料用
@@ -80,7 +79,6 @@ const DiaryPage = () => {
   }, [todayTransactions]);
 
   return (
-
     <div className='diaryContainer'>
       <div className='navbarSection'>
         <Navbar />
@@ -134,7 +132,6 @@ const DiaryPage = () => {
           <div className='listSec'>
             <DailyRecord todayTransactions={todayTransactions} date={date} />
             <DailySummary />
-
           </div>
         </div>
       </div>
