@@ -65,7 +65,7 @@ const DiaryPage = () => {
       });
       console.log(res); // 觀察資料用
 
-      const newData = res.data.transactions.map((item, index) => ({
+      const newData = res.data.result.transactionsArray.map((item, index) => ({
         ...item,
         listNumber: index + 1,
       }));
@@ -134,7 +134,6 @@ const DiaryPage = () => {
           <div className='listSec'>
             <DailyRecord todayTransactions={todayTransactions} date={date} />
             <DailySummary />
-
           </div>
         </div>
       </div>
