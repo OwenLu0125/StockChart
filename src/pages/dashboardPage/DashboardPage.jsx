@@ -1,4 +1,5 @@
 // component
+import DashBoard from '../../components/dashboard/DashBoard';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 // style
@@ -12,6 +13,7 @@ const DashboardPage = () => {
       </div>
       <div className='rightContainer'>
         <Header />
+        <DashBoard/>
       </div>
     </div>
   );
