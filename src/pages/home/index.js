@@ -16,18 +16,16 @@ const Home = () => {
   return (
     <div>
       <BrowserRouter>
-
         {/* <AuthProvider> */}
-          <Routes>
-            <Route path='*' element={<LoginPage />} />
-            <Route path='signup' element={<SignupPage />} />
-            <Route path='admin' element={<AdminLoginPage />} />
-            <Route path='main' element={<MainPage />} />
-            <Route path='diary' element={<DiaryPage />} />
-            <Route path='history' element={<HistoryPage />} />  
-          </Routes>
+        <Routes>
+          <Route path='*' element={<LoginPage />} />
+          <Route path='signup' element={<SignupPage />} />
+          <Route path='admin' element={<AdminLoginPage />} />
+          <Route path='main' element={<MainPage />} />
+          <Route path='diary' element={<DiaryPage />} />
+          <Route path='history' element={<HistoryPage />} />
+        </Routes>
         {/* </AuthProvider> */}
-
       </BrowserRouter>
     </div>
   );
