@@ -1,11 +1,11 @@
 import logo from '../../assets/logo.svg';
-import './Navbar.scss';
 import home from './icon/home.svg';
 import diary from './icon/diary.svg';
 import history from './icon/history.svg';
 import dashboard from './icon/dashboard.svg';
 import setting from './icon/setting.svg';
 import logout from './icon/logout.svg';
+import './Navbar.scss';
 export const Navbar = () => {
   return (
     <div className='navbar'>
