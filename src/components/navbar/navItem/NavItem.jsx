@@ -14,12 +14,16 @@ const NavItem = ({
       className={`navbarItem bold-18 ${currentPath === path ? 'seleted' : ''}`}
     >
       <NavLink to={path}>
-        <img
-          src={currentPath === path ? activeIcon : inactiveIcon}
-          alt={path}
-        />
-        <span className={currentPath === path ? 'whiten' : ''}>{title}</span>
-        <span className={currentPath === path ? 'whiten' : ''}>{enTitle}</span>
+        <div className='ItemBox'>
+          <img
+            src={currentPath === path ? activeIcon : inactiveIcon}
+            alt={path}
+          />
+          <span className={currentPath === path ? 'whiten' : ''}>{title}</span>
+          <span className={currentPath === path ? 'whiten' : ''}>
+            {enTitle}
+          </span>
+        </div>
       </NavLink>
     </div>
   );

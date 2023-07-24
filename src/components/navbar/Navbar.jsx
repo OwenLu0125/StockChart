@@ -90,9 +90,11 @@ export const Navbar = () => {
           })}
 
           <div className='navbarItem bold-18 logoutItem'>
-            <img src={logoutIcon} alt='logout' />
-            <span>登出</span>
-            <span>Logout</span>
+            <div className='ItemBox'>
+              <img src={logoutIcon} alt='logout' />
+              <span>登出</span>
+              <span>Logout</span>
+            </div>
           </div>
         </div>
       </div>
