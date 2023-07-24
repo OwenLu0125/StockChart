@@ -1,19 +1,91 @@
+// react
+import { useState, useEffect } from 'react';
 // component
 import DashBoard from '../../components/dashboard/DashBoard';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
+// api
+import { getTransactions } from '../../api/diary';
 // style
 import './DashboardPage.scss';
 
 const DashboardPage = () => {
+  const [transactions, setTransactions] = useState(''); 
+  const [winRate, setWinRate] = useState('');
+  const [totalWinPoints, setTotalWinPoints] = useState('');
+  const [totalLossPoints, setTotalLossPoints] = useState('');
+  const [pAndL, setPAndL] = useState('');
+  const [roundTrip, setRoundTrip] = useState('');
+  const [netPAndL, setNetPAndL] = useState('');
+  const [averageLossPoints, setAverageLossPoints] = useState('');
+  const [averageWinPoints, setAverageWinPoints] = useState('');
+  const [riskRatio, setRiskRatio] = useState('');
+
+  useEffect(() => {
+    const transactionData = async () => {
+      const res = await getTransactions({
+        startDate: '2023-07-01',
+        endDate: '2023-07-24',
+      });
+      console.log(res); // 觀察資料用
+      setTransactions(res);
+      setWinRate(res.data.result.winRate);
+      setTotalWinPoints(res.data.result.totalWinPoints);
+      setTotalLossPoints(res.data.result.totalLossPoints);
+      setPAndL(res.data.result.pAndL);
+      setRoundTrip(res.data.result.roundTrip);
+      setNetPAndL(res.data.result.netPAndL);
+      setAverageLossPoints(res.data.result.averageLossPoints);
+      setAverageWinPoints(res.data.result.averageWinPoints);
+      setRiskRatio(res.data.result.riskRatio);
+    };
+    transactionData();
+  }, []);
+
+  // 觀察資料用
+  useEffect(() => {
+    console.log(transactions);
+    console.log(averageLossPoints);
+    console.log(averageWinPoints);
+    console.log(winRate);
+    console.log(totalWinPoints);
+    console.log(totalLossPoints);
+    console.log(pAndL);
+    console.log(roundTrip);
+    console.log(netPAndL);
+    console.log(riskRatio);
+  }, [
+    transactions,
+    averageLossPoints,
+    averageWinPoints,
+    winRate,
+    totalWinPoints,
+    totalLossPoints,
+    pAndL,
+    roundTrip,
+    netPAndL,
+    riskRatio,
+  ]);
+
   return (
-    <div className='diaryContainer'>
+    <div className='DashboarContainer'>
       <div className='navbarSection'>
         <Navbar />
       </div>
       <div className='rightContainer'>
         <Header />
-        <DashBoard/>
+        <DashBoard
+          transactions={transactions}
+          winRate={winRate}
+          totalWinPoints={totalWinPoints}
+          totalLossPoints={totalLossPoints}
+          pAndL={pAndL}
+          roundTrip={roundTrip}
+          netPAndL={netPAndL}
+          averageLossPoints={averageLossPoints}
+          averageWinPoints={averageWinPoints}
+          riskRatio={riskRatio}
+        />
       </div>
     </div>
   );
