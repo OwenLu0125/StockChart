@@ -57,22 +57,12 @@ const DiaryPage = () => {
   useEffect(() => {
     const dateString = new Date().toLocaleDateString();
     setDate(dateString);
-    // const transactionData = async () => {
-    //   const res = await getTransactions({
-    //     startDate: dateString,
-    //     endDate: dateString,
-    //   });
-    //   console.log(res); // 觀察資料用
-
-
-    //   const newData = res.data.transactions.map((item, index) => ({
-    //     ...item,
-    //     listNumber: index + 1,
-    //   }));
-    //   setTodayTransactions(newData);
-    // };
-    // transactionData();
-
+    const transactionData = async () => {
+      const res = await getTransactions({
+        startDate: dateString,
+        endDate: dateString,
+      });
+      console.log(res); // 觀察資料用
 
       const newData = res.data.result.transactionsArray.map((item, index) => ({
         ...item,
@@ -81,8 +71,6 @@ const DiaryPage = () => {
       setTodayTransactions(newData);
     };
     transactionData();
-
-
   }, [switcher]);
 
   // 觀察資料用
