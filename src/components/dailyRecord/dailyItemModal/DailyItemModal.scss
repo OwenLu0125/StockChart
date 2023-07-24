@@ -1,0 +1,76 @@
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  animation: fadeIn 0.5s;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    background: rgba(49, 49, 49, 0.8);
+  }
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  line-height: 1.4;
+  background: #ffffff;
+  padding: 14px 28px;
+  border-radius: 4px;
+  max-width: 600px;
+  min-width: 300px;
+  transform: translate(-50%, 30%);
+  animation: Popout 0.5s;
+  @keyframes Popout {
+    0% {
+      transform: translate(-50%, 20%);
+    }
+    100% {
+      transform: translate(-50%, 30%);
+    }
+  }
+  h2 > img {
+    width: 20px !important;
+    height: 20px !important;
+    cursor: auto;
+  }
+  .textSection {
+    .modalInput {
+      resize: none;
+      width: 428px;
+      height: 201px;
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid rgba(224, 224, 224, 1);
+      border-radius: 4px;
+      &::placeholder {
+      }
+    }
+  }
+
+  .btnSection {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+    gap: 12px;
+    .secondary-button {
+      width: 100px;
+      height: 42px;
+    }
+    .primary-button {
+      width: 100px;
+      height: 42px;
+    }
+  }
+}
