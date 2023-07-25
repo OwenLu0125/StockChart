@@ -1,35 +1,27 @@
-// 相對單位
-.dashBoardContainer {
-  border: 0.21vw solid red; /* 約 3px */
-  padding: 0.14vw; /* 約 2px */
+// 1440 * 1024
+// 1vw: 14.4px
+// 1vh: 10.2px
 
+.dashBoardContainer {
+  margin: 2.5vh 2.6vw 0 2.6vw;
   .chartSection {
     display: flex;
-
+    margin-top: 16px;
     .leftChart {
-      .chart {
-        width: 22.08vw; /* 約 318px */
-        height: 19.53vw; /* 約 256px */
-        top: 1.56vw; /* 約 22.48vw * (1024 / 1440) */
-        left: 1.82vw; /* 約 26.25vw * (1024 / 1440) */
-        margin: 0.28vw; /* 約 4px */
-        border-radius: 0.28vw; /* 約 4px */
-        border: 0.07vw; /* 約 1px */
-        background: linear-gradient(0deg, #e0e0e0, #e0e0e0),
-          linear-gradient(0deg, #ffffff, #ffffff);
+      .pieChart {
+        width: 22vw; 
+        border-radius: 0.28vw;
+        border: 1px solid rgba(224, 224, 224, 1);
       }
     }
-
     .rightChart {
-      width: 47.92vw; /* 約 690px */
+      width: calc(100% - 22vw);
       height: 39.3vw; /* 約 528px */
       top: 1.56vw; /* 約 22.48vw * (1024 / 1440) */
       left: 1.82vw; /* 約 26.25vw * (1024 / 1440) */
-      margin: 0.28vw; /* 約 4px */
+      margin-left: 16px;
       border-radius: 0.28vw; /* 約 4px */
-      border: 0.07vw; /* 約 1px */
-      background: linear-gradient(0deg, #e0e0e0, #e0e0e0),
-        linear-gradient(0deg, #ffffff, #ffffff);
+      border: 1px solid rgba(224, 224, 224, 1);
     }
   }
 }
