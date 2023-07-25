@@ -10,7 +10,7 @@ import { getTransactions } from '../../api/diary';
 import './DashboardPage.scss';
 
 const DashboardPage = () => {
-  const [transactions, setTransactions] = useState(''); 
+  const [transactions, setTransactions] = useState('');
   const [winRate, setWinRate] = useState('');
   const [totalWinPoints, setTotalWinPoints] = useState('');
   const [totalLossPoints, setTotalLossPoints] = useState('');
@@ -23,9 +23,10 @@ const DashboardPage = () => {
 
   useEffect(() => {
     const transactionData = async () => {
+      const dateString = new Date().toLocaleDateString();
       const res = await getTransactions({
-        startDate: '2023-07-01',
-        endDate: '2023-07-24',
+        startDate: '2023-06-01',
+        endDate: dateString,
       });
       console.log(res); // 觀察資料用
       setTransactions(res);
