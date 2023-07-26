@@ -1,6 +1,10 @@
+// component
 import TopIncome from './topIncome/TopIncome.jsx';
 import PieChartSection from '../../components/dashboard/pieChartSection/PieChartSection.jsx';
+import LineChartSection from '../../components/dashboard/lineChartSection/LineChartSection.jsx';
+// styles
 import './DashBoard.scss';
+
 export const DashBoard = ({
   averageLossPoints,
   averageWinPoints,
@@ -37,7 +41,7 @@ export const DashBoard = ({
             </div>
           </div>
           <div className='rightChart'>
-            <p>這是右邊的圖表區域</p>
+            <LineChartSection />
           </div>
         </div>
       </div>

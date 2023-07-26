@@ -1,4 +1,4 @@
-import { PieChart, Pie, Sector, Cell } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 import { useState, useEffect, useRef } from 'react';
 import './PieChartSection.scss';
 const COLORS = ['#2BC0A9', '#E7483E'];
