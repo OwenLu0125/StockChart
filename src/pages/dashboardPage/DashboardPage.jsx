@@ -14,6 +14,8 @@ const DashboardPage = () => {
   const [winRate, setWinRate] = useState('');
   const [totalWinPoints, setTotalWinPoints] = useState('');
   const [totalLossPoints, setTotalLossPoints] = useState('');
+  const [winCount, setWinCount] = useState('');
+  const [lossCount, setLossCount] = useState('');
   const [pAndL, setPAndL] = useState('');
   const [roundTrip, setRoundTrip] = useState('');
   const [netPAndL, setNetPAndL] = useState('');
@@ -39,6 +41,8 @@ const DashboardPage = () => {
       setAverageLossPoints(res.data.result.averageLossPoints);
       setAverageWinPoints(res.data.result.averageWinPoints);
       setRiskRatio(res.data.result.riskRatio);
+      setWinCount(res.data.result.winCount);
+      setLossCount(res.data.result.lossCount);
     };
     transactionData();
   }, []);
@@ -80,6 +84,8 @@ const DashboardPage = () => {
           winRate={winRate}
           totalWinPoints={totalWinPoints}
           totalLossPoints={totalLossPoints}
+          winCount={winCount}
+          lossCount={lossCount}
           pAndL={pAndL}
           roundTrip={roundTrip}
           netPAndL={netPAndL}
