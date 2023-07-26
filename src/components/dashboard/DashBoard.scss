@@ -9,9 +9,21 @@
     margin-top: 16px;
     .leftChart {
       .pieChart {
-        width: 22vw; 
+        display: flex;
+        flex-direction: column;
+        width: 22vw;
         border-radius: 0.28vw;
         border: 1px solid rgba(224, 224, 224, 1);
+        .bold-16 {
+          text-align: center;
+          align-items: center;
+          margin: 1vh;
+        }
+        .line {
+          border: 1px solid rgba(224, 224, 224, 1);
+          width: 80%;
+          margin: auto;
+        }
       }
     }
     .rightChart {
