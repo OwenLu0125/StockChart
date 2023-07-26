@@ -2,15 +2,15 @@ import TopIncome from './topIncome/TopIncome.jsx';
 import PieChartSection from '../../components/dashboard/pieChartSection/PieChartSection.jsx';
 import './DashBoard.scss';
 export const DashBoard = ({
-  transactions,
   averageLossPoints,
   averageWinPoints,
   winRate,
   totalWinPoints,
   totalLossPoints,
+  winCount,
+  lossCount,
   pAndL, // 總損益
   roundTrip, // 總趟次
-  netPAndL,
   riskRatio, // 盈虧比
 }) => {
   return (
@@ -26,15 +26,15 @@ export const DashBoard = ({
         <div className='chartSection'>
           <div className='leftChart'>
             <div className='pieChart'>
-              <p>勝率：{winRate ?? 'test'}</p>
+              <div className='bold-16'>勝率：{winRate ?? 'winRate'}</div>
+              <div className='line'></div>
               <PieChartSection
                 totalWinPoints={totalWinPoints}
                 totalLossPoints={totalLossPoints}
               />
-              <p>盈餘次數：{totalWinPoints ?? 'test'}</p>
-              <p>盈虧次數：{totalLossPoints || 'test' }</p>
+              <div>獲利次數：{winCount || 'winCount'}</div>
+              <div>虧損次數：{lossCount || 'lossCount'}</div>
             </div>
-
           </div>
           <div className='rightChart'>
             <p>這是右邊的圖表區域</p>
