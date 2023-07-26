@@ -8,6 +8,7 @@ import AdminLoginPage from '../adminLoginPage/AdminLoginPage';
 import MainPage from '../mainPage/MainPage';
 import DiaryPage from '../diaryPage/DiaryPage';
 import HistoryPage from '../historyPage/HistoryPage';
+import SettingPage from '../settingPage/SettingPage';
 // style
 import './reset.scss';
 import './base.scss';
@@ -24,6 +25,7 @@ const Home = () => {
           <Route path='main' element={<MainPage />} />
           <Route path='diary' element={<DiaryPage />} />
           <Route path='history' element={<HistoryPage />} />
+          <Route path='setting' element={<SettingPage />} />
         </Routes>
         {/* </AuthProvider> */}
       </BrowserRouter>
