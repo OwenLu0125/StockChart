@@ -1,0 +1,16 @@
+.settingPage {
+  display: flex;
+
+  .settingBody {
+    height: 100vh;
+    flex: 1;
+
+    .settingMain {
+      display: flex;
+      flex-direction: column;
+      margin-top: 72px;
+      height: calc(100vh - 72px);
+      overflow-y: scroll;
+    }
+  }
+}
