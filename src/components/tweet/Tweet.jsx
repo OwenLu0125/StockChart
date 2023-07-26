@@ -1,10 +1,24 @@
+// icons
 import userImg from '../../assets/user.jpg';
+import buyIcon from '../../assets/buy.svg';
 import sellIcon from '../../assets/sell.svg';
 import heartHollow from '../../assets/heart-hollow.svg';
 import commentIcon from '../../assets/comment.svg';
 import './Tweet.scss';
 
-const Tweet = () => {
+const Tweet = ({
+  name,
+  account,
+  tweetTime,
+  content,
+  action,
+  date,
+  quantity,
+  price,
+  likes,
+  replies,
+}) => {
+  const dealTime = new Date(date);
   return (
     <div className='tweet'>
       <div className='tweetMain'>
@@ -12,19 +26,17 @@ const Tweet = () => {
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
-              <p className='bold-14'>Tylor Filan</p>
-              <p className='regular-14'>@tylor</p>
+              <p className='bold-14'>{`${
+                name.slice(0, 1).toUpperCase() + name.slice(1)
+              }`}</p>
+              <p className='regular-14'>@{account}</p>
             </span>
           </div>
-          <span className='regular-14'>2小時前</span>
+          <span className='regular-14'>{tweetTime}</span>
         </div>
 
         <div className='tweetMsg'>
-          <p className='regular-16'>
-            From the latest information from the Fed it is likely that there
-            will be further hikes in interest rates, even if we are close to the
-            peak. The period of disinflation is likely to occur in 2024.{' '}
-          </p>
+          <p className='regular-16'>{content}</p>
         </div>
 
         <div className='singleTrade'>
@@ -37,16 +49,27 @@ const Tweet = () => {
           <ul className='formCotent regular-14'>
             <li>
               <span>
-                <img src={sellIcon} alt='sell-Icon' />
+                <img
+                  src={action === 'buy' ? buyIcon : sellIcon}
+                  alt='sell-Icon'
+                />
               </span>
-              <p>賣</p>
+              {action === 'buy' ? (
+                <p className='buy'>買</p>
+              ) : (
+                <p className='sell'>賣</p>
+              )}
             </li>
             <li>
-              <p>2013/07/15</p>
-              <p>12:55:39</p>
+              <p>{`${dealTime.getFullYear()}/${
+                dealTime.getMonth() + 1
+              }/${dealTime.getDate()}`}</p>
+              <p>{`${dealTime.getHours()}:${dealTime.getMinutes()}:${dealTime.getSeconds()}`}</p>
             </li>
-            <li>x1</li>
-            <li>$17,083</li>
+            <li>x{quantity}</li>
+            <li className={action === 'buy' ? 'buyPrice' : 'sellPrice'}>
+              {price}
+            </li>
           </ul>
         </div>
       </div>
@@ -54,12 +77,12 @@ const Tweet = () => {
       <div className='tweetControl'>
         <span className='likes'>
           <img src={heartHollow} alt='heart-Icon' />
-          <p className='medium-14'>54</p>
+          <p className='medium-14'>{likes}</p>
         </span>
         <span className='verticalLine'></span>
         <span className='comments'>
           <img src={commentIcon} alt='comment-Icon' />
-          <p className='medium-14'>11</p>
+          <p className='medium-14'>{replies}</p>
         </span>
       </div>
     </div>

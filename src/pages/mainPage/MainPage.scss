@@ -6,7 +6,6 @@
     flex: 1;
 
     .homeMain {
-
       display: flex;
       flex-direction: column;
       margin-top: 72px;
@@ -20,10 +19,12 @@
         gap: 16px;
 
         .tweets {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
           flex: 1;
         }
       }
-
     }
   }
 }

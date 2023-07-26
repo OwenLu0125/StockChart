@@ -69,6 +69,14 @@
 
     .formCotent {
       padding: 13px 20px;
+      .buy,
+      .buyPrice {
+        color: var(--secondary-red);
+      }
+      .sell,
+      .sellPrice {
+        color: var(--secondary-green);
+      }
 
       li {
         display: flex;
