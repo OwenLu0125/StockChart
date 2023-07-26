@@ -8,14 +8,14 @@ export const PieChartSection = ({ totalWinPoints, totalLossPoints }) => {
   const chartRef = useRef(null); // 餅圖的 ref
 
   const data = [
-    { value: totalWinPoints },
-    { value: totalLossPoints || totalWinPoints / 2 },
+    { value: totalWinPoints || 100 },
+    { value: totalLossPoints || 100 },
   ];
 
   // 監聽視窗尺寸變化，以更新餅圖大小
   useEffect(() => {
     const handleResize = () => {
-      const containerWidth = chartRef.current?.clientWidth; // 取得容器寬度，預設 200
+      const containerWidth = chartRef.current?.clientWidth;
       setChartSize(containerWidth * 0.7);
     };
 
