@@ -8,7 +8,6 @@ const RankingList = () => {
       <div className='title bold-16'>交易排行列表</div>
       <div className='rankingMain'>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
@@ -20,7 +19,6 @@ const RankingList = () => {
           <p className='winning medium-12'>勝率</p>
         </div>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
@@ -32,7 +30,6 @@ const RankingList = () => {
           <p className='winning medium-12'>勝率</p>
         </div>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
@@ -44,7 +41,6 @@ const RankingList = () => {
           <p className='winning medium-12'>勝率</p>
         </div>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
@@ -56,7 +52,6 @@ const RankingList = () => {
           <p className='winning medium-12'>勝率</p>
         </div>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
@@ -68,19 +63,6 @@ const RankingList = () => {
           <p className='winning medium-12'>勝率</p>
         </div>
         <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
-          <div className='userWidget'>
-            <img className='userImg' src={userImg} alt='user-img' />
-            <span className='userInfo'>
-              <p className='bold-14'>Tylor Filan</p>
-              <p className='regular-14'>@tylor</p>
-            </span>
-          </div>
-          <span className='rate bold-18'>14%</span>
-          <p className='winning medium-12'>勝率</p>
-        </div>
-        <div className='userItem'>
-          <img className='star' src={starIcon} alt='star-icon' />
           <div className='userWidget'>
             <img className='userImg' src={userImg} alt='user-img' />
             <span className='userInfo'>
