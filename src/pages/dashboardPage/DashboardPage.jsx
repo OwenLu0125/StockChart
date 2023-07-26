@@ -50,27 +50,7 @@ const DashboardPage = () => {
   // 觀察資料用
   useEffect(() => {
     console.log(transactions);
-    console.log(averageLossPoints);
-    console.log(averageWinPoints);
-    console.log(winRate);
-    console.log(totalWinPoints);
-    console.log(totalLossPoints);
-    console.log(pAndL);
-    console.log(roundTrip);
-    console.log(netPAndL);
-    console.log(riskRatio);
-  }, [
-    transactions,
-    averageLossPoints,
-    averageWinPoints,
-    winRate,
-    totalWinPoints,
-    totalLossPoints,
-    pAndL,
-    roundTrip,
-    netPAndL,
-    riskRatio,
-  ]);
+  }, [transactions]);
 
   return (
     <div className='DashboarContainer'>
