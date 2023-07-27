@@ -1,0 +1,144 @@
+.tweet {
+  width: 100%;
+  border: 1px solid var(--border-gray);
+  border-radius: 4px;
+  background-color: white;
+
+  .tweetMain {
+    .tweetTop {
+      display: flex;
+      align-items: center;
+      padding: 24px 24px 0 24px;
+
+      .userWidget {
+        .userImg {
+          margin-right: 12px;
+        }
+
+        .userInfo {
+          p:first-child {
+            color: var(--primary-blue);
+          }
+        }
+      }
+
+      span:last-child {
+        color: var(--secondary-gray);
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+
+    .tweetMsg {
+      margin-left: 80px;
+      margin-right: 24px;
+      padding: 18px 0;
+    }
+  }
+
+  /********* from *********/
+  .singleTrade {
+    background-color: var(--background-gray);
+    padding: 0 24px 0 80px;
+
+    ul {
+      display: flex;
+
+      li:nth-child(1) {
+        width: 20%;
+      }
+
+      li:nth-child(2) {
+        width: 35%;
+      }
+
+      li:nth-child(3) {
+        width: 25%;
+      }
+
+      li:nth-child(4) {
+        width: 20%;
+      }
+    }
+
+    .formTitles {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-gray);
+      color: var(--secondary-gray);
+    }
+
+    .formCotent {
+      padding: 13px 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+      }
+
+      li:first-child {
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 26px;
+          height: 26px;
+          background-color: white;
+          border-radius: 4px;
+          margin-right: 8px;
+          img {
+            width: 14px;
+            height: 14px;
+            cursor: auto;
+          }
+        }
+      }
+
+      li:nth-child(2) {
+        p:last-child {
+          color: var(--secondary-gray);
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+
+  /********* liking and comment *********/
+  .tweetControl {
+    display: flex;
+    align-items: center;
+    height: 52px;
+
+    span {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 8px;
+      }
+    }
+
+    .likes {
+      margin: 0 auto;
+      p::after {
+        content: '喜歡';
+        color: var(--secondary-gray);
+        padding-left: 4px;
+      }
+    }
+
+    .comments {
+      margin: 0 auto;
+      p::after {
+        content: '留言';
+        color: var(--secondary-gray);
+        padding-left: 4px;
+      }
+    }
+
+    .verticalLine {
+      width: 1px;
+      height: 22px;
+      background-color: var(--border-gray);
+    }
+  }
+}

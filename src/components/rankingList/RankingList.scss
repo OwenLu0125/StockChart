@@ -1,0 +1,48 @@
+.rankingList {
+  width: 312px;
+  padding: 0 20px;
+
+  padding-bottom: 20px;
+  border: 1px solid var(--border-gray);
+  border-radius: 4px;
+  background-color: white;
+  .title {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-gray);
+    color: var(--primary-purple);
+
+  }
+  .rankingMain {
+    .userItem {
+      display: flex;
+      align-items: center;
+
+      padding-top: 20px;
+
+      .star {
+        width: 16px;
+        height: 16px;
+        margin-right: 14px;
+      }
+
+      .userWidget {
+        .userInfo {
+          p:first-child {
+            color: var(--primary-blue);
+          }
+        }
+      }
+
+      .rate {
+        margin-left: auto;
+        margin-right: 0;
+        padding-right: 8px;
+        color: var(--secondary-green);
+      }
+
+      .winning {
+        color: var(--secondary-green);
+      }
+    }
+  }
+}

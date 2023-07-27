@@ -1,0 +1,29 @@
+.homePage {
+  display: flex;
+
+  .homeBody {
+    height: 100vh;
+    flex: 1;
+
+    .homeMain {
+
+      display: flex;
+      flex-direction: column;
+      margin-top: 72px;
+      height: calc(100vh - 72px);
+      overflow-y: scroll;
+      padding: 26px 38px 0 38px;
+      background-color: var(--background-gray);
+
+      .tweetsAndRanking {
+        display: flex;
+        gap: 16px;
+
+        .tweets {
+          flex: 1;
+        }
+      }
+
+    }
+  }
+}

@@ -1,42 +1,50 @@
-.historyBody {
-  .historyMain {
-    margin-top: 72px;
-    padding: 26px 38px 38px 38px;
-    background-color: var(--background-gray);
+.historyPage {
+  display: flex;
+  .historyBody {
+    flex: 1;
+    height: 100vh;
 
-    .dateFilter {
-      display: flex;
-      gap: 12px;
-      padding-bottom: 16px;
+    .historyMain {
+      margin-top: 72px;
+      padding: 26px 38px 38px 38px;
+      background-color: var(--background-gray);
+      height: calc(100vh - 72px);
+      overflow-y: scroll;
 
-      .btn {
-        width: 100px;
-        height: 42px;
-      }
-
-      .datePicker {
+      .dateFilter {
         display: flex;
-        align-items: center;
-        width: 192px;
-        height: 42px;
-        border: 1px solid var(--border-gray);
-        border-radius: 4px;
-        background-color: white;
+        gap: 12px;
+        padding-bottom: 16px;
 
-        img:first-child {
-          padding-left: 14px;
+        .btn {
+          width: 100px;
+          height: 42px;
         }
 
-        .react-datepicker-wrapper {
-          padding-left: 10px;
-          .react-datepicker__input-container {
-            display: flex;
-            align-items: center;
-            input {
-              padding: 0;
-              font-size: 14px;
-              font-weight: 500;
-              width: 120px;
+        .datePicker {
+          display: flex;
+          align-items: center;
+          width: 192px;
+          height: 42px;
+          border: 1px solid var(--border-gray);
+          border-radius: 4px;
+          background-color: white;
+
+          img:first-child {
+            padding-left: 14px;
+          }
+
+          .react-datepicker-wrapper {
+            padding-left: 10px;
+            .react-datepicker__input-container {
+              display: flex;
+              align-items: center;
+              input {
+                padding: 0;
+                font-size: 14px;
+                font-weight: 500;
+                width: 120px;
+              }
             }
           }
         }

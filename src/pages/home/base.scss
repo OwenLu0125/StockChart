@@ -90,3 +90,29 @@ body {
   border: 1.5px solid var(--primary-purple);
   border-radius: 4px;
 }
+
+/* 使用者頭像和名稱 */
+.userWidget {
+  display: flex;
+  align-items: center;
+
+  .userImg {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .userInfo {
+    margin-left: 12px;
+    p:first-child {
+      color: var(--primary-purple);
+    }
+
+    p:last-child {
+      color: var(--secondary-gray);
+    }
+  }
+}

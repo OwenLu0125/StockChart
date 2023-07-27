@@ -1,14 +1,15 @@
 .header {
   display: flex;
   align-items: center;
-  padding-right: 38px;
-  margin-right: 38px;
+  padding: 0 38px;
+  width: auto;
   height: 72px;
-  width: calc(100vw - 370px);
   border-bottom: 1px solid var(--border-gray);
   position: fixed;
   top: 0;
   background-color: white;
+  left: 340px;
+  right: 0;
 
   .date {
     span:last-child {

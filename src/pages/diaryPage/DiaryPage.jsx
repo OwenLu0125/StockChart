@@ -1,4 +1,3 @@
-
 // react
 import { useState, useEffect } from 'react';
 // package
@@ -80,7 +79,6 @@ const DiaryPage = () => {
   }, [todayTransactions]);
 
   return (
-
     <div className='diaryContainer'>
       <div className='navbarSection'>
         <Navbar />
