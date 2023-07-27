@@ -27,12 +27,15 @@
       }
     }
     .rightChart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: calc(100% - 22vw);
-      height: 39.3vw; /* 約 528px */
-      top: 1.56vw; /* 約 22.48vw * (1024 / 1440) */
-      left: 1.82vw; /* 約 26.25vw * (1024 / 1440) */
+      height: 39.3vw; 
+      top: 1.56vw;
+      left: 1.82vw;
       margin-left: 16px;
-      border-radius: 0.28vw; /* 約 4px */
+      border-radius: 0.28vw;
       border: 1px solid rgba(224, 224, 224, 1);
     }
   }

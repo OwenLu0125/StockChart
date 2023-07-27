@@ -10,7 +10,8 @@ import { getTransactions } from '../../api/diary';
 import './DashboardPage.scss';
 
 const DashboardPage = () => {
-  const [transactions, setTransactions] = useState('');
+  const [data, setData] = useState();
+  const [transactions, setTransactions] = useState([]);
   const [winRate, setWinRate] = useState('');
   const [totalWinPoints, setTotalWinPoints] = useState('');
   const [totalLossPoints, setTotalLossPoints] = useState('');
@@ -27,11 +28,12 @@ const DashboardPage = () => {
     const transactionData = async () => {
       const dateString = new Date().toLocaleDateString();
       const res = await getTransactions({
-        startDate: '2023-06-01',
-        endDate: dateString,
+        startDate: '2023-07-10',
+        endDate: '2023-08-27',
       });
       console.log(res); // 觀察資料用
-      setTransactions(res);
+      setData(res);
+      setTransactions(res.data.result.transactionsArray);
       setWinRate(res.data.result.winRate);
       setTotalWinPoints(res.data.result.totalWinPoints);
       setTotalLossPoints(res.data.result.totalLossPoints);
@@ -49,8 +51,8 @@ const DashboardPage = () => {
 
   // 觀察資料用
   useEffect(() => {
-    console.log(transactions);
-  }, [transactions]);
+    console.log(data);
+  }, [data]);
 
   return (
     <div className='DashboarContainer'>

@@ -6,6 +6,7 @@ import LineChartSection from '../../components/dashboard/lineChartSection/LineCh
 import './DashBoard.scss';
 
 export const DashBoard = ({
+  transactions,
   averageLossPoints,
   averageWinPoints,
   winRate,
@@ -41,7 +42,7 @@ export const DashBoard = ({
             </div>
           </div>
           <div className='rightChart'>
-            <LineChartSection />
+            <LineChartSection transactions={transactions} />
           </div>
         </div>
       </div>
