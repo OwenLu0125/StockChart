@@ -1,9 +1,12 @@
 // react
 import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 // component
 import DashBoard from '../../components/dashboard/DashBoard';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
+// context
+import { useAuth } from '../../contexts/AuthContext';
 // api
 import { getTransactions } from '../../api/diary';
 // style
@@ -23,6 +26,10 @@ const DashboardPage = () => {
   const [averageLossPoints, setAverageLossPoints] = useState('');
   const [averageWinPoints, setAverageWinPoints] = useState('');
   const [riskRatio, setRiskRatio] = useState('');
+
+  const navigate = useNavigate();
+
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const transactionData = async () => {
@@ -48,11 +55,17 @@ const DashboardPage = () => {
     };
     transactionData();
   }, []);
-
+  
   // 觀察資料用
   useEffect(() => {
     console.log(data);
   }, [data]);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <div className='DashboarContainer'>

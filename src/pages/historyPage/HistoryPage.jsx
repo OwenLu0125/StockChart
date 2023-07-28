@@ -1,15 +1,26 @@
+// react
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+// component
 import HistoryForm from '../../components/historyForm/HistoryForm';
 import Header from '../../components/header/Header';
 import DatePicker from 'react-datepicker';
 import Navbar from '../../components/navbar/Navbar';
+// context
+import { useAuth } from '../../contexts/AuthContext';
+// icon
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
 import { getTransactions } from '../../api/diary';
+// styles
 import 'react-datepicker/dist/react-datepicker.css';
 import './HistoryPage.scss';
 
 const HistoryPage = () => {
+  const navigate = useNavigate();
+
+  const { isAuthenticated } = useAuth();
+
   // Get the first and last days of the month
   const date = new Date();
 
@@ -166,6 +177,12 @@ const HistoryPage = () => {
     getTradesAsync();
   }, []);
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
+  
   return (
     <>
       <div className='historyPage'>
@@ -200,20 +217,17 @@ const HistoryPage = () => {
               </div>
               <button
                 className='btn primary-button bold-16'
-                onClick={handleSearchHistory}
-              >
+                onClick={handleSearchHistory}>
                 查詢
               </button>
               <button
                 className='btn secondary-button bold-16'
-                onClick={handlePrevMonth}
-              >
+                onClick={handlePrevMonth}>
                 上個月
               </button>
               <button
                 className='btn secondary-button bold-16'
-                onClick={handleNextMonth}
-              >
+                onClick={handleNextMonth}>
                 下個月
               </button>
             </div>

@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
 import PurpleButton from '../../components/button/purpleButton/PurpleButton';
 import WhiteButton from '../../components/button/whiteButton/WhiteButton';
 import Input from '../../components/input/Input';
-// api
-import { login, checkPermission } from '../../api/auth';
+// context
+import { useAuth } from '../../contexts/AuthContext';
 // icon
 import logo from '../../assets/logo.svg';
 // styles
@@ -19,41 +19,39 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const { login, isAuthenticated } = useAuth();
+
   const handleLogin = async () => {
     try {
-      const { success, token } = await login({
+      const success = await login({
         account,
         password,
       });
       if (success) {
-        localStorage.setItem('authToken', token);
         Swal.fire({
           position: 'top',
           title: '登入成功!',
           icon: 'success',
           showConfirmButton: true,
         });
-        navigate('/main');
+        return;
       }
+      Swal.fire({
+        position: 'top',
+        title: '登入失敗!',
+        icon: 'error',
+        showConfirmButton: true,
+      });
     } catch (error) {
       console.error('[Login Failed]:', error);
     }
   };
 
   useEffect(() => {
-    const checkTokenIsValid = async () => {
-      const authToken = localStorage.getItem('authToken');
-      if (!authToken) {
-        return;
-      }
-      const result = await checkPermission(authToken);
-      if (result) {
-        navigate('/main');
-      }
-    };
-
-    checkTokenIsValid();
-  }, [navigate]);
+    if (isAuthenticated) {
+      navigate('/main');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <div className='container'>

@@ -1,3 +1,4 @@
+// react
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // components
@@ -5,15 +6,21 @@ import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
 import RankingList from '../../components/rankingList/RankingList';
 import Tweet from '../../components/tweet/Tweet';
+// contexts
+import { useAuth } from '../../contexts/AuthContext';
+// utilities
+import { formatTime } from '../../timeSwitcher/timeSwitcher';
 // api
 import { getTweets, getRanking } from '../../api/main';
 // css
 import './MainPage.scss';
-import { formatTime } from '../../timeSwitcher/timeSwitcher';
 
 export const MainPage = () => {
   const [tweets, setTweets] = useState([]);
+
   const navigate = useNavigate();
+
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const getTweetsAsync = async () => {
@@ -29,11 +36,11 @@ export const MainPage = () => {
     getTweetsAsync();
   }, []);
 
-  // useEffect(() => {
-  //   if (!isAuthenticated) {
-  //     navigate('/login');
-  //   }
-  // }, [navigate, isAuthenticated]);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <>

@@ -1,19 +1,19 @@
 // react
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // package
 import Swal from 'sweetalert2';
 // component
-
 import PrimaryInput from '../../components/primaryInput/PrimaryInput';
 import Header from '../../components/header/Header';
 import DailySummary from '../../components/dailySummary/DailySummary';
 import DailyRecord from '../../components/dailyRecord/DailyRecord';
-
 import Navbar from '../../components/navbar/Navbar';
+// context
+import { useAuth } from '../../contexts/AuthContext';
 // api
 import { createDiary, getTransactions } from '../../api/diary';
 // icon
-
 import arrowIcon from '../../assets/arrow-purple.svg';
 import './DiaryPage.scss';
 
@@ -26,6 +26,10 @@ const DiaryPage = () => {
   const [description, setDescription] = useState('');
   const [todayTransactions, setTodayTransactions] = useState('');
   const [switcher, setSwitcher] = useState(false); // 用於判斷是否有資料送出
+
+  const navigate = useNavigate();
+
+  const { isAuthenticated } = useAuth();
 
   const handleSubmit = async () => {
     const res = await createDiary({
@@ -77,6 +81,12 @@ const DiaryPage = () => {
   useEffect(() => {
     console.log(todayTransactions);
   }, [todayTransactions]);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <div className='diaryContainer'>

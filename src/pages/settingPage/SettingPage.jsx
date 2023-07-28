@@ -1,8 +1,12 @@
-import { useState } from 'react';
+// react
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // components
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
 import PrimaryInput from '../../components/primaryInput/PrimaryInput';
+// context
+import { useAuth } from '../../contexts/AuthContext';
 // css
 import './SettingPage.scss';
 
@@ -12,6 +16,15 @@ const SettingPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
+  const navigate = useNavigate();
+
+  const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <div className='settingPage'>
