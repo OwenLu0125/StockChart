@@ -1,0 +1,44 @@
+.replyPage {
+  display: flex;
+
+  .signleBody {
+    display: flex;
+    flex: 1;
+    padding-right: 38px;
+    gap: 16px;
+    background-color: var(--background-gray);
+    height: 100vh;
+    overflow: auto;
+    .replyMain {
+      flex: 1;
+      border-right: 1px solid var(--border-gray);
+      background-color: #fbfafa;
+      height: 800px;
+
+      .singleHeader {
+        height: 72px;
+        background-color: white;
+        border-bottom: 1px solid var(--border-gray);
+        padding: 24px;
+        display: flex;
+        align-items: center;
+
+        span {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          cursor: pointer;
+          img {
+            width: 9px;
+            height: 15px;
+            margin-top: 2.5px;
+          }
+        }
+      }
+    }
+
+    .ranking {
+      margin-top: 16px;
+    }
+  }
+}
