@@ -8,10 +8,14 @@ import AdminLoginPage from '../adminLoginPage/AdminLoginPage';
 import MainPage from '../mainPage/MainPage';
 import DiaryPage from '../diaryPage/DiaryPage';
 import HistoryPage from '../historyPage/HistoryPage';
+import DashboardPage from '../dashboardPage/DashboardPage';
 import SettingPage from '../settingPage/SettingPage';
 import ReplyPage from '../replyPage/ReplyPage';
 // context
 import { IdProvider } from '../../contexts/IdContext';
+
+
+
 // style
 import './reset.scss';
 import './base.scss';
@@ -21,6 +25,7 @@ const Home = () => {
     <div>
       <BrowserRouter>
         {/* <AuthProvider> */}
+
         <IdProvider>
           <Routes>
             <Route path='*' element={<LoginPage />} />
@@ -29,10 +34,14 @@ const Home = () => {
             <Route path='main' element={<MainPage />} />
             <Route path='diary' element={<DiaryPage />} />
             <Route path='history' element={<HistoryPage />} />
+            <Route path='dashboard' element={<DashboardPage />} />
             <Route path='reply' element={<ReplyPage />} />
             <Route path='setting' element={<SettingPage />} />
           </Routes>
         </IdProvider>
+
+        
+
         {/* </AuthProvider> */}
       </BrowserRouter>
     </div>

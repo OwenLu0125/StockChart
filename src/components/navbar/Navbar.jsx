@@ -1,6 +1,9 @@
+// react
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+// component
 import NavItem from './navItem/NavItem';
+// icon
 import logo from '../../assets/logo.svg';
 import homeGray from './icon/home.svg';
 import homeWhite from './icon/home-white.svg';
@@ -13,6 +16,7 @@ import dashboardWhite from './icon/dashboard-white.svg';
 import settingGray from './icon/setting.svg';
 import settingWhite from './icon/setting-white.svg';
 import logoutIcon from './icon/logout.svg';
+// style
 import './Navbar.scss';
 
 const navItems = [
