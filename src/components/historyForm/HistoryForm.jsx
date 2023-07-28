@@ -13,7 +13,7 @@ const title = [
   '早盤總單數',
   '夜盤勝率',
   '夜版總單數',
-  '備註',
+  '詳細',
 ];
 
 const HistoryForm = () => {
@@ -21,9 +21,14 @@ const HistoryForm = () => {
     <div className='historyForm'>
       <div className='titleBody'>
         <ul className='bold-14'>
-          {title.map((i) => {
-            return <li>{i}</li>;
-          })}
+          <li>日期</li>
+          <li>淨損益</li>
+          <li>勝率％</li>
+          <li>盈虧比</li>
+          <li>總單數</li>
+          <li>+單數</li>
+          <li>-單數</li>
+          <li>詳請</li>
         </ul>
       </div>
       <div className='mainBody regular-14'>
@@ -35,58 +40,6 @@ const HistoryForm = () => {
           <li>1</li>
           <li>1</li>
           <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>
-            <img src={msgIcon} alt='message-icon' />
-          </li>
-        </ul>
-        <ul>
-          <li>2023/07/24</li>
-          <li>+20</li>
-          <li>100%</li>
-          <li>16.00 : 0</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>
-            <img src={msgIcon} alt='message-icon' />
-          </li>
-        </ul>
-        <ul>
-          <li>2023/07/24</li>
-          <li>+20</li>
-          <li>100%</li>
-          <li>16.00 : 0</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>
-            <img src={msgIcon} alt='message-icon' />
-          </li>
-        </ul>
-        <ul>
-          <li>2023/07/24</li>
-          <li>+20</li>
-          <li>100%</li>
-          <li>16.00 : 0</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
           <li>
             <img src={msgIcon} alt='message-icon' />
           </li>
@@ -101,10 +54,6 @@ const HistoryForm = () => {
           <li>1</li>
           <li>1</li>
           <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
           <li></li>
         </ul>
         <ul>
@@ -115,10 +64,6 @@ const HistoryForm = () => {
           <li>1</li>
           <li>1</li>
           <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
           <li></li>
         </ul>
         <ul>
@@ -129,10 +74,6 @@ const HistoryForm = () => {
           <li>1</li>
           <li>1</li>
           <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
           <li></li>
         </ul>
         <ul>
@@ -143,10 +84,6 @@ const HistoryForm = () => {
           <li>1</li>
           <li>1</li>
           <li>1</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
-          <li>0%</li>
           <li></li>
         </ul>
       </div>

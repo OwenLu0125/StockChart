@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import Navbar from '../../components/navbar/Navbar';
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
-import { postDates } from '../../api/trans';
+import { getTransactions } from '../../api/diary';
 import 'react-datepicker/dist/react-datepicker.css';
 import './HistoryPage.scss';
 
@@ -38,6 +38,7 @@ const HistoryPage = () => {
   // useState
   const [startDate, setStartDate] = useState(firstDay);
   const [endDate, setEndDate] = useState(new Date());
+  const [history, setHistory] = useState([]);
 
   const defaultStartdate = `${startDate.getFullYear()}-${
     String(startDate.getMonth() + 1).length === 2 ? '' : '0'
@@ -64,10 +65,12 @@ const HistoryPage = () => {
         String(endDate.getDate()).length === 2 ? '' : '0'
       }${endDate.getDate()}`;
 
-      // await postDates({
-      //   startDate: formatStartDate,
-      //   endDate: formatEndDate,
-      // });
+      const history = await getTransactions({
+        startDate: formatStartDate,
+        endDate: formatEndDate,
+      });
+
+      console.log(history.data.result);
     } catch (error) {
       console.error(error);
     }
@@ -99,10 +102,12 @@ const HistoryPage = () => {
         String(lastDayOfNextMonth.getDate()).length === 2 ? '' : '0'
       }${lastDayOfNextMonth.getDate()}`;
 
-      // await postDates({
-      //   startDate: formatStartDate,
-      //   endDate: formatEndDate,
-      // });
+      const history = await getTransactions({
+        startDate: formatStartDate,
+        endDate: formatEndDate,
+      });
+
+      console.log(history.data.result);
     } catch (error) {
       console.error(error);
     }
@@ -120,8 +125,6 @@ const HistoryPage = () => {
         startDate.getMonth()
       );
 
-      console.log(fisrtDayOfPrevMonth, lastDayOfPrevMonth);
-
       setStartDate(fisrtDayOfPrevMonth);
       setEndDate(lastDayOfPrevMonth);
 
@@ -136,29 +139,31 @@ const HistoryPage = () => {
         String(lastDayOfPrevMonth.getDate()).length === 2 ? '' : '0'
       }${lastDayOfPrevMonth.getDate()}`;
 
-      console.log(formatStartDate, formatEndDate);
+      const history = await getTransactions({
+        startDate: formatStartDate,
+        endDate: formatEndDate,
+      });
 
-      // await postDates({
-      //   startDate: formatStartDate,
-      //   endDate: formatEndDate,
-      // });
+      console.log(history.data.result);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    const postDatesAsync = async () => {
+    const getTradesAsync = async () => {
       try {
-        // const history = await postDates({
-        //   startDate: defaultStartdate,
-        //   endDate: defaultEnddate,
-        // });
+        const history = await getTransactions({
+          startDate: defaultStartdate,
+          endDate: defaultEnddate,
+        });
+
+        console.log(history.data);
       } catch (error) {
         console.error(error);
       }
     };
-    postDatesAsync();
+    getTradesAsync();
   }, []);
 
   return (
