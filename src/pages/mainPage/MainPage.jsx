@@ -6,7 +6,7 @@ import Header from '../../components/header/Header';
 import RankingList from '../../components/rankingList/RankingList';
 import Tweet from '../../components/tweet/Tweet';
 // api
-import { getTweets } from '../../api/tweet';
+import { getTweets, getRanking } from '../../api/main';
 // css
 import './MainPage.scss';
 import { formatTime } from '../../timeSwitcher/timeSwitcher';
@@ -20,10 +20,12 @@ export const MainPage = () => {
       try {
         const tweets = await getTweets();
         setTweets(tweets);
+        console.log(tweets);
       } catch (error) {
         console.log(error);
       }
     };
+
     getTweetsAsync();
   }, []);
 
@@ -42,21 +44,26 @@ export const MainPage = () => {
           <div className='homeMain'>
             <div className='tweetsAndRanking'>
               <div className='tweets'>
-                {tweets.map((tweet) => {
+                {tweets.map((tweet, i) => {
                   return (
-                    <Tweet
-                      key={tweet.id}
-                      name={tweet.transaction_user_name}
-                      account={tweet.transaction_user_account}
-                      tweetTime={formatTime(tweet.updated_on)}
-                      content={tweet.description}
-                      action={tweet.action}
-                      date={tweet.transaction_date}
-                      quantity={tweet.quantity}
-                      price={tweet.price}
-                      likes={tweet.like_count}
-                      replies={tweet.replies_count}
-                    />
+                    i <= 10 && (
+                      <Tweet
+                        key={tweet.id}
+                        tweetId={tweet.id}
+                        name={tweet.transaction_user_name}
+                        account={tweet.transaction_user_account}
+                        tweetTime={formatTime(tweet.updated_on)}
+                        content={tweet.description}
+                        action={tweet.action}
+                        date={tweet.transaction_date}
+                        quantity={tweet.quantity}
+                        price={tweet.price}
+                        likes={tweet.like_count}
+                        isLiked={tweet.is_liked}
+                        replies={tweet.replies_count}
+                        reSetTweets={setTweets}
+                      />
+                    )
                   );
                 })}
               </div>
