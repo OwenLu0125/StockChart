@@ -1,12 +1,21 @@
+// hooks
+import { useNavigate } from 'react-router-dom';
+//context
+import { useId } from '../../contexts/IdContext';
+//api
+import { likeTweet, unlikeTweet } from '../../api/tweet';
 // icons
 import userImg from '../../assets/user.jpg';
 import buyIcon from '../../assets/buy.svg';
 import sellIcon from '../../assets/sell.svg';
 import heartHollow from '../../assets/heart-hollow.svg';
+import heartFilled from '../../assets/heart-filled.svg';
 import commentIcon from '../../assets/comment.svg';
+// style
 import './Tweet.scss';
 
 const Tweet = ({
+  tweetId,
   name,
   account,
   tweetTime,
@@ -16,11 +25,60 @@ const Tweet = ({
   quantity,
   price,
   likes,
+  isLiked,
   replies,
+  reSetTweets,
 }) => {
+  const { checkItemId } = useId();
+  const navigate = useNavigate();
   const dealTime = new Date(date);
+
+  const handleLike = async () => {
+    try {
+      if (isLiked) {
+        await unlikeTweet(tweetId);
+        reSetTweets?.((prev) => {
+          return prev.map((tweet) => {
+            if (tweet.id === tweetId) {
+              return {
+                ...tweet,
+                like_count: tweet.like_count - 1,
+                is_liked: false,
+              };
+            }
+            return { ...tweet };
+          });
+        });
+      } else {
+        await likeTweet(tweetId);
+        reSetTweets?.((prev) => {
+          return prev.map((tweet) => {
+            if (tweet.id === tweetId) {
+              return {
+                ...tweet,
+                like_count: tweet.like_count + 1,
+                is_liked: true,
+              };
+            }
+            return { ...tweet };
+          });
+        });
+      }
+    } catch (error) {
+      console.error('liking failed:', error);
+    }
+  };
+
   return (
-    <div className='tweet'>
+    <div
+      className='tweet'
+      onClick={(e) => {
+        if (e.target.className !== 'like' && e.target.className !== 'comment') {
+          checkItemId(tweetId);
+          navigate('/reply');
+        }
+      }}
+    >
       <div className='tweetMain'>
         <div className='tweetTop'>
           <div className='userWidget'>
@@ -64,7 +122,13 @@ const Tweet = ({
               <p>{`${dealTime.getFullYear()}/${
                 dealTime.getMonth() + 1
               }/${dealTime.getDate()}`}</p>
-              <p>{`${dealTime.getHours()}:${dealTime.getMinutes()}:${dealTime.getSeconds()}`}</p>
+              <p>{`${
+                String(dealTime.getHours()).length !== 2 ? '0' : ''
+              }${dealTime.getHours()}:${
+                String(dealTime.getMinutes()).length !== 2 ? '0' : ''
+              }${dealTime.getMinutes()}:${
+                String(dealTime.getSeconds()).length !== 2 ? '0' : ''
+              }${dealTime.getSeconds()}`}</p>
             </li>
             <li>x{quantity}</li>
             <li className={action === 'buy' ? 'buyPrice' : 'sellPrice'}>
@@ -76,12 +140,17 @@ const Tweet = ({
 
       <div className='tweetControl'>
         <span className='likes'>
-          <img src={heartHollow} alt='heart-Icon' />
+          <img
+            className='like'
+            src={isLiked ? heartFilled : heartHollow}
+            alt='heart-Icon'
+            onClick={handleLike}
+          />
           <p className='medium-14'>{likes}</p>
         </span>
         <span className='verticalLine'></span>
         <span className='comments'>
-          <img src={commentIcon} alt='comment-Icon' />
+          <img className='comment' src={commentIcon} alt='comment-Icon' />
           <p className='medium-14'>{replies}</p>
         </span>
       </div>

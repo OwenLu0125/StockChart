@@ -3,6 +3,7 @@
   border: 1px solid var(--border-gray);
   border-radius: 4px;
   background-color: white;
+  cursor: pointer;
 
   .tweetMain {
     .tweetTop {
@@ -114,7 +115,7 @@
   .tweetControl {
     display: flex;
     align-items: center;
-    height: 52px;
+    height: 46px;
 
     span {
       display: flex;
@@ -132,6 +133,13 @@
         color: var(--secondary-gray);
         padding-left: 4px;
       }
+
+      img {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(30%) sepia(17%)
+            saturate(3422%) hue-rotate(223deg) brightness(90%) contrast(96%);
+        }
+      }
     }
 
     .comments {
@@ -140,6 +148,13 @@
         content: '留言';
         color: var(--secondary-gray);
         padding-left: 4px;
+      }
+
+      img {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(30%) sepia(17%)
+            saturate(3422%) hue-rotate(223deg) brightness(90%) contrast(96%);
+        }
       }
     }
 
