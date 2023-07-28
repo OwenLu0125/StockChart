@@ -1,0 +1,57 @@
+.singleReply {
+  border-bottom: 1px solid var(--border-gray);
+  .tweetTop {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px 0 24px;
+
+    .userWidget {
+      .userImg {
+        margin-right: 12px;
+      }
+
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        p:first-child {
+          color: var(--primary-blue);
+        }
+
+        .verticalLine {
+          width: 1px;
+          height: 15px;
+          background: #dad8d8;
+        }
+      }
+    }
+
+    span:last-child {
+      color: var(--secondary-gray);
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
+  .replyTag {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 6px;
+    p {
+      color: var(--primary-purple);
+      &::before {
+        content: '回覆';
+        color: var(--secondary-gray);
+        margin-left: 8px;
+        margin-right: 2px;
+      }
+    }
+  }
+
+  .tweetMsg {
+    margin-left: 80px;
+    margin-right: 24px;
+    padding: 10px 0 18px 0;
+  }
+}
