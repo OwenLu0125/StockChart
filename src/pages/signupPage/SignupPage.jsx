@@ -62,6 +62,10 @@ const SignupPage = () => {
       console.error('[Registration]:', error);
     }
   };
+  const handleNavigate = () => {
+    navigate('/login');
+  }
+
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -74,7 +78,7 @@ const SignupPage = () => {
       <div className='loginLeftContainer'></div>
       <div className='loginContainer'>
         <div className='loginPrompt'>
-          您已經有帳號了嗎? <a>立即登入</a>
+          您已經有帳號了嗎? <a  onClick={handleNavigate}>立即登入</a>
         </div>
         <div className='title'>
           <img src={logo} alt='' />

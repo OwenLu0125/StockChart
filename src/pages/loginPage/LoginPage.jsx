@@ -46,6 +46,9 @@ const LoginPage = () => {
       console.error('[Login Failed]:', error);
     }
   };
+  const handleRegister = async () => {
+     navigate('/signup');
+  }
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -57,9 +60,6 @@ const LoginPage = () => {
     <div className='container'>
       <div className='loginLeftContainer'></div>
       <div className='loginContainer'>
-        <div className='loginPrompt'>
-          您已經有帳號了嗎? <a>立即登入</a>
-        </div>
         <div className='title'>
           <img src={logo} alt='' />
           <h1>FUTURESMARKET</h1>
@@ -82,7 +82,7 @@ const LoginPage = () => {
         </div>
         <div className='buttonContainer'>
           <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
-          <WhiteButton text={'後台'}></WhiteButton>
+          <WhiteButton text={'立刻註冊'} onClick={handleRegister}></WhiteButton>
         </div>
       </div>
     </div>
