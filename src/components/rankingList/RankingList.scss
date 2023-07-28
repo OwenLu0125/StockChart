@@ -1,7 +1,7 @@
 .rankingList {
-  width: 282px;
+  width: 300px;
   padding: 0 20px;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
   border: 1px solid var(--border-gray);
   border-radius: 4px;
   background-color: white;
@@ -15,14 +15,7 @@
     .userItem {
       display: flex;
       align-items: center;
-
-      padding-top: 20px;
-
-      .star {
-        width: 16px;
-        height: 16px;
-        margin-right: 14px;
-      }
+      padding-top: 22px;
 
       .userWidget {
         .userInfo {
