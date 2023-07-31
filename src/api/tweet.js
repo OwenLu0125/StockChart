@@ -10,10 +10,18 @@ export const getTweets = async () => {
   }
 };
 
+export const getSingleTweet = async (id) => {
+  try {
+    const { data } = await axiosInstance.get(`${baseUrl}/transactions/${id}`);
+    return data.transaction;
+  } catch (error) {
+    console.error('[Get Tweet failed]: ', error);
+  }
+};
+
 export const likeTweet = async (id) => {
   try {
     const res = await axiosInstance.post(`${baseUrl}/transactions/${id}/like`);
-    console.log(res);
     return res;
   } catch (error) {
     console.error('[Like Tweet failed]: ', error);
@@ -26,7 +34,6 @@ export const unlikeTweet = async (id) => {
     const res = await axiosInstance.delete(
       `${baseUrl}/transactions/${id}/unlike`
     );
-    console.log(res);
     return res;
   } catch (error) {
     console.error('[Unlike Tweet failed]: ', error);

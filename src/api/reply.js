@@ -5,7 +5,6 @@ export const getReplies = async (id) => {
     const { data } = await axiosInstance.get(
       `${baseUrl}/transactions/${id}/replies`
     );
-    console.log(data.replies);
     return data.replies;
   } catch (error) {
     console.error('[Get Replies failed]: ', error);
