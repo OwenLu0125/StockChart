@@ -11,7 +11,18 @@ export function formatTime(timestamp) {
     return `${diffInHours}小時前`;
   } else {
     return `${postTime.getFullYear()}/${
-      postTime.getMonth() + 1
-    }/${postTime.getDate()}`;
+      String(postTime.getMonth() + 1).length !== 2 ? '0' : ''
+    }${postTime.getMonth() + 1}/${
+      String(postTime.getDate()).length !== 2 ? '0' : ''
+    }${postTime.getDate()}`;
   }
+}
+
+export function formatDate(date) {
+  const time = new Date(date);
+  return `${time.getFullYear()}/${
+    String(time.getMonth() + 1).length !== 2 ? '0' : ''
+  }${time.getMonth() + 1}/${
+    String(time.getDate()).length !== 2 ? '0' : ''
+  }${time.getDate()}`;
 }
