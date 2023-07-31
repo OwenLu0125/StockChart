@@ -26,7 +26,7 @@ const RankingList = () => {
     <div className='rankingList'>
       <div className='title bold-16'>交易排行列表</div>
       <div className='rankingMain'>
-        {rankingList.map((item) => {
+        {rankingList?.map((item) => {
           return (
             <div key={`top-` + item.user_id} className='userItem'>
               <div className='userWidget'>
