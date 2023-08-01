@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import Navbar from '../../components/navbar/Navbar';
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
-import { getTransactions } from '../../api/diary';
+import { getHistory } from '../../api/history';
 import 'react-datepicker/dist/react-datepicker.css';
 import './HistoryPage.scss';
 
@@ -38,7 +38,8 @@ const HistoryPage = () => {
   // useState
   const [startDate, setStartDate] = useState(firstDay);
   const [endDate, setEndDate] = useState(new Date());
-  const [history, setHistory] = useState([]);
+  const [tradeHistory, setTradeHistory] = useState([]);
+  const [historySum, setHistorySum] = useState({});
 
   const defaultStartdate = `${startDate.getFullYear()}-${
     String(startDate.getMonth() + 1).length === 2 ? '' : '0'
@@ -65,12 +66,14 @@ const HistoryPage = () => {
         String(endDate.getDate()).length === 2 ? '' : '0'
       }${endDate.getDate()}`;
 
-      const history = await getTransactions({
+      const history = await getHistory({
+        id: 1,
         startDate: formatStartDate,
         endDate: formatEndDate,
       });
 
-      console.log(history.data.result);
+      setTradeHistory(history.dailyTransactions);
+      setHistorySum(history.historyData);
     } catch (error) {
       console.error(error);
     }
@@ -102,12 +105,14 @@ const HistoryPage = () => {
         String(lastDayOfNextMonth.getDate()).length === 2 ? '' : '0'
       }${lastDayOfNextMonth.getDate()}`;
 
-      const history = await getTransactions({
+      const history = await getHistory({
+        id: 1,
         startDate: formatStartDate,
         endDate: formatEndDate,
       });
 
-      console.log(history.data.result);
+      setTradeHistory(history.dailyTransactions);
+      setHistorySum(history.historyData);
     } catch (error) {
       console.error(error);
     }
@@ -139,31 +144,35 @@ const HistoryPage = () => {
         String(lastDayOfPrevMonth.getDate()).length === 2 ? '' : '0'
       }${lastDayOfPrevMonth.getDate()}`;
 
-      const history = await getTransactions({
+      const history = await getHistory({
+        id: 1,
         startDate: formatStartDate,
         endDate: formatEndDate,
       });
 
-      console.log(history.data.result);
+      setTradeHistory(history.dailyTransactions);
+      setHistorySum(history.historyData);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    const getTradesAsync = async () => {
+    const getHistoryAsync = async () => {
       try {
-        const history = await getTransactions({
+        const history = await getHistory({
+          id: 1,
           startDate: defaultStartdate,
           endDate: defaultEnddate,
         });
 
-        console.log(history.data);
+        setTradeHistory(history.dailyTransactions);
+        setHistorySum(history.historyData);
       } catch (error) {
         console.error(error);
       }
     };
-    getTradesAsync();
+    getHistoryAsync();
   }, []);
 
   return (
@@ -217,7 +226,7 @@ const HistoryPage = () => {
                 下個月
               </button>
             </div>
-            <HistoryForm />
+            <HistoryForm dailytrades={tradeHistory} tradeSum={historySum} />
           </div>
         </div>
       </div>
