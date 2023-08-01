@@ -1,8 +1,11 @@
 // react
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // component
 import NavItem from './navItem/NavItem';
+// contexts
+import { useAuth } from '../../contexts/AuthContext';
 // icon
 import logo from '../../assets/logo.svg';
 import homeGray from './icon/home.svg';
@@ -70,6 +73,11 @@ const navItems = [
 export const Navbar = () => {
   const location = useLocation();
   const { pathname } = location;
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className='navbar'>
@@ -94,11 +102,13 @@ export const Navbar = () => {
           })}
 
           <div className='navbarItem bold-18 logoutItem'>
-            <div className='ItemBox'>
-              <img src={logoutIcon} alt='logout' />
-              <span>登出</span>
-              <span>Logout</span>
-            </div>
+            <Link to='/*'>
+              <div className='ItemBox' onClick={handleLogout}>
+                <img src={logoutIcon} alt='logout' />
+                <span>登出</span>
+                <span>Logout</span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
