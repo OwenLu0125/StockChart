@@ -6,7 +6,7 @@ import Header from '../../components/header/Header';
 import RankingList from '../../components/rankingList/RankingList';
 import Tweet from '../../components/tweet/Tweet';
 // api
-import { getTweets } from '../../api/main';
+import { getTweets } from '../../api/tweet';
 // css
 import './MainPage.scss';
 import { formatTime } from '../../timeSwitcher/timeSwitcher';
@@ -19,8 +19,8 @@ export const MainPage = () => {
     const getTweetsAsync = async () => {
       try {
         const tweets = await getTweets();
-        setTweets(tweets);
         console.log(tweets);
+        setTweets(tweets);
       } catch (error) {
         console.log(error);
       }
