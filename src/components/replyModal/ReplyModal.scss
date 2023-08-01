@@ -1,0 +1,73 @@
+.Replymodal {
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: #0a1943;
+    opacity: 30%;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    padding: 16px 26px 26px 26px;
+    border-radius: 4px;
+    width: 600px;
+    top: 0;
+    border: 1px solid var(--border-gray);
+
+    .userWidget {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        p:first-child {
+          color: var(--primary-blue);
+        }
+
+        .verticalLine {
+          width: 1px;
+          height: 15px;
+          background: #dad8d8;
+        }
+      }
+
+      .closeImg {
+        width: 15px;
+        height: 15px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+
+    .textBox {
+      position: relative;
+      width: 100%;
+      height: 200px;
+
+      textarea {
+        width: 100%;
+        height: 100%;
+        padding: 16px;
+        resize: none;
+        border: 1px solid var(--border-gray);
+        border-radius: 4px;
+        background-color: var(--background-gray);
+      }
+
+      .btn {
+        position: absolute;
+        width: 100px;
+        height: 42px;
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+  }
+}
