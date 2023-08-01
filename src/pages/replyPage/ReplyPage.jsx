@@ -9,7 +9,8 @@ import SingleReply from '../../components/singleReply/SingleReply';
 // context
 import { useAuth } from '../../contexts/AuthContext';
 // api
-import { getReplies } from '../../api/reply';
+import { getReplies } from '../../api/tweet';
+import { getSingleTweet } from '../../api/tweet';
 //context
 import { useId } from '../../contexts/IdContext';
 //icons
@@ -18,6 +19,7 @@ import arrowLeft from '../../assets/arrow-left.svg';
 import './ReplyPage.scss';
 
 const ReplyPage = () => {
+  const [singleTweet, setSingleTweet] = useState({});
   const [tweetReplies, setTweetReplies] = useState([]);
   const { currentId } = useId();
   const navigate = useNavigate();
@@ -25,14 +27,26 @@ const ReplyPage = () => {
   const { isAuthenticated } = useAuth();
 
   useEffect(() => {
+    const getSingleTweetAsync = async () => {
+      try {
+        const tweet = await getSingleTweet(currentId);
+        console.log(tweet);
+        setSingleTweet(tweet);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     const getTweetReplies = async () => {
       try {
         const replies = await getReplies(currentId);
         setTweetReplies(replies);
+        console.log(replies);
       } catch (error) {
         console.error(error);
       }
     };
+    getSingleTweetAsync();
     getTweetReplies();
   }, []);
 
@@ -53,10 +67,18 @@ const ReplyPage = () => {
               <p className='bold-18'>推文</p>
             </span>
           </div>
-          <SingleTweet />
-          <SingleReply />
-          {tweetReplies.map((reply) => {
-            return <SingleReply />;
+          <SingleTweet tweet={singleTweet} setTweet={setSingleTweet} />
+          {tweetReplies?.map((reply) => {
+            return (
+              <SingleReply
+                key={reply.id}
+                name={reply.user_name}
+                account={reply.user_account}
+                replyTo={singleTweet.transaction_user_account}
+                date={reply.updated_on}
+                content={reply.content}
+              />
+            );
           })}
         </div>
         <div className='ranking'>

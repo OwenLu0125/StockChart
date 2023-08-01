@@ -109,7 +109,7 @@ const Tweet = ({
               <span>
                 <img
                   src={action === 'buy' ? buyIcon : sellIcon}
-                  alt='sell-Icon'
+                  alt='trade-Icon'
                 />
               </span>
               {action === 'buy' ? (
@@ -120,8 +120,10 @@ const Tweet = ({
             </li>
             <li>
               <p>{`${dealTime.getFullYear()}/${
-                dealTime.getMonth() + 1
-              }/${dealTime.getDate()}`}</p>
+                String(dealTime.getMonth() + 1).length !== 2 ? '0' : ''
+              }${dealTime.getMonth() + 1}/${
+                String(dealTime.getDate()).length !== 2 ? '0' : ''
+              }${dealTime.getDate()}`}</p>
               <p>{`${
                 String(dealTime.getHours()).length !== 2 ? '0' : ''
               }${dealTime.getHours()}:${

@@ -30,7 +30,8 @@ export const DailyItemModal = () => {
             <div className='btnSection'>
               <button
                 className='secondary-button bold-16'
-                onClick={toggleModal}>
+                onClick={toggleModal}
+              >
                 取消
               </button>
               <button className='primary-button bold-16'>確定</button>

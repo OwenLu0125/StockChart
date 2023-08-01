@@ -11,7 +11,7 @@ import { useAuth } from '../../contexts/AuthContext';
 // utilities
 import { formatTime } from '../../timeSwitcher/timeSwitcher';
 // api
-import { getTweets, getRanking } from '../../api/main';
+import { getTweets } from '../../api/tweet';
 // css
 import './MainPage.scss';
 
@@ -26,8 +26,8 @@ export const MainPage = () => {
     const getTweetsAsync = async () => {
       try {
         const tweets = await getTweets();
-        setTweets(tweets);
         console.log(tweets);
+        setTweets(tweets);
       } catch (error) {
         console.log(error);
       }
@@ -51,7 +51,7 @@ export const MainPage = () => {
           <div className='homeMain'>
             <div className='tweetsAndRanking'>
               <div className='tweets'>
-                {tweets.map((tweet, i) => {
+                {tweets?.map((tweet, i) => {
                   return (
                     i <= 10 && (
                       <Tweet
