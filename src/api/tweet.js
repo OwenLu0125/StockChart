@@ -2,8 +2,7 @@ import axiosInstance, { baseUrl } from './axiosInstance';
 
 export const getTweets = async () => {
   try {
-    const { data } = await axiosInstance.get(`${baseUrl}/transactions/publics`);
-    console.log(data);
+    const { data } = await axiosInstance.get(`${baseUrl}/transactions/public`);
     return data.transactions;
   } catch (error) {
     console.error('[Get Tweets failed]: ', error);
@@ -38,5 +37,16 @@ export const unlikeTweet = async (id) => {
   } catch (error) {
     console.error('[Unlike Tweet failed]: ', error);
     throw error;
+  }
+};
+
+export const getReplies = async (id) => {
+  try {
+    const { data } = await axiosInstance.get(
+      `${baseUrl}/transactions/${id}/replies`
+    );
+    return data.replies;
+  } catch (error) {
+    console.error('[Get Tweets failed]: ', error);
   }
 };
