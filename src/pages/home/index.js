@@ -19,10 +19,12 @@ import { AuthProvider } from '../../contexts/AuthContext';
 import './reset.scss';
 import './base.scss';
 
+const basename = process.env.PUBLIC_URL;
+
 const Home = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <AuthProvider>
           <IdProvider>
             <Routes>
