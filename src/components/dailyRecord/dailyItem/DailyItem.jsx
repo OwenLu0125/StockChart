@@ -1,5 +1,4 @@
 import DailyItemModal from '../dailyItemModal/DailyItemModal';
-import msgIcon from '../../../assets/message.svg';
 import './DailyItem.scss';
 
 export const DailyItem = ({
