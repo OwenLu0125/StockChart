@@ -47,6 +47,6 @@ export const getReplies = async (id) => {
     );
     return data.replies;
   } catch (error) {
-    console.error('[Get Tweets failed]: ', error);
+    console.error('[Get Replies failed]: ', error);
   }
 };
