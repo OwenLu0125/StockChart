@@ -50,3 +50,18 @@ export const getReplies = async (id) => {
     console.error('[Get Replies failed]: ', error);
   }
 };
+
+export const postReply = async ({ id, content }) => {
+  try {
+    const { data } = await axiosInstance.post(
+      `${baseUrl}/transactions/${id}/replies`,
+      {
+        content,
+      }
+    );
+    return data.reply;
+  } catch (error) {
+    console.error('[Post Reply failed]: ', error);
+    throw error;
+  }
+};
