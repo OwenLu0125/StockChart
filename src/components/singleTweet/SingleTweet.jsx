@@ -28,8 +28,8 @@ const SingleTweet = ({ tweet, setTweet, setReplies }) => {
         return {
           ...tweet,
           like_count: tweet.is_like
-            ? tweet.like_count - 1
-            : tweet.like_count + 1,
+            ? Number(tweet.like_count) - 1
+            : Number(tweet.like_count) + 1,
           is_like: !tweet.is_like,
         };
       });
