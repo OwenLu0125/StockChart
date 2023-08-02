@@ -10,7 +10,13 @@ import userImg from '../../assets/user.jpg';
 import closeIcon from '../../assets/close.svg';
 // style
 import './ReplyModal.scss';
-const ReplyModal = ({ isActivated, toggle, setTweet, setReplies }) => {
+const ReplyModal = ({
+  isActivated,
+  toggle,
+  setTweet,
+  setReplies,
+  reSetTweets,
+}) => {
   const [replyMsg, setReplyMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const { currentMember } = useAuth();
@@ -39,7 +45,7 @@ const ReplyModal = ({ isActivated, toggle, setTweet, setReplies }) => {
         };
       });
 
-      setReplies((replies) => {
+      setReplies?.((replies) => {
         return [
           {
             ...res,
@@ -48,6 +54,18 @@ const ReplyModal = ({ isActivated, toggle, setTweet, setReplies }) => {
           },
           ...replies,
         ];
+      });
+
+      reSetTweets?.((prev) => {
+        return prev.map((tweet) => {
+          if (tweet.id === currentId) {
+            return {
+              ...tweet,
+              replies_count: Number(tweet.replies_count) + 1,
+            };
+          }
+          return { ...tweet };
+        });
       });
 
       setReplyMsg('');
