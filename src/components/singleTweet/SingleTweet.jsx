@@ -15,7 +15,7 @@ import commentIcon from '../../assets/comment.svg';
 import './SingleTweet.scss';
 import { formatTime } from '../../timeSwitcher/timeSwitcher';
 
-const SingleTweet = ({ tweet, setTweet }) => {
+const SingleTweet = ({ tweet, setTweet, setReplies }) => {
   const [modal, setModal] = useState(false);
   const date = tweet.transaction_date;
   const dealTime = new Date(date);
@@ -120,7 +120,12 @@ const SingleTweet = ({ tweet, setTweet }) => {
           </span>
         </div>
       </div>
-      <ReplyModal isActivated={modal} toggle={toggleModal} />
+      <ReplyModal
+        isActivated={modal}
+        toggle={toggleModal}
+        setTweet={setTweet}
+        setReplies={setReplies}
+      />
     </>
   );
 };

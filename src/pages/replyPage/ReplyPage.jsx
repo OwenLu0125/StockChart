@@ -67,7 +67,11 @@ const ReplyPage = () => {
               <p className='bold-18'>推文</p>
             </span>
           </div>
-          <SingleTweet tweet={singleTweet} setTweet={setSingleTweet} />
+          <SingleTweet
+            tweet={singleTweet}
+            setTweet={setSingleTweet}
+            setReplies={setTweetReplies}
+          />
           {tweetReplies?.map((reply) => {
             return (
               <SingleReply
