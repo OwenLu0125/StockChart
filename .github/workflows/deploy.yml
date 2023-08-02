@@ -3,9 +3,9 @@ name: Deploy to GitHub pages
 
 on:
   push:
-    branches: [deploy/owen002]
+    branches: [main]
   pull_request:
-    branches: [deploy/owen002]
+    branches: [main]
 
 jobs:
   build:
