@@ -59,6 +59,14 @@
         border: 1px solid var(--border-gray);
         border-radius: 4px;
         background-color: var(--background-gray);
+
+        &:focus {
+          border: 1px solid var(--primary-purple);
+        }
+
+        &::placeholder {
+          color: var(--secondary-gray);
+        }
       }
 
       .btn {
@@ -67,6 +75,10 @@
         height: 42px;
         right: 16px;
         bottom: 16px;
+
+        &:hover {
+          background-color: #6a4bc1;
+        }
       }
     }
   }
