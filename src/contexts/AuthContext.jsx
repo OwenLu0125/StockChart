@@ -12,6 +12,7 @@ const defaultAuthContext = {
   register: null, // 註冊方法
   login: null, // 登入方法
   logout: null, // 登入方法
+  adminLogin: null,
 };
 
 const AuthContext = createContext(defaultAuthContext);
@@ -41,7 +42,14 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated,
-        currentMember: payload,
+        currentMember: payload && {
+          id: payload.id,
+          name: payload.username,
+          account: payload.account,
+          email: payload.email,
+          avatar: payload.avatar,
+          role: payload.role,
+        },
         register: async (data) => {
           const { success } = await register({
             account: data.account,
@@ -78,7 +86,8 @@ export const AuthProvider = ({ children }) => {
           setPayload(null);
           setIsAuthenticated(false);
         },
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
