@@ -1,5 +1,6 @@
 .singleReply {
   border-bottom: 1px solid var(--border-gray);
+  position: relative;
   .tweetTop {
     display: flex;
     align-items: center;
@@ -26,10 +27,23 @@
       }
     }
 
-    span:last-child {
+    .date {
       color: var(--secondary-gray);
       margin-left: auto;
       margin-right: 0;
+    }
+
+    .option {
+      display: flex;
+      justify-content: end;
+      width: 6px;
+      margin-left: 8px;
+      cursor: pointer;
+      img {
+        width: 3.6px;
+        height: auto;
+        margin-top: 1px;
+      }
     }
   }
 
@@ -37,7 +51,7 @@
     display: flex;
     align-items: center;
     margin-left: 80px;
-    margin-top: 6px;
+    margin-top: 4px;
     p {
       color: var(--primary-purple);
       &::before {
@@ -52,6 +66,6 @@
   .tweetMsg {
     margin-left: 80px;
     margin-right: 24px;
-    padding: 10px 0 18px 0;
+    padding: 6px 0 18px 0;
   }
 }

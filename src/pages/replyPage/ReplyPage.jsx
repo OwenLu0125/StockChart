@@ -1,6 +1,6 @@
 //hooks
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 // components
 import Navbar from '../../components/navbar/Navbar';
 import RankingList from '../../components/rankingList/RankingList';
@@ -62,10 +62,12 @@ const ReplyPage = () => {
       <div className='signleBody'>
         <div className='replyMain'>
           <div className='singleHeader'>
-            <span>
-              <img src={arrowLeft} alt='arrow-left' />
-              <p className='bold-18'>推文</p>
-            </span>
+            <NavLink to='/main'>
+              <span>
+                <img src={arrowLeft} alt='arrow-left' />
+                <p className='bold-18'>推文</p>
+              </span>
+            </NavLink>
           </div>
           <SingleTweet
             tweet={singleTweet}
@@ -81,6 +83,10 @@ const ReplyPage = () => {
                 replyTo={singleTweet.transaction_user_account}
                 date={reply.updated_on}
                 content={reply.content}
+                userId={reply.user_id}
+                replyId={reply.id}
+                setReplies={setTweetReplies}
+                setTweet={setSingleTweet}
               />
             );
           })}

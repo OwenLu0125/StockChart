@@ -13,7 +13,8 @@
       flex: 1;
       border-right: 1px solid var(--border-gray);
       background-color: #fbfafa;
-      height: 800px;
+      min-height: 800px;
+      height: fit-content;
 
       .singleHeader {
         height: 72px;
@@ -22,6 +23,10 @@
         padding: 24px;
         display: flex;
         align-items: center;
+
+        a {
+          color: var(--primary-blue);
+        }
 
         span {
           display: inline-flex;
