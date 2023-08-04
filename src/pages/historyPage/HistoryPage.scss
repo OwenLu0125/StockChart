@@ -32,6 +32,19 @@
 
           img:first-child {
             padding-left: 14px;
+            margin-top: 2px;
+          }
+
+          img:last-child {
+            margin-top: 3px;
+          }
+
+          .react-datepicker {
+            color: var(--primary-blue);
+          }
+
+          .react-datepicker__day--selected {
+            background-color: var(--primary-purple);
           }
 
           .react-datepicker-wrapper {

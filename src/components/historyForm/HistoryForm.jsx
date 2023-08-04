@@ -5,21 +5,6 @@ import './HistoryForm.scss';
 //others
 import { formatDate } from '../../timeSwitcher/timeSwitcher';
 
-const title = [
-  '日期',
-  '淨損益',
-  '勝率％',
-  '盈虧比',
-  '總單數',
-  '+單數',
-  '-單數',
-  '早盤勝率',
-  '早盤總單數',
-  '夜盤勝率',
-  '夜版總單數',
-  '詳細',
-];
-
 const HistoryForm = ({ dailytrades, tradeSum }) => {
   return (
     <div className='historyForm'>
@@ -57,19 +42,17 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
           return (
             <ul key={`trade-${i}`}>
               <li>{formatDate(trade.date)}</li>
-              <li>+20</li>
-
-              <li
-                className={`${winRate === '0' ? 'blue' : 'green'} ${
-                  winRate.includes('-') && 'red'
-                } `}
-              >
-                {winRate}%
+              <li className={trade.netpandl.includes('-') ? 'red' : 'green'}>
+                {trade.netpandl.includes('-')
+                  ? trade.netpandl
+                  : `+${trade.netpandl}`}
               </li>
+
+              <li className='green'>{winRate}%</li>
               <li>{riskRatio}</li>
-              <li>{Number(trade.win_count) + Number(trade.loss_count)}</li>
-              <li>{trade.win_count}</li>
-              <li>{trade.loss_count}</li>
+              <li>{trade.round_trip}</li>
+              <li>{trade.wincount}</li>
+              <li>{trade.losscount}</li>
               <li>
                 <img src={msgIcon} alt='message-icon' />
               </li>
@@ -80,9 +63,17 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
       <div className='subBody regular-14'>
         <ul>
           <li className='bold-14'>累積</li>
+          <li
+            className={
+              String(tradeSum.netPAndL).includes('-') ? 'red' : 'green'
+            }
+          >
+            {String(tradeSum.netPAndL).includes('-')
+              ? tradeSum.netPAndL
+              : `+${tradeSum.netPAndL}`}
+          </li>
           <li></li>
-          <li>{tradeSum.winRate}</li>
-          <li></li>
+          <li>{tradeSum.roundTrip}</li>
           <li></li>
           <li></li>
           <li></li>
@@ -90,8 +81,22 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
         </ul>
         <ul>
           <li className='bold-14'>平均</li>
-          <li></li>
-          <li></li>
+          <li
+            className={
+              String(tradeSum.netPAndL).includes('-') ? 'red' : 'green'
+            }
+          >
+            {String(tradeSum.netPAndL).includes('-')
+              ? (tradeSum.netPAndL / dailytrades.length).toFixed(2)
+              : `+${(tradeSum.netPAndL / dailytrades.length).toFixed(2)}`}
+          </li>
+          <li
+            className={
+              String(tradeSum.netPAndL).includes('-') ? 'red' : 'green'
+            }
+          >
+            {Math.round(tradeSum.winRate * 100)}%
+          </li>
           <li></li>
           <li></li>
           <li></li>
@@ -100,17 +105,15 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
         </ul>
         <ul>
           <li className='bold-14'>均口淨損益</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <ul>
-          <li className='bold-14'>夏普率</li>
-          <li></li>
+          <li
+            className={
+              String(tradeSum.netPAndL).includes('-') ? 'red' : 'green'
+            }
+          >
+            {String(tradeSum.netPAndL).includes('-')
+              ? (tradeSum.netPAndL / tradeSum.roundTrip).toFixed(2)
+              : `+${(tradeSum.netPAndL / tradeSum.roundTrip).toFixed(2)}`}
+          </li>
           <li></li>
           <li></li>
           <li></li>
