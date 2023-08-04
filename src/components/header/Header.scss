@@ -12,9 +12,8 @@
   right: 0;
 
   .date {
-    span:last-child {
-      padding-left: 6px;
-      color: var(--secondary-gray);
+    span:first-child {
+      margin-right: 6px;
     }
   }
 
