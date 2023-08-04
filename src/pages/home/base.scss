@@ -83,17 +83,25 @@ body {
 }
 
 .primary-button {
-  background-color: var(--primary-purple);
+  background: var(--primary-purple);
   color: #ffffff;
   border: none;
   border-radius: 4px;
+
+  &:hover {
+    background: #6a4bc1;
+  }
 }
 
 .secondary-button {
-  background-color: #ffffff;
+  background: #ffffff;
   color: var(--primary-purple);
   border: 1.5px solid var(--primary-purple);
   border-radius: 4px;
+
+  &:hover {
+    background: rgba(106, 75, 193, 0.06);
+  }
 }
 
 /* 使用者頭像和名稱 */
