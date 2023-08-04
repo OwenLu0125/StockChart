@@ -46,7 +46,7 @@ export const LineChartSection = ({ transactions }) => {
     Number(transaction.pandl)
   );
 
-  const yAxisDomain = [0, Math.max(...pandlValues) ];
+  const yAxisDomain = [Math.min(...pandlValues), Math.max(...pandlValues)];
 
   return (
     <ResponsiveContainer width='100%' height='100%'>
