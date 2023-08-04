@@ -11,8 +11,18 @@
       margin-top: 72px;
       height: calc(100vh - 72px);
       overflow-y: scroll;
-      padding: 26px 38px 0 38px;
+      padding: 26px 38px;
       background-color: var(--background-gray);
+
+      .Switcher {
+        display: flex;
+        gap: 16px;
+
+        .space {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
 
       .tweetsAndRanking {
         display: flex;

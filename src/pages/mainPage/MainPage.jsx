@@ -6,35 +6,49 @@ import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
 import RankingList from '../../components/rankingList/RankingList';
 import Tweet from '../../components/tweet/Tweet';
+import TabSwitcher from '../../components/tabSwitcher/TabSwitcher';
 // contexts
 import { useAuth } from '../../contexts/AuthContext';
 // utilities
 import { formatTime } from '../../timeSwitcher/timeSwitcher';
 // api
-import { getTweets } from '../../api/tweet';
+import { getTweets, getUserTweets } from '../../api/tweet';
 // css
 import './MainPage.scss';
 
 export const MainPage = () => {
   const [tweets, setTweets] = useState([]);
-
+  const [currentTab, setCurrentTab] = useState('all');
   const navigate = useNavigate();
-
   const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const getTweetsAsync = async () => {
       try {
-        const tweets = await getTweets();
-        console.log(tweets);
-        setTweets(tweets);
+        let tweets = [];
+        if (currentTab === 'all') {
+          tweets = await getTweets();
+          console.log(tweets);
+          setTweets(tweets);
+        } else if (currentTab === 'user') {
+          tweets = await getUserTweets();
+          console.log(tweets);
+          setTweets(tweets);
+        } else {
+          tweets = await getTweets();
+          const likedTweets = tweets.filter((tweet) => {
+            return tweet.is_liked === true;
+          });
+          console.log(likedTweets);
+          setTweets(likedTweets);
+        }
       } catch (error) {
         console.log(error);
       }
     };
 
     getTweetsAsync();
-  }, []);
+  }, [currentTab]);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -49,6 +63,10 @@ export const MainPage = () => {
         <div className='homeBody'>
           <Header />
           <div className='homeMain'>
+            <div className='Switcher'>
+              <TabSwitcher activeTab={currentTab} setTab={setCurrentTab} />
+              <div className='space'></div>
+            </div>
             <div className='tweetsAndRanking'>
               <div className='tweets'>
                 {tweets?.map((tweet, i) => {
@@ -69,6 +87,7 @@ export const MainPage = () => {
                         isLiked={tweet.is_liked}
                         replies={tweet.replies_count}
                         reSetTweets={setTweets}
+                        activeTab={currentTab}
                       />
                     )
                   );

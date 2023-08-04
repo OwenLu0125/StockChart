@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // components
 import ReplyModal from '../replyModal/ReplyModal';
+import UnpublishBox from '../unpublishBox/UnpublishBox';
 //context
 import { useId } from '../../contexts/IdContext';
 //api
@@ -14,6 +15,7 @@ import sellIcon from '../../assets/sell.svg';
 import heartHollow from '../../assets/heart-hollow.svg';
 import heartFilled from '../../assets/heart-filled.svg';
 import commentIcon from '../../assets/comment.svg';
+import optionIcon from '../../assets/options.svg';
 // style
 import './Tweet.scss';
 
@@ -31,8 +33,10 @@ const Tweet = ({
   isLiked,
   replies,
   reSetTweets,
+  activeTab,
 }) => {
   const [modal, setModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const { checkItemId } = useId();
   const navigate = useNavigate();
   const dealTime = new Date(date);
@@ -88,10 +92,15 @@ const Tweet = ({
         onClick={(e) => {
           if (
             e.target.className !== 'like' &&
-            e.target.className !== 'comment'
+            e.target.className !== 'comment' &&
+            e.target.className !== 'option' &&
+            e.target.className !== 'optionIcon' &&
+            e.target.innerText !== '隱藏公開'
           ) {
             checkItemId(tweetId);
             navigate('/reply');
+          } else if (e.target.innerText !== '隱藏公開' && isVisible === true) {
+            setIsVisible(!isVisible);
           }
         }}
       >
@@ -106,7 +115,16 @@ const Tweet = ({
                 <p className='regular-14'>@{account}</p>
               </span>
             </div>
-            <span className='regular-14'>{tweetTime}</span>
+            <span className='date regular-14'>{tweetTime}</span>
+            {activeTab === 'user' && (
+              <span className='option' onClick={() => setIsVisible(!isVisible)}>
+                <img
+                  className='optionIcon'
+                  src={optionIcon}
+                  alt='option-icon'
+                />
+              </span>
+            )}
           </div>
 
           <div className='tweetMsg'>
@@ -150,33 +168,43 @@ const Tweet = ({
               </li>
               <li>x{quantity}</li>
               <li className={action === 'buy' ? 'buyPrice' : 'sellPrice'}>
-                {price}
+                ${price}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className='tweetControl'>
-          <span className='likes'>
-            <img
-              className='like'
-              src={isLiked ? heartFilled : heartHollow}
-              alt='heart-Icon'
-              onClick={handleLike}
-            />
-            <p className='medium-14'>{likes}</p>
-          </span>
-          <span className='verticalLine'></span>
-          <span className='comments' onClick={handleId}>
-            <img
-              className='comment'
-              src={commentIcon}
-              alt='comment-Icon'
-              onClick={toggleModal}
-            />
-            <p className='medium-14'>{replies}</p>
-          </span>
-        </div>
+        {activeTab === 'all' && (
+          <div className='tweetControl'>
+            <span className='likes'>
+              <img
+                className='like'
+                src={isLiked ? heartFilled : heartHollow}
+                alt='heart-Icon'
+                onClick={handleLike}
+              />
+              <p className='medium-14'>{likes}</p>
+            </span>
+            <span className='verticalLine'></span>
+            <span className='comments' onClick={handleId}>
+              <img
+                className='comment'
+                src={commentIcon}
+                alt='comment-Icon'
+                onClick={toggleModal}
+              />
+              <p className='medium-14'>{replies}</p>
+            </span>
+          </div>
+        )}
+        {isVisible && activeTab === 'user' && (
+          <UnpublishBox
+            setVisible={setIsVisible}
+            visible={isVisible}
+            tweetId={tweetId}
+            reSetTweets={reSetTweets}
+          />
+        )}
       </div>
       <ReplyModal
         isActivated={modal}

@@ -1,0 +1,31 @@
+.tabSwitcher {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+  li {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    p {
+      color: var(--secondary-gray);
+      cursor: pointer;
+    }
+  }
+
+  .verticalLine {
+    width: 4px;
+    height: 22px;
+    background-color: rgb(182, 182, 182);
+  }
+
+  .purpleLine {
+    width: 4px;
+    height: 22px;
+    background-color: var(--primary-purple);
+  }
+
+  .active {
+    color: var(--primary-purple);
+  }
+}
