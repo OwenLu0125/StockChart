@@ -80,8 +80,8 @@ const ReplyModal = ({
     <>
       {isActivated && (
         <div className='Replymodal'>
-          <div className='overlay'></div>
-          <div className='modal-content'>
+          <div className='modal-overlay'></div>
+          <div className='modal-container'>
             <div className='userWidget'>
               <img className='userImg' src={userImg} alt='user-img' />
               <span className='userInfo'>

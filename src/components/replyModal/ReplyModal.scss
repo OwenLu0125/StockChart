@@ -1,24 +1,30 @@
 .Replymodal {
-  .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  .modal-overlay {
     width: 100vw;
     height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     position: absolute;
     background-color: #0a1943;
     opacity: 30%;
   }
 
-  .modal-content {
+  .modal-container {
     background: #ffffff;
     padding: 16px 26px 26px 26px;
     border-radius: 4px;
     width: 600px;
-    top: 0;
     border: 1px solid var(--border-gray);
-
+    position: absolute;
     .userWidget {
       display: flex;
       align-items: center;
@@ -75,10 +81,6 @@
         height: 42px;
         right: 16px;
         bottom: 16px;
-
-        &:hover {
-          background-color: #6a4bc1;
-        }
       }
     }
   }
