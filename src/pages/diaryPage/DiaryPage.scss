@@ -35,8 +35,8 @@
     .btnSec {
       display: flex;
       gap: 12px;
-      animation: Popout 0.5s;
-      @keyframes Popout {
+      animation: zoom 0.5s;
+      @keyframes zoom {
         0% {
           opacity: 0;
         }
