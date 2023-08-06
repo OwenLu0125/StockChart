@@ -27,6 +27,7 @@ const DiaryPage = () => {
   const [description, setDescription] = useState('');
   const [todayTransactions, setTodayTransactions] = useState('');
   const [lineChartData, setLineChartData] = useState([]);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [switcher, setSwitcher] = useState(false); // 用於判斷是否有資料送出
 
   const navigate = useNavigate();
@@ -104,11 +105,19 @@ const DiaryPage = () => {
       </div>
       <div className='rightContainer'>
         <Header />
-        <div className='collapse'>
+        <div
+          className={`collapse ${isCollapsed ? 'collapsed' : ''}`}
+          onClick={() => setIsCollapsed(!isCollapsed)}>
           <span className='bold-16'>隱藏輸入表單</span>
-          <img className='arrow' src={arrowIcon} alt='arrow-icon' />
+          <img
+            className={`arrow ${isCollapsed ? 'flipped' : ''}`}
+            src={arrowIcon}
+            alt='arrow-icon'
+          />
         </div>
-        <div className='inputSec'>
+        <div
+          className={`inputSec ${isCollapsed ? 'collapsed' : ''}`}
+          style={{ display: isCollapsed ? 'none' : 'grid' }}>
           <PrimaryInput
             label='買/賣'
             placeholder='buy or sell'
@@ -140,7 +149,9 @@ const DiaryPage = () => {
             onChange={setDescription}
           />
         </div>
-        <div className='btnSec'>
+        <div
+          className={`btnSec ${isCollapsed ? 'collapsed' : ''}`}
+          style={{ display: isCollapsed ? 'none' : 'flex' }}>
           <button className='btn secondary-button bold-16'>載入資料</button>
           <button className='btn primary-button bold-16' onClick={handleSubmit}>
             送出

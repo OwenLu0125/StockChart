@@ -21,25 +21,44 @@
       color: var(--primary-purple);
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border-gray);
+      cursor: pointer;
       .arrow {
         width: 16px;
         height: 16px;
+        transition: transform 0.3s ease;
+      }
+      &.collapsed .arrow {
+        transform: rotate(180deg);
       }
     }
-
-    .inputSec {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 18px 24px;
-      margin: 20px 0 30px 0;
-    }
+    .inputSec,
     .btnSec {
       display: flex;
       gap: 12px;
+      animation: Popout 0.5s;
+      @keyframes Popout {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 100;
+        }
+      }
       .btn {
         width: 200px;
         height: 42px;
       }
+      &.collapsed {
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+    }
+    .inputSec {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 18px 24px;
+      margin: 20px 0 30px 0;
     }
     .dailySec {
       display: flex;
