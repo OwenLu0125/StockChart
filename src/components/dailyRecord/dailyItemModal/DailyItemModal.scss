@@ -30,14 +30,14 @@
   border-radius: 4px;
   max-width: 600px;
   min-width: 300px;
-  transform: translate(-50%, 30%);
+  transform: translate(-50%, -50%);
   animation: Popout 0.5s;
   @keyframes Popout {
     0% {
-      transform: translate(-50%, 20%);
+      transform: translate(-50%, -60%);
     }
     100% {
-      transform: translate(-50%, 30%);
+      transform: translate(-50%, -50%);
     }
   }
   h2 > img {
