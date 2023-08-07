@@ -32,6 +32,11 @@ body {
   font-weight: 700;
 }
 
+.bold-20 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .bold-18 {
   font-size: 18px;
   font-weight: 700;
@@ -97,6 +102,17 @@ body {
   background: #ffffff;
   color: var(--primary-purple);
   border: 1.5px solid var(--primary-purple);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(106, 75, 193, 0.06);
+  }
+}
+
+.tertiary-button {
+  background: #ffffff;
+  color: var(--secondary-gray);
+  border: 1.5px solid var(--secondary-gray);
   border-radius: 4px;
 
   &:hover {

@@ -10,4 +10,8 @@
   &::placeholder {
     color: var(--secondary-gray);
   }
+
+  &:focus {
+    border: 1.5px solid var(--primary-purple);
+  }
 }

@@ -32,20 +32,6 @@ export const getUserTweets = async () => {
   }
 };
 
-// 隱藏交易紀錄
-export const unpublishTweet = async (id) => {
-  try {
-    const res = await axiosInstance.delete(
-      `${baseUrl}/transactions/${id}/public`
-    );
-    console.log(res);
-    return res;
-  } catch (error) {
-    console.error('[Unlike Tweet failed]: ', error);
-    throw error;
-  }
-};
-
 // 喜歡單筆公開交易
 export const likeTweet = async (id) => {
   try {
@@ -109,6 +95,34 @@ export const deleteReply = async (id) => {
     return res;
   } catch (error) {
     console.error('[Unlike Tweet failed]: ', error);
+    throw error;
+  }
+};
+
+// 公開交易紀錄
+export const publishTweet = async (id) => {
+  try {
+    const res = await axiosInstance.post(
+      `${baseUrl}/transactions/${id}/public`
+    );
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error('[Publish Tweet failed]: ', error);
+    throw error;
+  }
+};
+
+// 隱藏公開交易紀錄
+export const unpublishTweet = async (id) => {
+  try {
+    const res = await axiosInstance.delete(
+      `${baseUrl}/transactions/${id}/public`
+    );
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error('[UnPublish Tweet failed]: ', error);
     throw error;
   }
 };

@@ -26,3 +26,11 @@ export function formatDate(date) {
     String(time.getDate()).length !== 2 ? '0' : ''
   }${time.getDate()}`;
 }
+
+export function formatDateForApi(date) {
+  return `${date.getFullYear()}-${
+    String(date.getMonth() + 1).length === 2 ? '' : '0'
+  }${date.getMonth() + 1}-${
+    String(date.getDate()).length === 2 ? '' : '0'
+  }${date.getDate()}`;
+}

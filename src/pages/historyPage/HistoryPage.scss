@@ -29,14 +29,22 @@
           border: 1px solid var(--border-gray);
           border-radius: 4px;
           background-color: white;
+          position: relative;
 
           img:first-child {
             padding-left: 14px;
             margin-top: 2px;
+            cursor: auto;
           }
 
           img:last-child {
             margin-top: 3px;
+            position: absolute;
+            right: 16px;
+          }
+
+          .picker {
+            cursor: pointer;
           }
 
           .react-datepicker {
@@ -49,14 +57,17 @@
 
           .react-datepicker-wrapper {
             padding-left: 10px;
+            z-index: 1;
+            width: 100%;
             .react-datepicker__input-container {
               display: flex;
               align-items: center;
+
               input {
                 padding: 0;
                 font-size: 14px;
                 font-weight: 500;
-                width: 120px;
+                width: 100%;
               }
             }
           }

@@ -1,18 +1,18 @@
-// react
+// hooks
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// component
+import DatePicker from 'react-datepicker';
+// components
 import HistoryForm from '../../components/historyForm/HistoryForm';
 import Header from '../../components/header/Header';
-import DatePicker from 'react-datepicker';
 import Navbar from '../../components/navbar/Navbar';
 // context
 import { useAuth } from '../../contexts/AuthContext';
-// icon
+// icons
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
 import { getHistory } from '../../api/history';
-// styles
+// style
 import 'react-datepicker/dist/react-datepicker.css';
 import './HistoryPage.scss';
 
@@ -203,6 +203,7 @@ const HistoryPage = () => {
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
                 <DatePicker
+                  className='picker'
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                   dateFormat='yyyy/MM/dd'
@@ -215,6 +216,7 @@ const HistoryPage = () => {
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
                 <DatePicker
+                  className='picker'
                   selected={endDate}
                   onChange={(date) => setEndDate(date)}
                   dateFormat='yyyy/MM/dd'

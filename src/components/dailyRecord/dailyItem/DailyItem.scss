@@ -1,3 +1,49 @@
-img {
-  cursor: pointer;
+.dailyItem {
+  display: flex;
+  align-items: center;
+
+  div:nth-child(1) {
+    display: flex;
+    padding-right: 6px;
+    justify-content: start;
+    width: 30px;
+    p {
+      text-decoration: underline;
+      color: var(--primary-purple);
+      cursor: pointer;
+    }
+  }
+
+  div:nth-child(2) {
+    padding-right: 18px;
+  }
+
+  div:nth-child(3) {
+    padding-right: 26px;
+    color: var(--secondary-gray);
+  }
+
+  div:nth-child(4) {
+    padding-right: 24px;
+    color: var(--secondary-gray);
+  }
+
+  // div:nth-child(5) {
+  // }
+
+  img {
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+    margin-right: 17px;
+    cursor: pointer;
+  }
+
+  .buy {
+    color: var(--secondary-green);
+  }
+
+  .sell {
+    color: var(--secondary-red);
+  }
 }

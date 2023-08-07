@@ -25,16 +25,19 @@ export const MainPage = () => {
   useEffect(() => {
     const getTweetsAsync = async () => {
       try {
+        setTweets([]);
         let tweets = [];
         if (currentTab === 'all') {
           tweets = await getTweets();
           console.log(tweets);
           setTweets(tweets);
         } else if (currentTab === 'user') {
+          setTweets([]);
           tweets = await getUserTweets();
           console.log(tweets);
           setTweets(tweets);
         } else {
+          setTweets([]);
           tweets = await getTweets();
           const likedTweets = tweets.filter((tweet) => {
             return tweet.is_liked === true;

@@ -39,7 +39,9 @@ const RankingList = () => {
                   <p className='regular-14'>@{item.account}</p>
                 </span>
               </div>
-              <span className='rate bold-18'>{item.win_rate.slice(2, 4)}%</span>
+              <span className='rate bold-18'>
+                {(item.win_rate * 100).toFixed(0)}%
+              </span>
               <p className='winning medium-12'>勝率</p>
             </div>
           );

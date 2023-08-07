@@ -32,3 +32,28 @@ export const getTodaysTransactionsData = async ({ id, date }) => {
     console.error('[Get History failed]: ', error);
   }
 };
+
+export const deleteTransaction = async (id) => {
+  try {
+    const res = await axiosInstance.delete(`${baseUrl}/transactions/${id}`);
+
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error('[Delete Trade failed]: ', error);
+    throw error;
+  }
+};
+
+export const putTransaction = async ({ id, transaction }) => {
+  console.log(transaction);
+  try {
+    const res = await axiosInstance.put(`${baseUrl}/transactions/${id}`, {
+      transaction,
+    });
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error('[Put Trade failed]: ', error);
+  }
+};

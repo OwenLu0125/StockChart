@@ -79,7 +79,7 @@ const ReplyModal = ({
   return (
     <>
       {isActivated && (
-        <div className='Replymodal'>
+        <div className='replyModal'>
           <div className='modal-overlay'></div>
           <div className='modal-container'>
             <div className='userWidget'>

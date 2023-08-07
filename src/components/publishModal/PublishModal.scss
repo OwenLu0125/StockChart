@@ -1,0 +1,156 @@
+.publishModal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  .modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #0a1943;
+    opacity: 30%;
+  }
+
+  .modal-container {
+    background: #ffffff;
+    border-radius: 4px;
+    width: 600px;
+    border: 1px solid var(--border-gray);
+    position: absolute;
+
+    .top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      color: var(--primary-purple);
+      border-bottom: 1px solid var(--border-gray);
+      position: relative;
+
+      .closeImg {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 26px;
+        margin-top: 1.5px;
+        cursor: pointer;
+      }
+    }
+
+    .modalMain {
+      padding: 20px 26px;
+      .modalContent {
+        /********* trade form *********/
+        .singleTrade {
+          background-color: var(--background-gray);
+          padding: 0 20px;
+          border-radius: 4px;
+          margin-bottom: 20px;
+
+          ul {
+            display: flex;
+
+            li:nth-child(1) {
+              width: 25%;
+            }
+
+            li:nth-child(2) {
+              width: 45%;
+            }
+
+            li:nth-child(3) {
+              width: 25%;
+            }
+
+            li:nth-child(4) {
+              width: 20%;
+            }
+          }
+
+          .formTitles {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-gray);
+            color: var(--secondary-gray);
+          }
+
+          .formCotent {
+            padding: 13px 20px;
+            .buy,
+            .buyPrice {
+              color: var(--secondary-red);
+            }
+            .sell,
+            .sellPrice {
+              color: var(--secondary-green);
+            }
+
+            li {
+              display: flex;
+              align-items: center;
+            }
+
+            li:first-child {
+              span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px;
+                height: 26px;
+                background-color: white;
+                border-radius: 4px;
+                margin-right: 8px;
+                img {
+                  width: 14px;
+                  height: 14px;
+                  cursor: auto;
+                }
+              }
+            }
+
+            li:nth-child(2) {
+              p:last-child {
+                color: var(--secondary-gray);
+                padding-left: 4px;
+              }
+            }
+          }
+        }
+
+        /********* remark *********/
+        .remark {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding-top: 14px;
+          border-top: 1px solid var(--border-gray);
+        }
+
+        .modalBtn {
+          display: flex;
+          justify-content: end;
+          margin-top: 10px;
+
+          .btn {
+            width: 120px;
+            height: 42px;
+          }
+        }
+      }
+    }
+
+    .green {
+      color: var(--secondary-green);
+    }
+
+    .red {
+      color: var(--secondary-red);
+    }
+  }
+}

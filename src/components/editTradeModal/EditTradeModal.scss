@@ -1,0 +1,168 @@
+.editTradeModal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  .modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #0a1943;
+    opacity: 30%;
+  }
+
+  .modal-container {
+    background: #ffffff;
+    border-radius: 4px;
+    width: 600px;
+    border: 1px solid var(--border-gray);
+    position: absolute;
+
+    .top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      color: var(--primary-purple);
+      border-bottom: 1px solid var(--border-gray);
+      position: relative;
+
+      .closeImg {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 26px;
+        margin-top: 1.5px;
+        cursor: pointer;
+      }
+    }
+
+    .modalMain {
+      padding: 20px 26px;
+      .inputGroup {
+        .inputMain {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+
+          .dateInput {
+            .label {
+              margin-bottom: 8px;
+            }
+
+            .datePicker {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 42px;
+              border: 1px solid var(--border-gray);
+              border-radius: 4px;
+              background-color: white;
+              position: relative;
+
+              img:first-child {
+                padding-left: 14px;
+                margin-top: 2px;
+                cursor: auto;
+              }
+
+              img:last-child {
+                margin-top: 3px;
+                position: absolute;
+                right: 16px;
+              }
+
+              .picker {
+                cursor: pointer;
+              }
+
+              .react-datepicker {
+                color: var(--primary-blue);
+              }
+
+              .react-datepicker__triangle {
+                left: 120px !important;
+              }
+
+              .react-datepicker-popper {
+                transform: translate3d(0px, 30px, 0px) !important;
+                right: 0px !important;
+              }
+
+              .react-datepicker__day--selected {
+                background-color: var(--primary-purple);
+              }
+
+              .react-datepicker-wrapper {
+                padding-left: 10px;
+                z-index: 1;
+                width: 100%;
+                .react-datepicker__input-container {
+                  display: flex;
+                  align-items: center;
+
+                  input {
+                    padding: 0;
+                    font-size: 14px;
+                    font-weight: 500;
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .remark {
+          display: flex;
+          flex-direction: column;
+          margin-top: 16px;
+          width: 100%;
+
+          .label {
+            margin-bottom: 8px;
+          }
+
+          .modalText {
+            width: 100%;
+            height: 100px;
+            padding: 14px;
+            resize: none;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+
+            &:focus {
+              border: 1.5px solid var(--primary-purple);
+            }
+
+            &::placeholder {
+              color: var(--secondary-gray);
+            }
+          }
+        }
+      }
+
+      .modalBtn {
+        display: flex;
+        margin-top: 20px;
+        gap: 16px;
+
+        .btn {
+          flex: 1;
+          height: 42px;
+        }
+      }
+    }
+  }
+}
+
+.editTradeModal .react-datepicker {
+  display: inline-flex;
+}

@@ -1,7 +1,7 @@
 import arrowIcon from '../../assets/arrow-green.svg';
 import './DailySummary.scss';
 
-const DailySummary = () => {
+const DailySummary = ({ dailyTradeSummary }) => {
   return (
     <div className='dailySummary'>
       <div className='mainInfo'>
@@ -9,7 +9,9 @@ const DailySummary = () => {
         <div className='sum'>
           <span className='bold-28'>$1,400</span>
           <span>
-            <p className='medium-12'>勝率 +76%</p>
+            <p className='medium-12'>
+              +{(dailyTradeSummary?.winRate * 100).toFixed(0)}% 勝率
+            </p>
             <img src={arrowIcon} alt='bell-icon' />
           </span>
         </div>
@@ -25,7 +27,15 @@ const DailySummary = () => {
         </span>
         <span>
           <p>淨損益</p>
-          <p>+7</p>
+          <p
+            className={
+              String(dailyTradeSummary.netPAndL).includes('-') ? 'red' : 'green'
+            }
+          >
+            {String(dailyTradeSummary.netPAndL).includes('-')
+              ? dailyTradeSummary.netPAndL
+              : `+${dailyTradeSummary.netPAndL}`}
+          </p>
         </span>
         <span>
           <p>盈虧比</p>
@@ -48,7 +58,6 @@ const DailySummary = () => {
           <p>86,765</p>
         </span>
       </div>
-      <button className='btn primary-button bold-16'>儲存</button>
     </div>
   );
 };

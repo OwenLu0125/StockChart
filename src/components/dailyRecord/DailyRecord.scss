@@ -15,6 +15,7 @@
       margin-left: auto;
       margin-right: 0;
       img {
+        margin-top: 1.5px;
         width: 12px;
         height: 12px;
       }
@@ -41,34 +42,6 @@
     &::-webkit-scrollbar-thumb {
       background: #b5b6b8;
       border-radius: 4px;
-    }
-
-    li {
-      display: flex;
-      align-items: center;
-
-      p:nth-child(1) {
-        padding-right: 8px;
-      }
-
-      p:nth-child(2) {
-        padding-right: 18px;
-      }
-
-      p:nth-child(3) {
-        padding-right: 26px;
-      }
-
-      p:nth-child(4) {
-        padding-right: 24px;
-      }
-
-      img {
-        width: 16px;
-        height: 16px;
-        margin-left: auto;
-        margin-right: 17px;
-      }
     }
   }
 }
