@@ -114,7 +114,7 @@ const LoginPage = () => {
           />
         </div>
         <div className='buttonContainer'>
-          <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
+          <PurpleButton text={'登入'} onClick=''></PurpleButton>
           <button
             className='googleBtn secondary-button'
             onClick={handleGoogleLogin}
