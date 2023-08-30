@@ -15,6 +15,7 @@ import googleLogo from '../../assets/google-icon.svg';
 import './LoginPage.scss';
 // Api
 import { gooleLogin } from '../../api/auth';
+import { getRanking } from '../../api/main';
 
 const LoginPage = () => {
   const [account, setAccount] = useState('');
@@ -52,6 +53,7 @@ const LoginPage = () => {
   //     console.error('[Login Failed]:', error);
   //   }
   // };
+
   const handleRegister = async () => {
     navigate('/signup');
   };
@@ -65,6 +67,17 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
+    const ranking = async () => {
+      try {
+        const data = await getRanking();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    ranking();
+
     if (isAuthenticated) {
       navigate('/main');
     }
@@ -101,7 +114,7 @@ const LoginPage = () => {
           />
         </div>
         <div className='buttonContainer'>
-          <PurpleButton text={'登入'} onClick=''></PurpleButton>
+          <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
           <button
             className='googleBtn secondary-button'
             onClick={handleGoogleLogin}
