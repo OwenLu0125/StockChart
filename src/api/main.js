@@ -16,6 +16,7 @@ export const getCurrentUser = async () => {
     const { data } = await axiosInstance.get(`${baseUrl}/users`, {
       withCredentials: true,
     });
+    console.log(data);
     return data;
   } catch (error) {
     console.error('[Get User Data failed]: ', error);
