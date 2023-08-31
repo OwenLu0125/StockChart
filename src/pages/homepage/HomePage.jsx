@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, setGoogleAuth } = useAuth();
   const navigate = useNavigate();
 
+  // google authentication
   useEffect(() => {
     // 得到URL的查詢參數
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,13 +16,11 @@ const HomePage = () => {
       const isAuthenticated = urlParams.get('isAuthenticated') === 'true';
       if (isAuthenticated) {
         // 用戶已認證
+        setGoogleAuth();
         console.log('用戶已認證');
-      } else {
-        // 用戶未認證
-        console.log('用戶未認證');
       }
     }
-  }, []);
+  }, [setGoogleAuth]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -30,12 +29,6 @@ const HomePage = () => {
       navigate('/login');
     }
   }, [navigate, isAuthenticated]);
-
-  return (
-    <div>
-      <p>homepage</p>
-    </div>
-  );
 };
 
 export default HomePage;

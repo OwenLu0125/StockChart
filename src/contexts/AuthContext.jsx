@@ -19,13 +19,14 @@ const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [googleAuth, setGoogleAuth] = useState(false);
   const [payload, setPayload] = useState(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('authToken');
-      if (authToken) {
+      if (authToken || googleAuth) {
         setIsAuthenticated(true);
         const tempPayload = decodeToken(authToken);
         setPayload(tempPayload);
@@ -35,12 +36,16 @@ export const AuthProvider = ({ children }) => {
       }
     };
     checkTokenIsValid();
-  }, [pathname]);
+  }, [pathname, googleAuth]);
 
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
+        setGoogleAuth: () => {
+          setIsAuthenticated(true);
+          setGoogleAuth(true);
+        },
         currentMember: payload && {
           id: payload.id,
           name: payload.username,

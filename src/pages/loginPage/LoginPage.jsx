@@ -15,7 +15,7 @@ import googleLogo from '../../assets/google-icon.svg';
 import './LoginPage.scss';
 // Api
 import { gooleLogin } from '../../api/auth';
-import { getRanking } from '../../api/main';
+//import { getRanking } from '../../api/main';
 
 const LoginPage = () => {
   const [account, setAccount] = useState('');
@@ -67,16 +67,16 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    const ranking = async () => {
-      try {
-        const data = await getRanking();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // const ranking = async () => {
+    //   try {
+    //     const data = await getRanking();
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
-    ranking();
+    // ranking();
 
     if (isAuthenticated) {
       navigate('/main');
