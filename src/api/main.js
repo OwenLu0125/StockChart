@@ -13,10 +13,12 @@ export const getRanking = async () => {
 
 export const getCurrentUser = async () => {
   try {
-    const data = await axiosInstance.get(`${baseUrl}/users`, {
+    const {
+      data: { data },
+    } = await axiosInstance.get(`${baseUrl}/users`, {
       withCredentials: true,
     });
-    return data;
+    return data.user;
   } catch (error) {
     console.error('[Get User Data failed]: ', error);
   }
