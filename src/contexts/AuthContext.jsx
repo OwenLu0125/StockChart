@@ -27,17 +27,14 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('authToken');
-      if (authToken || googleAuth) {
+      if (authToken) {
         setIsAuthenticated(true);
-        if (authToken) {
-          const tempPayload = decodeToken(authToken);
-          setPayload(tempPayload);
-        } else if (googleAuth) {
-          const user = await getCurrentUser();
-          setPayload(user);
-        } else {
-          return;
-        }
+        const tempPayload = decodeToken(authToken);
+        setPayload(tempPayload);
+      } else if (googleAuth) {
+        setIsAuthenticated(true);
+        const user = await getCurrentUser();
+        setPayload(user);
       } else {
         setIsAuthenticated(false);
         setPayload(null);

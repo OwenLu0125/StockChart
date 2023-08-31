@@ -17,7 +17,10 @@ const HomePage = () => {
       if (isAuthenticated) {
         // 用戶已認證
         setGoogleAuth();
+
         console.log('用戶已認證');
+      } else {
+        return;
       }
     }
   }, [setGoogleAuth]);
