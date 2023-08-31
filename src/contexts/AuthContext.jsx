@@ -24,10 +24,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
-      const authToken = localStorage.getItem('authToken');
+      const authToken = JSON.parse(localStorage.getItem('authToken'));
+      // console.log(authToken); 觀察資料用
       if (authToken) {
         setIsAuthenticated(true);
-        const tempPayload = decodeToken(authToken);
+        const tempPayload = decodeToken(authToken.accessToken);
+        // console.log(tempPayload); 觀察資料用
         setPayload(tempPayload);
       } else {
         setIsAuthenticated(false);
@@ -67,15 +69,18 @@ export const AuthProvider = ({ children }) => {
           return success;
         },
         login: async (data) => {
-          const { success, token } = await login({
+          const { success, accessToken, refreshToken } = await login({
             account: data.account,
             password: data.password,
           });
-          const tempPayload = decodeToken(token);
+          const tempPayload = decodeToken(accessToken);
           if (tempPayload) {
             setPayload(tempPayload);
             setIsAuthenticated(true);
-            localStorage.setItem('authToken', token);
+            localStorage.setItem(
+              'authToken',
+              JSON.stringify({ accessToken, refreshToken })
+            );
           } else {
             setPayload(null);
             setIsAuthenticated(false);
