@@ -4,7 +4,10 @@ import axiosInstance, { baseUrl } from './axiosInstance';
 export const getTweets = async (pageParam = 1) => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/transactions/public?page=${pageParam}`
+      `${baseUrl}/transactions/public?page=${pageParam}`,
+      {
+        withCredentials: true,
+      }
     );
     console.log(data.transactions);
     return data.transactions;
