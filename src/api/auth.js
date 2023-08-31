@@ -70,11 +70,3 @@ export const checkPermission = async (authToken) => {
     console.error('[Check Permission Failed]:', error);
   }
 };
-
-export const googleLogout = async () => {
-  try {
-    await axios.post(`${authURL}/users/logout`);
-  } catch (error) {
-    console.error('[Logout Failed]:', error);
-  }
-};

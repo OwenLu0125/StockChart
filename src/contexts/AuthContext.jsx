@@ -4,8 +4,9 @@ import { useLocation } from 'react-router-dom';
 // package
 import { decodeToken } from 'react-jwt';
 // api
-import { login, register, googleLogout } from '../api/auth';
+import { login, register } from '../api/auth';
 import { getCurrentUser } from '../api/main';
+import { googleLogout } from '../api/main';
 
 const defaultAuthContext = {
   isAuthenticated: false, // 使用者是否登入的判斷依據，預設為 false，若取得後端的有效憑證，則切換為 true
@@ -97,12 +98,12 @@ export const AuthProvider = ({ children }) => {
           }
           return success;
         },
-        logout: () => {
+        logout: async () => {
+          await googleLogout();
           localStorage.removeItem('authToken');
           localStorage.removeItem('authGoogle');
           setPayload(null);
           setIsAuthenticated(false);
-          googleLogout();
         },
       }}
     >
