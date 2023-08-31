@@ -24,10 +24,6 @@ const LoginPage = () => {
 
   const { login, isAuthenticated } = useAuth();
 
-  window.onload = function () {
-    console.log('Current cookies: ', document.cookie);
-  };
-
   const handleLogin = async () => {
     try {
       const success = await login({
