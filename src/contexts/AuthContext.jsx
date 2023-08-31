@@ -27,11 +27,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('authToken');
+      const authGoogle = localStorage.getItem('authGoogle');
       if (authToken) {
         setIsAuthenticated(true);
         const tempPayload = decodeToken(authToken);
         setPayload(tempPayload);
-      } else if (googleAuth) {
+      } else if (authGoogle) {
         setIsAuthenticated(true);
         const user = await getCurrentUser();
         setPayload(user);
@@ -41,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
     checkTokenIsValid();
-  }, [pathname, googleAuth]);
+  }, [pathname]);
 
   return (
     <AuthContext.Provider
@@ -93,9 +94,9 @@ export const AuthProvider = ({ children }) => {
         },
         logout: () => {
           localStorage.removeItem('authToken');
+          localStorage.removeItem('authGoogle');
           setPayload(null);
           setIsAuthenticated(false);
-          setGoogleAuth(false);
         },
       }}
     >

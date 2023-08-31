@@ -17,7 +17,7 @@ const HomePage = () => {
       if (isAuthenticated) {
         // 用戶已認證
         setGoogleAuth();
-
+        localStorage.setItem('authGoogle', isAuthenticated);
         console.log('用戶已認證');
       } else {
         return;
