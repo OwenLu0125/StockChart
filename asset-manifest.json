@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/StockChart/static/css/main.ebfd16a1.css",
-    "main.js": "/StockChart/static/js/main.bf2f23a5.js",
+    "main.css": "/StockChart/static/css/main.13246fe3.css",
+    "main.js": "/StockChart/static/js/main.491004f9.js",
     "static/media/setting.svg": "/StockChart/static/media/setting.789307bdff207274a4891a00c520b270.svg",
     "static/media/setting-white.svg": "/StockChart/static/media/setting-white.1490e26f05fb95dac3c05121bd0ae79e.svg",
     "static/media/dashboard.svg": "/StockChart/static/media/dashboard.0aad5ebaeb9a0a1d087605ce102ad299.svg",
@@ -33,11 +33,11 @@
     "static/media/arrow-left.svg": "/StockChart/static/media/arrow-left.63cad4e78c8e43b0d721dd97e957c09e.svg",
     "static/media/arrow-green.svg": "/StockChart/static/media/arrow-green.b005a424727a844e2bd57394b73ef6f2.svg",
     "static/media/arrow-purple.svg": "/StockChart/static/media/arrow-purple.f1e56f96be3c01c51d2a6472bdfc72c8.svg",
-    "main.ebfd16a1.css.map": "/StockChart/static/css/main.ebfd16a1.css.map",
-    "main.bf2f23a5.js.map": "/StockChart/static/js/main.bf2f23a5.js.map"
+    "main.13246fe3.css.map": "/StockChart/static/css/main.13246fe3.css.map",
+    "main.491004f9.js.map": "/StockChart/static/js/main.491004f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebfd16a1.css",
-    "static/js/main.bf2f23a5.js"
+    "static/css/main.13246fe3.css",
+    "static/js/main.491004f9.js"
   ]
 }
