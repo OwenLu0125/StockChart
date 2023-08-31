@@ -62,10 +62,10 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    console.log(isAuthenticated);
     if (isAuthenticated) {
       navigate('/main');
     }
+    console.log(isAuthenticated);
   }, [navigate, isAuthenticated]);
 
   return (
