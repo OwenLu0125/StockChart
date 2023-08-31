@@ -4,7 +4,9 @@ export const getHistory = async ({ id, startDate, endDate }) => {
   try {
     const { data } = await axiosInstance.get(
       `${baseUrl}/users/${id}/history?startDate=${startDate}&endDate=${endDate}`,
-      { withCredentials: true }
+      {
+        withCredentials: true,
+      }
     );
     console.log(data);
     return data;
