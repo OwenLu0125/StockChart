@@ -4,10 +4,7 @@ import axiosInstance, { baseUrl } from './axiosInstance';
 export const getTweets = async (pageParam = 1) => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/transactions/public?page=${pageParam}`,
-      {
-        withCredentials: true,
-      }
+      `${baseUrl}/transactions/public?page=${pageParam}`
     );
     console.log(data.transactions);
     return data.transactions;
@@ -19,9 +16,7 @@ export const getTweets = async (pageParam = 1) => {
 // 單筆公開交易紀錄
 export const getSingleTweet = async (id) => {
   try {
-    const { data } = await axiosInstance.get(`${baseUrl}/transactions/${id}`, {
-      withCredentials: true,
-    });
+    const { data } = await axiosInstance.get(`${baseUrl}/transactions/${id}`);
     return data.transaction;
   } catch (error) {
     console.error('[Get Tweet failed]: ', error);
@@ -32,8 +27,7 @@ export const getSingleTweet = async (id) => {
 export const getUserTweets = async () => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/transactions/public/currentUser`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/public/currentUser`
     );
     return data.publicTransactions;
   } catch (error) {
@@ -44,9 +38,7 @@ export const getUserTweets = async () => {
 // 喜歡單筆公開交易
 export const likeTweet = async (id) => {
   try {
-    const res = await axiosInstance.post(`${baseUrl}/transactions/${id}/like`, {
-      withCredentials: true,
-    });
+    const res = await axiosInstance.post(`${baseUrl}/transactions/${id}/like`);
     return res;
   } catch (error) {
     console.error('[Like Tweet failed]: ', error);
@@ -58,8 +50,7 @@ export const likeTweet = async (id) => {
 export const unlikeTweet = async (id) => {
   try {
     const res = await axiosInstance.delete(
-      `${baseUrl}/transactions/${id}/unlike`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/${id}/unlike`
     );
     return res;
   } catch (error) {
@@ -72,8 +63,7 @@ export const unlikeTweet = async (id) => {
 export const getReplies = async (id) => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/transactions/${id}/replies`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/${id}/replies`
     );
     return data.replies;
   } catch (error) {
@@ -84,12 +74,10 @@ export const getReplies = async (id) => {
 // 回覆單筆公開交易
 export const postReply = async ({ id, content }) => {
   try {
-    //
     const { data } = await axiosInstance.post(
       `${baseUrl}/transactions/${id}/replies`,
       {
         content,
-        withCredentials: true,
       }
     );
 
@@ -105,8 +93,7 @@ export const postReply = async ({ id, content }) => {
 export const deleteReply = async (id) => {
   try {
     const res = await axiosInstance.delete(
-      `${baseUrl}/transactions/${id}/deleteReplies`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/${id}/deleteReplies`
     );
 
     console.log(res);
@@ -121,8 +108,7 @@ export const deleteReply = async (id) => {
 export const publishTweet = async (id) => {
   try {
     const res = await axiosInstance.post(
-      `${baseUrl}/transactions/${id}/public`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/${id}/public`
     );
     console.log(res);
     return res;
@@ -136,8 +122,7 @@ export const publishTweet = async (id) => {
 export const unpublishTweet = async (id) => {
   try {
     const res = await axiosInstance.delete(
-      `${baseUrl}/transactions/${id}/public`,
-      { withCredentials: true }
+      `${baseUrl}/transactions/${id}/public`
     );
     console.log(res);
     return res;

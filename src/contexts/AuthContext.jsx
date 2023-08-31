@@ -20,7 +20,7 @@ const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [googleAuth, setGoogleAuth] = useState(false);
+  //const [googleAuth, setGoogleAuth] = useState(false);
   const [payload, setPayload] = useState(null);
   const { pathname } = useLocation();
 
@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         setGoogleAuth: () => {
           setIsAuthenticated(true);
-          setGoogleAuth(true);
         },
         currentMember: payload && {
           id: payload.id,

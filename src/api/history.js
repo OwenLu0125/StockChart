@@ -3,10 +3,7 @@ import axiosInstance, { baseUrl } from './axiosInstance';
 export const getHistory = async ({ id, startDate, endDate }) => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/users/${id}/history?startDate=${startDate}&endDate=${endDate}`,
-      {
-        withCredentials: true,
-      }
+      `${baseUrl}/users/${id}/history?startDate=${startDate}&endDate=${endDate}`
     );
     console.log(data);
     return data;
@@ -17,9 +14,7 @@ export const getHistory = async ({ id, startDate, endDate }) => {
 
 export const getTotalHistory = async ({ id }) => {
   try {
-    const { data } = await axiosInstance.get(`${baseUrl}/users/${id}/history`, {
-      withCredentials: true,
-    });
+    const { data } = await axiosInstance.get(`${baseUrl}/users/${id}/history`);
     console.log(data);
     return data;
   } catch (error) {

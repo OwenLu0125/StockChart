@@ -2,11 +2,7 @@ import axiosInstance, { baseUrl } from './axiosInstance';
 
 export const createDiary = async (data) => {
   try {
-    //
-    const res = await axiosInstance.post(`${baseUrl}/transactions`, {
-      ...data,
-      withCredentials: true,
-    });
+    const res = await axiosInstance.post(`${baseUrl}/transactions`, data);
     return res;
   } catch (error) {
     console.error('creatDiary fail !!!', error);
@@ -16,10 +12,7 @@ export const createDiary = async (data) => {
 
 export const getTransactions = async (data) => {
   try {
-    const res = await axiosInstance.post(`${baseUrl}/transactions/range`, {
-      ...data,
-      withCredentials: true,
-    });
+    const res = await axiosInstance.post(`${baseUrl}/transactions/range`, data);
     console.log(res);
     return res;
   } catch (error) {
@@ -31,10 +24,7 @@ export const getTransactions = async (data) => {
 export const getTodaysTransactionsData = async ({ id, date }) => {
   try {
     const { data } = await axiosInstance.get(
-      `${baseUrl}/users/${id}/byDate?date=${date}`,
-      {
-        withCredentials: true,
-      }
+      `${baseUrl}/users/${id}/byDate?date=${date}`
     );
     console.log(data);
     return data;
@@ -45,9 +35,7 @@ export const getTodaysTransactionsData = async ({ id, date }) => {
 
 export const deleteTransaction = async (id) => {
   try {
-    const res = await axiosInstance.delete(`${baseUrl}/transactions/${id}`, {
-      withCredentials: true,
-    });
+    const res = await axiosInstance.delete(`${baseUrl}/transactions/${id}`);
 
     console.log(res);
     return res;
@@ -59,11 +47,10 @@ export const deleteTransaction = async (id) => {
 
 export const putTransaction = async ({ tradeId, transaction }) => {
   try {
-    //
-    const res = await axiosInstance.put(`${baseUrl}/transactions/${tradeId}`, {
-      ...transaction,
-      withCredentials: true,
-    });
+    const res = await axiosInstance.put(
+      `${baseUrl}/transactions/${tradeId}`,
+      transaction
+    );
     console.log(res);
     return res;
   } catch (error) {
