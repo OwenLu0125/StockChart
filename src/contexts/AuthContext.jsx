@@ -4,7 +4,8 @@ import { useLocation } from 'react-router-dom';
 // package
 import { decodeToken } from 'react-jwt';
 // api
-import { login, register, gooleLogin } from '../api/auth';
+import { login, register } from '../api/auth';
+import { getCurrentUser } from '../api/main';
 
 const defaultAuthContext = {
   isAuthenticated: false, // 使用者是否登入的判斷依據，預設為 false，若取得後端的有效憑證，則切換為 true
@@ -28,8 +29,15 @@ export const AuthProvider = ({ children }) => {
       const authToken = localStorage.getItem('authToken');
       if (authToken || googleAuth) {
         setIsAuthenticated(true);
-        const tempPayload = decodeToken(authToken);
-        setPayload(tempPayload);
+        if (authToken) {
+          const tempPayload = decodeToken(authToken);
+          setPayload(tempPayload);
+        } else if (googleAuth) {
+          const user = await getCurrentUser();
+          console.log(user);
+        } else {
+          return;
+        }
       } else {
         setIsAuthenticated(false);
         setPayload(null);
