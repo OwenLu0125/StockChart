@@ -62,6 +62,7 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
+    console.log(isAuthenticated);
     if (isAuthenticated) {
       navigate('/main');
     }
