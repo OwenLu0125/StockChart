@@ -21,7 +21,6 @@ export const MainPage = () => {
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login');
-      console.log('go back to login');
     }
   }, [navigate, isAuthenticated]);
 
