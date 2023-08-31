@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
           setPayload(tempPayload);
         } else if (googleAuth) {
           const user = await getCurrentUser();
-          console.log(user);
+          setPayload(user);
         } else {
           return;
         }
