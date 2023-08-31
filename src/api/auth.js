@@ -10,7 +10,6 @@ export const login = async ({ account, password }) => {
       account,
       password,
     });
-
     console.log(data);
 
     const { accessToken } = data;
