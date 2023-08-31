@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 // package
 import { decodeToken } from 'react-jwt';
 // api
-import { login, register } from '../api/auth';
+import { login, register, googleLogout } from '../api/auth';
 import { getCurrentUser } from '../api/main';
 
 const defaultAuthContext = {
@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
-
       const authGoogle = localStorage.getItem('authGoogle');
       const authToken = JSON.parse(localStorage.getItem('authToken'));
       // console.log(authToken); 觀察資料用
@@ -79,9 +78,7 @@ export const AuthProvider = ({ children }) => {
           return success;
         },
         login: async (data) => {
-
           const { success, accessToken, refreshToken } = await login({
-
             account: data.account,
             password: data.password,
           });
@@ -94,7 +91,6 @@ export const AuthProvider = ({ children }) => {
               'authToken',
               JSON.stringify({ accessToken, refreshToken })
             );
-
           } else {
             setPayload(null);
             setIsAuthenticated(false);
@@ -106,6 +102,7 @@ export const AuthProvider = ({ children }) => {
           localStorage.removeItem('authGoogle');
           setPayload(null);
           setIsAuthenticated(false);
+          googleLogout();
         },
       }}
     >
