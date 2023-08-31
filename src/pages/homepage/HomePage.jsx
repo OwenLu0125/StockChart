@@ -23,19 +23,19 @@ const HomePage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/main');
+    } else {
+      navigate('/login');
+    }
+  }, [navigate, isAuthenticated]);
+
   return (
     <div>
       <p>homepage</p>
     </div>
   );
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     navigate('/main');
-  //   } else {
-  //     navigate('/login');
-  //   }
-  // }, [navigate, isAuthenticated]);
 };
 
 export default HomePage;
