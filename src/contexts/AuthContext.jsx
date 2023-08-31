@@ -86,21 +86,11 @@ export const AuthProvider = ({ children }) => {
           }
           return success;
         },
-        gooleLogin: async () => {
-          const { success } = await gooleLogin();
-          console.log(success);
-          if (success) {
-            setIsAuthenticated(true);
-          } else {
-            setPayload(null);
-            setIsAuthenticated(false);
-          }
-          return success;
-        },
         logout: () => {
           localStorage.removeItem('authToken');
           setPayload(null);
           setIsAuthenticated(false);
+          setGoogleAuth(false);
         },
       }}
     >
