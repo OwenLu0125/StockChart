@@ -6,20 +6,22 @@ const HomePage = () => {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  // 得到URL的查詢參數
-  const urlParams = new URLSearchParams(window.location.search);
+  useEffect(() => {
+    // 得到URL的查詢參數
+    const urlParams = new URLSearchParams(window.location.search);
 
-  // 檢查是否包含 isAuthenticated 參數，並讀取其值
-  if (urlParams.has('isAuthenticated')) {
-    const isAuthenticated = urlParams.get('isAuthenticated') === 'true';
-    if (isAuthenticated) {
-      // 用戶已認證
-      console.log('用戶已認證');
-    } else {
-      // 用戶未認證
-      console.log('用戶未認證');
+    // 檢查是否包含 isAuthenticated 參數，並讀取其值
+    if (urlParams.has('isAuthenticated')) {
+      const isAuthenticated = urlParams.get('isAuthenticated') === 'true';
+      if (isAuthenticated) {
+        // 用戶已認證
+        console.log('用戶已認證');
+      } else {
+        // 用戶未認證
+        console.log('用戶未認證');
+      }
     }
-  }
+  }, []);
 
   return (
     <div>
