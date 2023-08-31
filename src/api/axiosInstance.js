@@ -4,6 +4,7 @@ export const baseUrl = 'https://trade-tracker.onrender.com/api';
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
+  withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use(
