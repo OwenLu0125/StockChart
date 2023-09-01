@@ -99,12 +99,9 @@ export const AuthProvider = ({ children }) => {
           return success;
         },
         logout: async () => {
-          const res = await googleLogout();
+          await googleLogout();
           setIsAuthenticated(false);
           setPayload(null);
-          localStorage.removeItem('authToken');
-          localStorage.removeItem('authGoogle');
-          console.log('logout:', res);
         },
       }}
     >
