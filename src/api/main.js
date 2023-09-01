@@ -25,6 +25,7 @@ export const refreshToken = async () => {
     const res = await axiosInstance.post(`${baseUrl}/users/refreshToken`, {
       refreshToken: token.refreshToken,
     });
+    console.log('token更新成功', res);
     return res;
   } catch (error) {
     console.error('Get Token failed !!!', error);
