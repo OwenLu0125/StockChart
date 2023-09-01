@@ -65,7 +65,6 @@ const LoginPage = () => {
     if (isAuthenticated) {
       navigate('/main');
     }
-    console.log(isAuthenticated);
   }, [navigate, isAuthenticated]);
 
   return (

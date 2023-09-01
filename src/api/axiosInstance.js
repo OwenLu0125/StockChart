@@ -14,8 +14,11 @@ axiosInstance.interceptors.request.use(async (config) => {
     ? JSON.parse(localStorage.getItem('authToken'))
     : null;
   console.log(authToken);
-  if (authToken)
+  if (authToken) {
     config.headers['Authorization'] = `Bearer ${authToken.accessToken}`;
+  } else {
+    config.headers['Authorization'] = `Bearer {}`;
+  }
 
   const user = decodeToken(authToken.accessToken);
   const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
