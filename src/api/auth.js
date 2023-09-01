@@ -80,5 +80,7 @@ export const googleLogout = async () => {
     localStorage.removeItem('authGoogle');
   } catch (error) {
     console.error('[Logout Failed]:', error);
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('authGoogle');
   }
 };
