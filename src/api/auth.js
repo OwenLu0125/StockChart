@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosInstance from './axiosInstance';
 
 const authURL = 'https://trade-tracker.onrender.com/api';
 
@@ -25,11 +26,7 @@ export const login = async ({ account, password }) => {
 
 export const gooleLogin = async () => {
   try {
-    const data = await axios.get(`${authURL}/auth/google`);
-
-    console.log(data);
-
-    return data;
+    window.location.href = `${authURL}/auth/google`;
   } catch (error) {
     console.error('[Login Failed]:', error);
     return { success: false, error };
@@ -72,5 +69,16 @@ export const checkPermission = async (authToken) => {
     return response.data.success;
   } catch (error) {
     console.error('[Check Permission Failed]:', error);
+  }
+};
+
+export const googleLogout = async () => {
+  try {
+    const res = await axiosInstance.post(`${authURL}/users/logout`);
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('authGoogle');
+    console.log(res);
+  } catch (error) {
+    console.error('[Logout Failed]:', error);
   }
 };

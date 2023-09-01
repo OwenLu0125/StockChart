@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 // api
 import { login, register } from '../api/auth';
+import { getCurrentUser } from '../api/main';
+import { googleLogout } from '../api/auth';
 
 const defaultAuthContext = {
   isAuthenticated: false, // 使用者是否登入的判斷依據，預設為 false，若取得後端的有效憑證，則切換為 true
@@ -19,11 +21,13 @@ const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  //const [googleAuth, setGoogleAuth] = useState(false);
   const [payload, setPayload] = useState(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
+      const authGoogle = localStorage.getItem('authGoogle');
       const authToken = JSON.parse(localStorage.getItem('authToken'));
       // console.log(authToken); 觀察資料用
       if (authToken) {
@@ -31,12 +35,15 @@ export const AuthProvider = ({ children }) => {
         const tempPayload = decodeToken(authToken.accessToken);
         // console.log(tempPayload); 觀察資料用
         setPayload(tempPayload);
+      } else if (authGoogle) {
+        setIsAuthenticated(true);
+        const user = await getCurrentUser();
+        setPayload(user);
       } else {
         setIsAuthenticated(false);
         setPayload(null);
       }
     };
-
     checkTokenIsValid();
   }, [pathname]);
 
@@ -44,6 +51,9 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated,
+        setGoogleAuth: () => {
+          setIsAuthenticated(true);
+        },
         currentMember: payload && {
           id: payload.id,
           name: payload.username,
@@ -77,6 +87,7 @@ export const AuthProvider = ({ children }) => {
           if (tempPayload) {
             setPayload(tempPayload);
             setIsAuthenticated(true);
+
             localStorage.setItem(
               'authToken',
               JSON.stringify({ accessToken, refreshToken })
@@ -87,12 +98,13 @@ export const AuthProvider = ({ children }) => {
           }
           return success;
         },
-        logout: () => {
-          localStorage.removeItem('authToken');
-          setPayload(null);
+        logout: async () => {
           setIsAuthenticated(false);
+          setPayload(null);
+          googleLogout();
         },
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

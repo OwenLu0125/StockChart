@@ -64,8 +64,7 @@ const SignupPage = () => {
   };
   const handleNavigate = () => {
     navigate('/login');
-  }
-
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -78,7 +77,10 @@ const SignupPage = () => {
       <div className='loginLeftContainer'></div>
       <div className='loginContainer'>
         <div className='loginPrompt'>
-          您已經有帳號了嗎? <a  onClick={handleNavigate}>立即登入</a>
+          <p className='regular-16'>您已經有帳號了嗎? </p>
+          <p className='link regular-16' onClick={handleNavigate}>
+            立即登入
+          </p>
         </div>
         <div className='title'>
           <img src={logo} alt='' />

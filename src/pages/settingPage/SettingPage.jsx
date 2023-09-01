@@ -58,7 +58,7 @@ const SettingPage = () => {
           Swal.fire({
             position: 'top',
             title: '修改成功!',
-            text:'請重新登入',
+            text: '請重新登入',
             icon: 'success',
             showConfirmButton: true,
           });
@@ -132,7 +132,8 @@ const SettingPage = () => {
             />
             <button
               className='secondary-button bold-16'
-              onClick={handleImageSubmit}>
+              onClick={handleImageSubmit}
+            >
               更改資料
             </button>
           </div>

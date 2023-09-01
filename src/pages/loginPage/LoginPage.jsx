@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // component
 import PurpleButton from '../../components/button/purpleButton/PurpleButton';
-import WhiteButton from '../../components/button/whiteButton/WhiteButton';
 import Input from '../../components/input/Input';
 // context
 import { useAuth } from '../../contexts/AuthContext';
 // icon
 import logo from '../../assets/logo.svg';
+import googleLogo from '../../assets/google-icon.svg';
 // styles
 import './LoginPage.scss';
-// api
+// Api
 import { gooleLogin } from '../../api/auth';
 
 const LoginPage = () => {
@@ -48,6 +48,7 @@ const LoginPage = () => {
       console.error('[Login Failed]:', error);
     }
   };
+
   const handleRegister = async () => {
     navigate('/signup');
   };
@@ -70,8 +71,14 @@ const LoginPage = () => {
     <div className='container'>
       <div className='loginLeftContainer'></div>
       <div className='loginContainer'>
+        <div className='loginPrompt'>
+          <p className='regular-16'>您還沒有帳號嗎? </p>
+          <p className='link regular-16' onClick={handleRegister}>
+            立即註冊
+          </p>
+        </div>
         <div className='title'>
-          <img src={logo} alt='' />
+          <img src={logo} alt='logo' />
           <h1>FUTURESMARKET</h1>
         </div>
         <p>立即登入，開始您今日的投資。祝您投資順利!</p>
@@ -92,11 +99,13 @@ const LoginPage = () => {
         </div>
         <div className='buttonContainer'>
           <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
-          <WhiteButton text={'立刻註冊'} onClick={handleRegister}></WhiteButton>
-          <WhiteButton
-            text={'Google登入'}
+          <button
+            className='googleBtn secondary-button'
             onClick={handleGoogleLogin}
-          ></WhiteButton>
+          >
+            <img src={googleLogo} alt='google-logo' />
+            <span className='bold-18'>Google登入</span>
+          </button>
         </div>
       </div>
     </div>
