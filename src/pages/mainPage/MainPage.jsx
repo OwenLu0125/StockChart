@@ -19,7 +19,6 @@ export const MainPage = () => {
   const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    console.log('new deployment-v3');
     if (!isAuthenticated) {
       navigate('/login');
     }
