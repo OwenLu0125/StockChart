@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }) => {
           setPayload(null);
           localStorage.removeItem('authToken');
           localStorage.removeItem('authGoogle');
-          console.log('new deployment');
+          console.log('new deployment v1');
         },
       }}
     >
