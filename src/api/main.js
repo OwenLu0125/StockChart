@@ -18,3 +18,16 @@ export const getCurrentUser = async () => {
     console.error('[Get User Data failed]: ', error);
   }
 };
+
+export const refreshToken = async () => {
+  const token = JSON.parse(localStorage.getItem('authToken'));
+  try {
+    const res = await axiosInstance.post(`${baseUrl}/users/refreshToken`, {
+      refreshToken: token.refreshToken,
+    });
+    return res;
+  } catch (error) {
+    console.error('Get Token failed !!!', error);
+    return error;
+  }
+};
