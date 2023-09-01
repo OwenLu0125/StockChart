@@ -1,6 +1,8 @@
 import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+//api
+import { getUserToken } from '../../api/auth';
 
 const HomePage = () => {
   const { isAuthenticated, setGoogleAuth } = useAuth();
@@ -16,6 +18,8 @@ const HomePage = () => {
       const isAuthenticated = urlParams.get('isAuthenticated') === 'true';
       if (isAuthenticated) {
         // 用戶已認證
+
+        const userToken = getUserToken();
         setGoogleAuth();
         localStorage.setItem('authGoogle', isAuthenticated);
         console.log('用戶已認證');
