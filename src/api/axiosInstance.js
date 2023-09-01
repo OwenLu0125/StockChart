@@ -36,8 +36,6 @@ axiosInstance.interceptors.request.use(async (config) => {
     } catch (error) {
       console.error(error);
     }
-  } else {
-    config.headers['Authorization'] = {};
   }
 
   return config;
