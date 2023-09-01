@@ -12,12 +12,10 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(async (config) => {
   const authToken = localStorage.getItem('authToken')
     ? JSON.parse(localStorage.getItem('authToken'))
-    : '';
+    : {};
   console.log(authToken);
   if (authToken) {
     config.headers['Authorization'] = `Bearer ${authToken.accessToken}`;
-  } else {
-    config.headers['Authorization'] = `Bearer {}`;
   }
 
   const user = decodeToken(authToken.accessToken);
