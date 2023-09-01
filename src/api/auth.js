@@ -76,12 +76,7 @@ export const googleLogout = async () => {
   try {
     const res = await axiosInstance.post(`${authURL}/users/logout`);
     console.log(res);
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('authGoogle');
   } catch (error) {
     console.error('[Logout Failed]:', error);
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('authGoogle');
-    console.log('logout');
   }
 };
