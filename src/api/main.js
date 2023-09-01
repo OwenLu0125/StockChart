@@ -18,12 +18,3 @@ export const getCurrentUser = async () => {
     console.error('[Get User Data failed]: ', error);
   }
 };
-
-export const googleLogout = async () => {
-  try {
-    const res = await axiosInstance.post(`${baseUrl}/users/logout`);
-    console.log(res);
-  } catch (error) {
-    console.error('[Logout Failed]:', error);
-  }
-};
