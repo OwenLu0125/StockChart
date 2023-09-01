@@ -104,6 +104,7 @@ export const AuthProvider = ({ children }) => {
           await googleLogout();
           localStorage.removeItem('authToken');
           localStorage.removeItem('authGoogle');
+          console.log('new deployment');
         },
       }}
     >
