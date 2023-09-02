@@ -8,8 +8,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import './Header.scss';
 // others
 import { formatDate } from '../../timeSwitcher/timeSwitcher';
-//api
-import { refreshToken } from '../../api/main';
 
 const Header = () => {
   const { currentMember } = useAuth();
@@ -38,14 +36,6 @@ const Header = () => {
         <span className='medium-16'>{dayOfWeek}</span>
         <span className='medium-16'>{formatDate(currentDate)}</span>
       </div>
-      <button
-        className='secondary-button medium-16'
-        onClick={async () => {
-          await refreshToken();
-        }}
-      >
-        Refresh Token
-      </button>
       <div className='widgetSec'>
         <span className='bellWidget'>
           <img src={bellIcon} alt='bell-icon' />
