@@ -32,10 +32,6 @@ export const AuthProvider = ({ children }) => {
         const tempPayload = decodeToken(authToken.accessToken);
         // console.log(tempPayload); 觀察資料用
         setPayload(tempPayload);
-      } else if (authGoogle) {
-        setIsAuthenticated(true);
-        const user = await getCurrentUser();
-        setPayload(user);
       } else {
         setIsAuthenticated(false);
         setPayload(null);
