@@ -12,17 +12,17 @@ const HomePage = () => {
   useEffect(() => {
     // 得到URL的查詢參數
     const urlParams = new URLSearchParams(window.location.search);
-
     // 檢查是否包含 isAuthenticated 參數，並讀取其值
     if (urlParams.has('isAuthenticated')) {
       const isAuthenticated = urlParams.get('isAuthenticated') === 'true';
       if (isAuthenticated) {
         // 用戶已認證
-
-        const userToken = getUserToken();
-        setGoogleAuth();
-        localStorage.setItem('authGoogle', isAuthenticated);
         console.log('用戶已認證');
+        const fectUserToken = async () => {
+          const token = await getUserToken();
+          if (token) setGoogleAuth(token);
+        };
+        fectUserToken();
       } else {
         return;
       }
