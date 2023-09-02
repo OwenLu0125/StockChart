@@ -84,10 +84,8 @@ export const googleLogout = async () => {
 
 export const getUserToken = async () => {
   try {
-    const res = await axios.get(`${authURL}/users/token`, {
-      withCredentials: true,
-    });
-    return res;
+    const res = await axiosInstance.get(`${authURL}/users/token`);
+    return res.data;
   } catch (error) {
     console.error('[Get User Token Failed]:', error);
   }
