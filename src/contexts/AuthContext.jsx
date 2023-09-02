@@ -20,13 +20,11 @@ const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const [googleAuth, setGoogleAuth] = useState(false);
   const [payload, setPayload] = useState(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
-      const authGoogle = localStorage.getItem('authGoogle');
       const authToken = JSON.parse(localStorage.getItem('authToken'));
       // console.log(authToken); 觀察資料用
       if (authToken) {
