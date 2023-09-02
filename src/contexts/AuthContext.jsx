@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 // api
 import { login, register } from '../api/auth';
-import { getCurrentUser } from '../api/main';
 import { googleLogout } from '../api/auth';
 
 const defaultAuthContext = {
