@@ -44,8 +44,20 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated,
-        setGoogleAuth: () => {
-          setIsAuthenticated(true);
+        setGoogleAuth: (token) => {
+          const { accessToken, refreshToken } = token;
+          const tempPayload = decodeToken(accessToken);
+          if (tempPayload) {
+            setPayload(tempPayload);
+            setIsAuthenticated(true);
+            localStorage.setItem(
+              'authToken',
+              JSON.stringify({ accessToken, refreshToken })
+            );
+          } else {
+            setPayload(null);
+            setIsAuthenticated(false);
+          }
         },
         currentMember: payload && {
           id: payload.id,
