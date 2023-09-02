@@ -107,8 +107,8 @@ export const AuthProvider = ({ children }) => {
           try {
             const res = await googleLogout();
             if (res) {
-              localStorage.removeItem('authToken');
               setIsAuthenticated(false);
+              localStorage.removeItem('authToken');
               setPayload(null);
             }
           } catch (error) {
