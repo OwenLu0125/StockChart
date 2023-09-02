@@ -75,7 +75,7 @@ export const checkPermission = async (authToken) => {
 export const googleLogout = async () => {
   try {
     const res = await axiosInstance.post(`${authURL}/users/logout`);
-    console.log('logout res:', res);
+    console.log('api for logout works');
     return res;
   } catch (error) {
     console.error('[Logout Failed]:', error);
