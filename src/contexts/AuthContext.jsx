@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 // api
 import { login, register } from '../api/auth';
-import { getCurrentUser } from '../api/main';
 import { googleLogout } from '../api/auth';
 
 const defaultAuthContext = {
@@ -21,13 +20,11 @@ const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const [googleAuth, setGoogleAuth] = useState(false);
   const [payload, setPayload] = useState(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
-      const authGoogle = localStorage.getItem('authGoogle');
       const authToken = JSON.parse(localStorage.getItem('authToken'));
       // console.log(authToken); 觀察資料用
       if (authToken) {
@@ -35,10 +32,6 @@ export const AuthProvider = ({ children }) => {
         const tempPayload = decodeToken(authToken.accessToken);
         // console.log(tempPayload); 觀察資料用
         setPayload(tempPayload);
-      } else if (authGoogle) {
-        setIsAuthenticated(true);
-        const user = await getCurrentUser();
-        setPayload(user);
       } else {
         setIsAuthenticated(false);
         setPayload(null);
@@ -51,8 +44,20 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated,
-        setGoogleAuth: () => {
-          setIsAuthenticated(true);
+        setGoogleAuth: (token) => {
+          const { accessToken, refreshToken } = token;
+          const tempPayload = decodeToken(accessToken);
+          if (tempPayload) {
+            setPayload(tempPayload);
+            setIsAuthenticated(true);
+            localStorage.setItem(
+              'authToken',
+              JSON.stringify({ accessToken, refreshToken })
+            );
+          } else {
+            setPayload(null);
+            setIsAuthenticated(false);
+          }
         },
         currentMember: payload && {
           id: payload.id,
@@ -99,9 +104,16 @@ export const AuthProvider = ({ children }) => {
           return success;
         },
         logout: async () => {
-          setIsAuthenticated(false);
-          setPayload(null);
-          googleLogout();
+          try {
+            const res = await googleLogout();
+            if (res) {
+              localStorage.removeItem('authToken');
+              setIsAuthenticated(false);
+              setPayload(null);
+            }
+          } catch (error) {
+            console.log(error);
+          }
         },
       }}
     >

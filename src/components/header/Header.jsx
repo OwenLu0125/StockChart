@@ -14,7 +14,7 @@ const Header = () => {
   const username =
     currentMember?.name?.slice(0, 1).toUpperCase() +
     currentMember?.name?.slice(1);
-  
+
   const userAccount = currentMember?.account;
   const userAvatar = currentMember?.avatar;
 
