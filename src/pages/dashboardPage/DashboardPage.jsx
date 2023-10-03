@@ -72,7 +72,7 @@ const DashboardPage = () => {
   }, [navigate, isAuthenticated]);
 
   return (
-    <div className='dashboardContainer'>
+    <div className='dashboardPage'>
       <Navbar />
       <div className='dashboardBody'>
         <Header />
