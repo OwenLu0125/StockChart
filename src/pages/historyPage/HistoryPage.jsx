@@ -202,6 +202,15 @@ const HistoryPage = () => {
         <div className='historyBody'>
           <Header />
           <div className='historyMain'>
+            <div
+              className='filterSwitch'
+              onClick={() => {
+                setIsVisible(true);
+              }}
+            >
+              <img src={filterIcon} alt='filter-icon' />
+              <p className='bold-16'>日期篩選</p>
+            </div>
             <div className='dateFilter'>
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
