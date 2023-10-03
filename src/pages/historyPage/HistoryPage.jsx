@@ -11,6 +11,8 @@ import { useAuth } from '../../contexts/AuthContext';
 // icons
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
+import filterIcon from '../../assets/filter.svg';
+import closeIcon from '../../assets/close.svg';
 // api
 import { getHistory } from '../../api/history';
 // style
