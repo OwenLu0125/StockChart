@@ -169,7 +169,7 @@ const Tweet = React.forwardRef(
                   </li>
                   <li>
                     <p>{date.substr(0, 10)}</p>
-                    <p>{date.substr(11, 8)}</p>
+                    <p className='time'>{date.substr(11, 8)}</p>
                   </li>
                   <li>x{quantity}</li>
                   <li className={action === 'buy' ? 'buyPrice' : 'sellPrice'}>
@@ -275,7 +275,7 @@ const Tweet = React.forwardRef(
                 </ul>
                 <ul className='formCotent regular-14'>
                   <li>
-                    <span>
+                    <span className='typeIcon'>
                       <img
                         src={action === 'buy' ? buyIcon : sellIcon}
                         alt='trade-Icon'
@@ -288,8 +288,8 @@ const Tweet = React.forwardRef(
                     )}
                   </li>
                   <li>
-                    <p>{date.substr(0, 10)}</p>
-                    <p>{date.substr(11, 8)}</p>
+                    <p>{date.substr(0, 10).replaceAll('-', '/')}</p>
+                    <p className='time'>{date.substr(11, 8)}</p>
                   </li>
                   <li>x{quantity}</li>
                   <li className={action === 'buy' ? 'buyPrice' : 'sellPrice'}>

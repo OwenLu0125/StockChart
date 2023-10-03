@@ -75,7 +75,7 @@ const SingleTweet = ({ tweet, setTweet }) => {
             </ul>
             <ul className='formCotent regular-14'>
               <li>
-                <span>
+                <span className='typeIcon'>
                   <img
                     src={tweet?.action === 'buy' ? buyIcon : sellIcon}
                     alt='trade-Icon'
@@ -88,8 +88,8 @@ const SingleTweet = ({ tweet, setTweet }) => {
                 )}
               </li>
               <li>
-                <p>{date?.substr(0, 10)}</p>
-                <p>{date?.substr(11, 8)}</p>
+                <p>{date?.substr(0, 10).replaceAll('-', '/')}</p>
+                <p className='time'>{date?.substr(11, 8)}</p>
               </li>
               <li>x{tweet?.quantity}</li>
               <li
