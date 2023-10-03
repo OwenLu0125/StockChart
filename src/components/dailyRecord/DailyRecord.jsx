@@ -21,7 +21,7 @@ const DailyRecord = ({
     <>
       <div className='dailyRecord'>
         <div className='titleSec'>
-          <div className='medium-14'>日期交易紀錄</div>
+          <div className='medium-14'>交易日期紀錄</div>
           <div className='datePicker'>
             <img src={clockIcon} alt='clock-icon' />
             <DatePicker
