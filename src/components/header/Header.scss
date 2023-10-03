@@ -24,7 +24,8 @@
     margin-right: 0;
 
     .bellWidget {
-      display: flex;
+      //display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
       width: 44px;
@@ -61,5 +62,23 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .header {
+    left: 100px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 0 24px;
   }
 }
