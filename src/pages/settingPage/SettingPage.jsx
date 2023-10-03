@@ -82,15 +82,15 @@ const SettingPage = () => {
 
   return (
     <div className='settingPage'>
-      <div className='navbarSection'>
-        <Navbar />
-      </div>
+      <Navbar />
       <div className='settingBody'>
         <Header />
         <div className='settingMain'>
           <div className='photoEdit'>
             <img className='userImg' src={currentImage} alt='user-img' />
-            <label htmlFor='666'>上傳圖片</label>
+            <label className='medium-14' htmlFor='666'>
+              更新圖片
+            </label>
             <input
               type='file'
               id='666'
@@ -130,13 +130,13 @@ const SettingPage = () => {
                 setCheckPassword(checkPasswordInputValue)
               }
             />
-            <button
-              className='secondary-button bold-16'
-              onClick={handleImageSubmit}
-            >
-              更改資料
-            </button>
           </div>
+          <button
+            className='secondary-button bold-16'
+            onClick={handleImageSubmit}
+          >
+            更改資料
+          </button>
         </div>
       </div>
     </div>
