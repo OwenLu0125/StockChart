@@ -225,6 +225,7 @@ const HistoryPage = () => {
                 />
                 <img src={arrowIcon} alt='arrow-icon' />
               </div>
+              <div className='toText medium-14'>to</div>
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
                 <DatePicker
@@ -239,19 +240,19 @@ const HistoryPage = () => {
                 <img src={arrowIcon} alt='arrow-icon' />
               </div>
               <button
-                className='btn primary-button bold-16'
+                className='searchBtn btn primary-button bold-16'
                 onClick={handleSearchHistory}
               >
                 查詢
               </button>
               <button
-                className='btn secondary-button bold-16'
+                className='prevBtn btn secondary-button bold-16'
                 onClick={handlePrevMonth}
               >
                 上個月
               </button>
               <button
-                className='btn secondary-button bold-16'
+                className='nextBtn btn secondary-button bold-16'
                 onClick={handleNextMonth}
               >
                 下個月
@@ -261,6 +262,72 @@ const HistoryPage = () => {
           </div>
         </div>
       </div>
+      {isVisible && (
+        <div className='popupDateFilter'>
+          <div className='modal-overlay'></div>
+          <div className='dateFilterMobile'>
+            <div className='top'>
+              <span className='bold-20'>日期篩選</span>
+              <img
+                className='closeImg'
+                src={closeIcon}
+                alt='close-icon'
+                onClick={() => setIsVisible(false)}
+              />
+            </div>
+            <div className='filterMain'>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  className='picker'
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <div className='toText medium-14'>to</div>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  className='picker'
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <button
+                className='searchBtn btn primary-button bold-16'
+                onClick={() => {
+                  handleSearchHistory();
+                  setIsVisible(false);
+                }}
+              >
+                查詢
+              </button>
+              <button
+                className='prevBtn btn secondary-button bold-16'
+                onClick={handlePrevMonth}
+              >
+                上個月
+              </button>
+              <button
+                className='nextBtn btn secondary-button bold-16'
+                onClick={handleNextMonth}
+              >
+                下個月
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
