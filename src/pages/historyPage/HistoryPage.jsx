@@ -22,6 +22,7 @@ import './HistoryPage.scss';
 const HistoryPage = () => {
   const navigate = useNavigate();
   const { isAuthenticated, currentMember } = useAuth();
+  const [isVisible, setIsVisible] = useState(false);
 
   // Get the first and last days of the month
   const date = new Date();
