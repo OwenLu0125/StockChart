@@ -83,7 +83,7 @@ export const Navbar = () => {
       <div className='navbarItemContainer'>
         <div className='iconBox'>
           <img src={logo} alt='' />
-          <div className='brandName'>FUTURESMARKET</div>
+          <div className='brandName'>i-FUTURES</div>
         </div>
         <div className='navMenu'>
           {navItems.map((item, i) => {
