@@ -11,6 +11,8 @@ import { useAuth } from '../../contexts/AuthContext';
 // icon
 import logo from '../../assets/logo.svg';
 import googleLogo from '../../assets/google-icon.svg';
+//img
+import banner from '../../assets/login.png';
 // styles
 import './LoginPage.scss';
 // Api
@@ -69,43 +71,47 @@ const LoginPage = () => {
 
   return (
     <div className='container'>
-      <div className='loginLeftContainer'></div>
+      <div className='loginLeftContainer'>
+        <img src={banner} alt='login-banner' />
+      </div>
       <div className='loginContainer'>
-        <div className='loginPrompt'>
-          <p className='regular-16'>您還沒有帳號嗎? </p>
-          <p className='link regular-16' onClick={handleRegister}>
-            立即註冊
-          </p>
-        </div>
-        <div className='title'>
-          <img src={logo} alt='logo' />
-          <h1>FUTURESMARKET</h1>
-        </div>
-        <p>立即登入，開始您今日的投資。祝您投資順利!</p>
-        <div className='inputContainer'>
-          <Input
-            label='帳號'
-            placeholder={'請輸入帳號'}
-            value={account}
-            onChange={(accountInputValue) => setAccount(accountInputValue)}
-          />
-          <Input
-            type='password'
-            label='密碼'
-            placeholder={'請輸入密碼'}
-            value={password}
-            onChange={(passwordInputValue) => setPassword(passwordInputValue)}
-          />
-        </div>
-        <div className='buttonContainer'>
-          <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
-          <button
-            className='googleBtn secondary-button'
-            onClick={handleGoogleLogin}
-          >
-            <img src={googleLogo} alt='google-logo' />
-            <span className='bold-18'>Google登入</span>
-          </button>
+        <div className='innerContainer'>
+          <div className='loginPrompt'>
+            <p className='regular-16'>您還沒有帳號嗎? </p>
+            <p className='link regular-16' onClick={handleRegister}>
+              立即註冊
+            </p>
+          </div>
+          <div className='title'>
+            <img src={logo} alt='logo' />
+            <h1>i-FUTURES</h1>
+          </div>
+          <p className='subTitle'>立即登入，開始您今日的操作。祝您投資順利!</p>
+          <div className='inputContainer'>
+            <Input
+              label='帳號'
+              placeholder={'請輸入帳號'}
+              value={account}
+              onChange={(accountInputValue) => setAccount(accountInputValue)}
+            />
+            <Input
+              type='password'
+              label='密碼'
+              placeholder={'請輸入密碼'}
+              value={password}
+              onChange={(passwordInputValue) => setPassword(passwordInputValue)}
+            />
+          </div>
+          <div className='buttonContainer'>
+            <PurpleButton text={'登入'} onClick={handleLogin}></PurpleButton>
+            <button
+              className='googleBtn secondary-button'
+              onClick={handleGoogleLogin}
+            >
+              <img src={googleLogo} alt='google-logo' />
+              <span className='bold-18'>Google登入</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
