@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/StockChart/static/css/main.13246fe3.css",
-    "main.js": "/StockChart/static/js/main.b85e743e.js",
+    "main.css": "/StockChart/static/css/main.8af6b0c7.css",
+    "main.js": "/StockChart/static/js/main.a627744d.js",
+    "static/media/login.png": "/StockChart/static/media/login.1c82e70680527ca5c974.png",
+    "static/media/filter.svg": "/StockChart/static/media/filter.11bccb59f98437c6a77b1fdb956908c9.svg",
     "static/media/setting.svg": "/StockChart/static/media/setting.789307bdff207274a4891a00c520b270.svg",
     "static/media/setting-white.svg": "/StockChart/static/media/setting-white.1490e26f05fb95dac3c05121bd0ae79e.svg",
     "static/media/dashboard.svg": "/StockChart/static/media/dashboard.0aad5ebaeb9a0a1d087605ce102ad299.svg",
     "static/media/dashboard-white.svg": "/StockChart/static/media/dashboard-white.935d30c76a23335a5206a90e6390898d.svg",
+    "static/media/logo.svg": "/StockChart/static/media/logo.5281a798fd0ecdfb163fe3171ed4b6ac.svg",
     "static/media/message.svg": "/StockChart/static/media/message.789364009f329e7816dff0197344f3cb.svg",
     "static/media/message-gray.svg": "/StockChart/static/media/message-gray.957d63fc033e2184438c8a00dc88e3de.svg",
-    "static/media/logo.svg": "/StockChart/static/media/logo.c932cf5b64334b4a86f74d15a38a6293.svg",
     "static/media/home.svg": "/StockChart/static/media/home.cae9678b99028324ef2dd0d1dcb696f6.svg",
     "static/media/home-white.svg": "/StockChart/static/media/home-white.87d1b08d9699bb607b0b9871d7a0c527.svg",
     "static/media/diary.svg": "/StockChart/static/media/diary.5c088cda9fd83c72e0438b5ad05aec79.svg",
@@ -33,11 +35,11 @@
     "static/media/arrow-left.svg": "/StockChart/static/media/arrow-left.63cad4e78c8e43b0d721dd97e957c09e.svg",
     "static/media/arrow-green.svg": "/StockChart/static/media/arrow-green.b005a424727a844e2bd57394b73ef6f2.svg",
     "static/media/arrow-purple.svg": "/StockChart/static/media/arrow-purple.f1e56f96be3c01c51d2a6472bdfc72c8.svg",
-    "main.13246fe3.css.map": "/StockChart/static/css/main.13246fe3.css.map",
-    "main.b85e743e.js.map": "/StockChart/static/js/main.b85e743e.js.map"
+    "main.8af6b0c7.css.map": "/StockChart/static/css/main.8af6b0c7.css.map",
+    "main.a627744d.js.map": "/StockChart/static/js/main.a627744d.js.map"
   },
   "entrypoints": [
-    "static/css/main.13246fe3.css",
-    "static/js/main.b85e743e.js"
+    "static/css/main.8af6b0c7.css",
+    "static/js/main.a627744d.js"
   ]
 }
