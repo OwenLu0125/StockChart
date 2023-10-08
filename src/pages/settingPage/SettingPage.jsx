@@ -1,6 +1,7 @@
 // react
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // components
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
@@ -30,6 +31,10 @@ const SettingPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -132,10 +137,13 @@ const SettingPage = () => {
             />
           </div>
           <button
-            className='secondary-button bold-16'
+            className='primary-button bold-16'
             onClick={handleImageSubmit}
           >
             更改資料
+          </button>
+          <button className='secondary-button bold-16' onClick={handleLogout}>
+            登出
           </button>
         </div>
       </div>
