@@ -46,8 +46,14 @@
         gap: 18px;
       }
 
+      .primary-button {
+        margin-top: 30px;
+        height: 42px;
+      }
+
       .secondary-button {
-        margin-top: 40px;
+        display: none;
+        margin-top: 18px;
         height: 42px;
       }
     }
@@ -57,5 +63,9 @@
 @media only screen and (max-width: 768px) {
   .settingMain {
     margin: 26px 24px 122px 24px !important;
+
+    .secondary-button {
+      display: initial !important;
+    }
   }
 }

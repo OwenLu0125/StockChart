@@ -3,19 +3,26 @@
   flex-direction: row;
   .loginLeftContainer {
     width: 50vw;
-    height: 95vh;
-    margin: 20px 0 20px 20px;
-    border-radius: 6px;
+    height: 100vh;
     background-color: rgba(217, 217, 217, 1);
+    position: fixed;
+    img {
+      width: 50vw;
+      height: 100vh;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
   }
   .loginContainer {
-    margin: auto;
+    width: 50vw;
+    margin-left: 50vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: auto;
-    height: auto;
+    align-items: center;
     margin-top: 64px;
+    margin-bottom: 64px;
+
     .loginPrompt {
       a {
         font-family: Noto Sans TC;
@@ -31,42 +38,47 @@
     .title {
       margin-top: 56px;
       display: flex;
+      align-items: center;
       img {
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
       }
       h1 {
-        margin-left: 13px;
+        margin-left: 10px;
         color: rgba(90, 64, 164, 1);
       }
     }
+
+    .subTitle {
+      margin-top: 12px;
+    }
+
     p {
       font-size: 16px;
       font-weight: 500;
       line-height: 23px;
       letter-spacing: 0em;
       text-align: left;
-      margin-top: 16px;
     }
     .inputContainer {
       display: flex;
       flex-direction: column;
       gap: 18px;
       margin-top: 48px;
+      width: 462px;
     }
 
     .buttonContainer {
       margin-top: 42px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 18px;
 
       .googleBtn {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 52px;
-        width: 100%;
         gap: 10px;
         img {
           width: 20px;
@@ -75,5 +87,26 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .loginLeftContainer {
+    display: none;
+  }
+
+  .loginContainer {
+    width: 100vw !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .inputContainer {
+    width: 100% !important;
+  }
+
+  .innerContainer {
+    width: 88%;
   }
 }
