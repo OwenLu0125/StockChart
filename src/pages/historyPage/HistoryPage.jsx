@@ -61,11 +61,20 @@ const HistoryPage = () => {
     String(startDate.getDate()).length === 2 ? '' : '0'
   }${startDate.getDate()}`;
 
-  const defaultEnddate = `${endDate.getFullYear()}-${
-    String(endDate.getMonth() + 1).length === 2 ? '' : '0'
-  }${endDate.getMonth() + 1}-${
-    String(endDate.getDate() + 1).length === 2 ? '' : '0'
-  }${endDate.getDate() + 1}`;
+  const defaultEnddate =
+    endDate.getDate() < 30
+      ? `${endDate.getFullYear()}-${
+          String(endDate.getMonth() + 1).length === 2 ? '' : '0'
+        }${endDate.getMonth() + 1}-${
+          String(endDate.getDate() + 1).length === 2 ? '' : '0'
+        }${endDate.getDate() + 1}`
+      : `${
+          endDate.getMonth() + 1 === 12
+            ? endDate.getFullYear() + 1
+            : endDate.getFullYear()
+        }-${String(endDate.getMonth() + 2).length === 2 ? '' : '0'}${
+          endDate.getMonth() + 2
+        }-${'01'}`;
 
   const handleSearchHistory = async () => {
     try {
