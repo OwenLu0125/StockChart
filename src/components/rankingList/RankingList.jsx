@@ -22,7 +22,7 @@ const RankingList = () => {
 
   return (
     <div className='rankingList'>
-      <div className='title bold-16'>交易排行列表</div>
+      <div className='title bold-16'>交易勝率排行</div>
       <div className='rankingMain'>
         {rankingList?.map?.((item) => {
           return (

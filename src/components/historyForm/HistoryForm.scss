@@ -22,15 +22,15 @@
     }
 
     li:nth-child(4) {
-      width: 14%;
+      width: 12%;
     }
 
     li:nth-child(5) {
-      width: 10%;
+      width: 12%;
     }
 
     li:nth-child(6) {
-      width: 10%;
+      width: 12%;
     }
 
     li:nth-child(7) {
@@ -39,7 +39,7 @@
 
     li:nth-child(8) {
       text-align: center;
-      width: 15%;
+      width: 12%;
     }
   }
 
@@ -74,6 +74,7 @@
       cursor: pointer;
     }
     ul {
+      cursor: pointer;
       li {
         height: 52px;
         line-height: 52px;
@@ -93,7 +94,6 @@
           color: var(--primary-purple);
           font-weight: 700;
           text-decoration: underline;
-          cursor: pointer;
         }
       }
     }
@@ -141,6 +141,135 @@
 
     .red {
       color: var(--secondary-red);
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .historyForm {
+    ul {
+      li:first-child {
+        width: 20%;
+      }
+
+      li:nth-child(2) {
+        width: 20%;
+        padding-left: 5%;
+      }
+
+      li:nth-child(3) {
+        width: 13%;
+      }
+
+      li:nth-child(4) {
+        width: 13%;
+      }
+
+      li:nth-child(5) {
+        width: 12%;
+      }
+
+      li:nth-child(6) {
+        width: 12%;
+      }
+
+      li:nth-child(7) {
+        flex: 1;
+      }
+
+      li:nth-child(8) {
+        display: none;
+        width: 0%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .historyForm {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+
+    ul {
+      li:first-child {
+        width: 26%;
+      }
+
+      li:nth-child(2) {
+        width: 24%;
+        padding-left: 5%;
+      }
+
+      li:nth-child(3) {
+        width: 17%;
+      }
+
+      li:nth-child(4) {
+        width: 17%;
+      }
+
+      li:nth-child(5) {
+        flex: 1;
+      }
+
+      li:nth-child(6) {
+        display: none;
+        width: 0%;
+      }
+
+      li:nth-child(7) {
+        display: none;
+        width: 0%;
+      }
+
+      li:nth-child(8) {
+        display: none;
+        width: 0%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .historyForm {
+    ul {
+      li:first-child {
+        width: 32%;
+      }
+
+      li:nth-child(2) {
+        width: 30%;
+        padding-left: 5%;
+      }
+
+      li:nth-child(3) {
+        width: 18%;
+      }
+
+      li:nth-child(4) {
+        flex: 1;
+      }
+
+      li:nth-child(5) {
+        display: none;
+        width: 0%;
+      }
+
+      li:nth-child(6) {
+        display: none;
+        width: 0%;
+      }
+
+      li:nth-child(7) {
+        display: none;
+        width: 0%;
+      }
+
+      li:nth-child(8) {
+        display: none;
+        width: 0%;
+      }
     }
   }
 }

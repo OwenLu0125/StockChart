@@ -1,16 +1,30 @@
-.dashboardContainer {
+.dashboardPage {
   display: flex;
-  background-color: var(--background-gray);
+  height: 100vh;
 
   .dashboardBody {
     flex: 1;
-    height: 100vh;
+    margin-top: 72px;
+    overflow-y: scroll;
+    background-color: var(--background-gray);
 
     .dashboardMain {
-      margin-top: 72px;
-      padding: 26px 38px 38px 38px;
-      height: calc(100vh - 72px);
-      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      margin: 26px 38px;
     }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .dashboardMain {
+    margin: 26px auto !important;
+    width: 1024px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .dashboardMain {
+    width: 1180px;
   }
 }

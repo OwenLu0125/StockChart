@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import HomePage from '../homepage/HomePage';
 import LoginPage from '../loginPage/LoginPage';
 import SignupPage from '../signupPage/SignupPage';
-import AdminLoginPage from '../adminLoginPage/AdminLoginPage';
 import MainPage from '../mainPage/MainPage';
 import DiaryPage from '../diaryPage/DiaryPage';
 import HistoryPage from '../historyPage/HistoryPage';
@@ -37,7 +36,6 @@ const Home = () => {
                   <Route path='*' element={<HomePage />} />
                   <Route path='/login' element={<LoginPage />} />
                   <Route path='/signup' element={<SignupPage />} />
-                  <Route path='/admin' element={<AdminLoginPage />} />
                   <Route path='/main' element={<MainPage />} />
                   <Route path='/diary' element={<DiaryPage />} />
                   <Route path='/history' element={<HistoryPage />} />

@@ -1,6 +1,7 @@
 // react
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // components
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
@@ -30,6 +31,10 @@ const SettingPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -82,15 +87,15 @@ const SettingPage = () => {
 
   return (
     <div className='settingPage'>
-      <div className='navbarSection'>
-        <Navbar />
-      </div>
+      <Navbar />
       <div className='settingBody'>
         <Header />
         <div className='settingMain'>
           <div className='photoEdit'>
             <img className='userImg' src={currentImage} alt='user-img' />
-            <label htmlFor='666'>上傳圖片</label>
+            <label className='medium-14' htmlFor='666'>
+              更新圖片
+            </label>
             <input
               type='file'
               id='666'
@@ -130,13 +135,16 @@ const SettingPage = () => {
                 setCheckPassword(checkPasswordInputValue)
               }
             />
-            <button
-              className='secondary-button bold-16'
-              onClick={handleImageSubmit}
-            >
-              更改資料
-            </button>
           </div>
+          <button
+            className='primary-button bold-16'
+            onClick={handleImageSubmit}
+          >
+            更改資料
+          </button>
+          <button className='secondary-button bold-16' onClick={handleLogout}>
+            登出
+          </button>
         </div>
       </div>
     </div>

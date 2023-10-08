@@ -47,18 +47,17 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
 
           const netpandl = trade?.netpandl === null ? '0' : trade.netpandl;
 
-          const date = trade?.date.substr(0, 10);
+          const date = trade?.date.substr(0, 10).replaceAll('-', '/');
 
           return (
-            <ul key={`trade-${i}`}>
-              <li
-                onClick={() => {
-                  getChosenDate(date);
-                  navigate('/daily-history');
-                }}
-              >
-                {date === null ? '0000-00-00' : date}
-              </li>
+            <ul
+              key={`trade-${i}`}
+              onClick={() => {
+                getChosenDate(date);
+                navigate('/daily-history');
+              }}
+            >
+              <li>{date === null ? '0000/00/00' : date}</li>
               <li className={netpandl?.includes('-') ? 'red' : 'green'}>
                 {netpandl?.includes('-') ? netpandl : `+${netpandl}`}
               </li>
@@ -69,14 +68,7 @@ const HistoryForm = ({ dailytrades, tradeSum }) => {
               <li>{trade?.wincount === null ? '0' : trade?.wincount}</li>
               <li>{trade?.losscount === null ? '0' : trade?.losscount}</li>
               <li>
-                <img
-                  src={detailIcon}
-                  alt='detail-icon'
-                  onClick={() => {
-                    getChosenDate(date);
-                    navigate('/daily-history');
-                  }}
-                />
+                <img src={detailIcon} alt='detail-icon' />
               </li>
             </ul>
           );

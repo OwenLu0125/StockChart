@@ -138,92 +138,95 @@ const DiaryPage = () => {
   }, [navigate, isAuthenticated]);
 
   return (
-    <div className='diaryContainer'>
-      <div className='navbarSection'>
-        <Navbar />
-      </div>
-      <div className='rightContainer'>
+    <div className='diaryPage'>
+      <Navbar />
+      <div className='diaryBody'>
         <Header />
-        <div
-          className={`collapse ${isCollapsed ? 'collapsed' : ''}`}
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
-          <span className='bold-16'>輸入表單</span>
-          <img
-            className={`arrow ${isCollapsed ? 'flipped' : ''}`}
-            src={arrowIcon}
-            alt='arrow-icon'
-          />
-        </div>
-        <div
-          className={`inputSec ${isCollapsed ? 'collapsed' : ''}`}
-          style={{ display: isCollapsed ? 'none' : 'grid' }}
-        >
-          <TradeSelector action={action} setAction={setAction} />
-          <div className='dateInput'>
-            <div className='label bold-14'>日期</div>
-            <div className='datePicker'>
-              <img src={clockIcon} alt='clock-icon' />
-              <DatePicker
-                className='picker'
-                selected={trandeInputDate}
-                onChange={(date) => setTrandeInputDate(date)}
-                dateFormat='yyyy/MM/dd HH:mm:ss'
-                maxDate={new Date()}
-                showYearDropdown
-                scrollableYearDropdown
-                showTimeSelect
-              />
-              <img src={arrowDownIcon} alt='arrow-icon' />
-            </div>
-          </div>
-          <PrimaryInput
-            label='價格'
-            placeholder='請輸入價格'
-            value={price}
-            onChange={setPrice}
-          />
-          <PrimaryInput
-            label='數量'
-            placeholder='請輸入數量'
-            value={quantity}
-            onChange={setQuantity}
-          />
-        </div>
-        <div
-          className={`remark ${isCollapsed ? 'collapsed' : ''}`}
-          style={{ display: isCollapsed ? 'none' : 'flex' }}
-        >
-          <div className='label bold-14'>備註</div>
-          <textarea
-            className='modalText medium-14'
-            value={description}
-            placeholder='請輸入備註'
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div
-          className={`btnSec ${isCollapsed ? 'collapsed' : ''}`}
-          style={{ display: isCollapsed ? 'none' : 'flex' }}
-        >
-          <button className='btn secondary-button bold-16'>載入資料</button>
-          <button className='btn primary-button bold-16' onClick={handleSubmit}>
-            送出
-          </button>
-        </div>
-        <div className='dailySec'>
-          <div className='dailyDiagram'>
-            <PositiveAndNegativeBarChart transactions={lineChartData} />
-          </div>
-          <div className='listSec'>
-            <DailyRecord
-              todayTransactions={todayTransactions}
-              setTodayTransactions={setTodayTransactions}
-              historyDate={historyDate}
-              setHistoryDate={setHistoryDate}
-              setSwitcher={setSwitcher}
+        <div className='diaryMain'>
+          <div
+            className={`collapse ${isCollapsed ? 'collapsed' : ''}`}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
+            <span className='bold-16'>輸入表單</span>
+            <img
+              className={`arrow ${isCollapsed ? 'flipped' : ''}`}
+              src={arrowIcon}
+              alt='arrow-icon'
             />
-            <DailySummary dailyTradeSummary={dailyTradeSummary} />
+          </div>
+          <div
+            className={`inputSec ${isCollapsed ? 'collapsed' : ''}`}
+            style={{ display: isCollapsed ? 'none' : 'grid' }}
+          >
+            <TradeSelector action={action} setAction={setAction} />
+            <div className='dateInput'>
+              <div className='label bold-14'>日期</div>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  className='picker'
+                  selected={trandeInputDate}
+                  onChange={(date) => setTrandeInputDate(date)}
+                  dateFormat='yyyy/MM/dd HH:mm:ss'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  showTimeSelect
+                />
+                <img src={arrowDownIcon} alt='arrow-icon' />
+              </div>
+            </div>
+            <PrimaryInput
+              label='價格'
+              placeholder='請輸入價格'
+              value={price}
+              onChange={setPrice}
+            />
+            <PrimaryInput
+              label='數量'
+              placeholder='請輸入數量'
+              value={quantity}
+              onChange={setQuantity}
+            />
+          </div>
+          <div
+            className={`remark ${isCollapsed ? 'collapsed' : ''}`}
+            style={{ display: isCollapsed ? 'none' : 'flex' }}
+          >
+            <div className='label bold-14'>備註</div>
+            <textarea
+              className='modalText medium-14'
+              value={description}
+              placeholder='請輸入備註'
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div
+            className={`btnSec ${isCollapsed ? 'collapsed' : ''}`}
+            style={{ display: isCollapsed ? 'none' : 'flex' }}
+          >
+            <button className='btn secondary-button bold-16'>載入資料</button>
+            <button
+              className='btn primary-button bold-16'
+              onClick={handleSubmit}
+            >
+              送出
+            </button>
+          </div>
+          <div className='dailySec'>
+            <div className='dailyDiagram'>
+              <PositiveAndNegativeBarChart transactions={lineChartData} />
+            </div>
+            <div className='listSec'>
+              <DailyRecord
+                todayTransactions={todayTransactions}
+                setTodayTransactions={setTodayTransactions}
+                historyDate={historyDate}
+                setHistoryDate={setHistoryDate}
+                setSwitcher={setSwitcher}
+              />
+              <DailySummary dailyTradeSummary={dailyTradeSummary} />
+            </div>
           </div>
         </div>
       </div>

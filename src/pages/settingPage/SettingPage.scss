@@ -1,48 +1,71 @@
 .settingPage {
   display: flex;
-  .navbarSection {
-    display: flex;
-  }
-  .settingBody {
-    height: 100vh;
-    flex: 1;
+  height: 100vh;
 
+  .settingBody {
+    flex: 1;
+    margin-top: 72px;
+    overflow-y: scroll;
+    background-color: var(--background-gray);
     .settingMain {
       display: flex;
       flex-direction: column;
-      margin-top: 72px;
-      padding: 26px 0 0 52px;
-      height: calc(100vh - 72px);
-      overflow-y: scroll;
+      margin: 26px 55% 58px 38px;
+
       .photoEdit {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        padding-bottom: 26px;
+
         .userImg {
-          width: 112px;
-          height: 112px;
+          width: 100px;
+          height: 100px;
           border-radius: 50%;
+          aspect-ratio: 1;
+          object-fit: cover;
+          object-position: 50% 50%;
         }
+
         > label {
           margin-top: 10px;
-          border-bottom: 1px dotted;
+          border-bottom: 1px solid;
           color: var(--primary-purple);
           &:hover {
             cursor: pointer;
           }
         }
+
+        border-bottom: 1px solid var(--border-gray);
+      }
+
+      .settingInput {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .primary-button {
+        margin-top: 30px;
+        height: 42px;
+      }
+
+      .secondary-button {
+        display: none;
+        margin-top: 18px;
+        height: 42px;
       }
     }
-    .settingInput,
-    .secondary-button,
-    .photoEdit {
-      width: 40vw;
-      margin-top: 44px;
-    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .settingMain {
+    margin: 26px 24px 122px 24px !important;
+
     .secondary-button {
-      margin-top: 40px;
-      height: 42px;
+      display: initial !important;
     }
   }
 }

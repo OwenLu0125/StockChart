@@ -11,6 +11,8 @@ import { useAuth } from '../../contexts/AuthContext';
 // icons
 import clockIcon from '../../assets/clock.svg';
 import arrowIcon from '../../assets/arrow-down.svg';
+import filterIcon from '../../assets/filter.svg';
+import closeIcon from '../../assets/close.svg';
 // api
 import { getHistory } from '../../api/history';
 // style
@@ -20,6 +22,7 @@ import './HistoryPage.scss';
 const HistoryPage = () => {
   const navigate = useNavigate();
   const { isAuthenticated, currentMember } = useAuth();
+  const [isVisible, setIsVisible] = useState(false);
 
   // Get the first and last days of the month
   const date = new Date();
@@ -58,11 +61,20 @@ const HistoryPage = () => {
     String(startDate.getDate()).length === 2 ? '' : '0'
   }${startDate.getDate()}`;
 
-  const defaultEnddate = `${endDate.getFullYear()}-${
-    String(endDate.getMonth() + 1).length === 2 ? '' : '0'
-  }${endDate.getMonth() + 1}-${
-    String(endDate.getDate() + 1).length === 2 ? '' : '0'
-  }${endDate.getDate() + 1}`;
+  const defaultEnddate =
+    endDate.getDate() < 30
+      ? `${endDate.getFullYear()}-${
+          String(endDate.getMonth() + 1).length === 2 ? '' : '0'
+        }${endDate.getMonth() + 1}-${
+          String(endDate.getDate() + 1).length === 2 ? '' : '0'
+        }${endDate.getDate() + 1}`
+      : `${
+          endDate.getMonth() + 1 === 12
+            ? endDate.getFullYear() + 1
+            : endDate.getFullYear()
+        }-${String(endDate.getMonth() + 2).length === 2 ? '' : '0'}${
+          endDate.getMonth() + 2
+        }-${'01'}`;
 
   const handleSearchHistory = async () => {
     try {
@@ -199,6 +211,15 @@ const HistoryPage = () => {
         <div className='historyBody'>
           <Header />
           <div className='historyMain'>
+            <div
+              className='filterSwitch'
+              onClick={() => {
+                setIsVisible(true);
+              }}
+            >
+              <img src={filterIcon} alt='filter-icon' />
+              <p className='bold-16'>日期篩選</p>
+            </div>
             <div className='dateFilter'>
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
@@ -213,6 +234,7 @@ const HistoryPage = () => {
                 />
                 <img src={arrowIcon} alt='arrow-icon' />
               </div>
+              <div className='toText medium-14'>to</div>
               <div className='datePicker'>
                 <img src={clockIcon} alt='clock-icon' />
                 <DatePicker
@@ -227,19 +249,19 @@ const HistoryPage = () => {
                 <img src={arrowIcon} alt='arrow-icon' />
               </div>
               <button
-                className='btn primary-button bold-16'
+                className='searchBtn btn primary-button bold-16'
                 onClick={handleSearchHistory}
               >
                 查詢
               </button>
               <button
-                className='btn secondary-button bold-16'
+                className='prevBtn btn secondary-button bold-16'
                 onClick={handlePrevMonth}
               >
                 上個月
               </button>
               <button
-                className='btn secondary-button bold-16'
+                className='nextBtn btn secondary-button bold-16'
                 onClick={handleNextMonth}
               >
                 下個月
@@ -249,6 +271,72 @@ const HistoryPage = () => {
           </div>
         </div>
       </div>
+      {isVisible && (
+        <div className='popupDateFilter'>
+          <div className='modal-overlay'></div>
+          <div className='dateFilterMobile'>
+            <div className='top'>
+              <span className='bold-20'>日期篩選</span>
+              <img
+                className='closeImg'
+                src={closeIcon}
+                alt='close-icon'
+                onClick={() => setIsVisible(false)}
+              />
+            </div>
+            <div className='filterMain'>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  className='picker'
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <div className='toText medium-14'>to</div>
+              <div className='datePicker'>
+                <img src={clockIcon} alt='clock-icon' />
+                <DatePicker
+                  className='picker'
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  dateFormat='yyyy/MM/dd'
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                />
+                <img src={arrowIcon} alt='arrow-icon' />
+              </div>
+              <button
+                className='searchBtn btn primary-button bold-16'
+                onClick={() => {
+                  handleSearchHistory();
+                  setIsVisible(false);
+                }}
+              >
+                查詢
+              </button>
+              <button
+                className='prevBtn btn secondary-button bold-16'
+                onClick={handlePrevMonth}
+              >
+                上個月
+              </button>
+              <button
+                className='nextBtn btn secondary-button bold-16'
+                onClick={handleNextMonth}
+              >
+                下個月
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
