@@ -10,6 +10,8 @@ import Input from '../../components/input/Input';
 import { useAuth } from '../../contexts/AuthContext';
 // icons
 import logo from '../../assets/logo.svg';
+//img
+import banner from '../../assets/login.png';
 // styles
 import './SignupPage.scss';
 
@@ -74,57 +76,61 @@ const SignupPage = () => {
 
   return (
     <div className='container'>
-      <div className='loginLeftContainer'></div>
+      <div className='loginLeftContainer'>
+        <img src={banner} alt='login-banner' />
+      </div>
       <div className='loginContainer'>
-        <div className='loginPrompt'>
-          <p className='regular-16'>您已經有帳號了嗎? </p>
-          <p className='link regular-16' onClick={handleNavigate}>
-            立即登入
-          </p>
-        </div>
-        <div className='title'>
-          <img src={logo} alt='' />
-          <h1>FUTURESMARKET</h1>
-        </div>
-        <p>立即註冊，開始您今日的投資。祝您投資順利!</p>
-        <div className='inputContainer'>
-          <Input
-            label='帳號'
-            placeholder={'請輸入帳號'}
-            value={account}
-            onChange={(accountInputValue) => setAccount(accountInputValue)}
-          />
-          <Input
-            label='名稱'
-            placeholder={'請輸入名稱'}
-            value={username}
-            onChange={(nameInputValue) => setUserName(nameInputValue)}
-          />
-          <Input
-            label='Email'
-            placeholder={'請輸入Email'}
-            value={email}
-            onChange={(emailInputValue) => setEmail(emailInputValue)}
-          />
-          <Input
-            type='password'
-            label='密碼'
-            placeholder={'請輸入密碼'}
-            value={password}
-            onChange={(passwordInputValue) => setPassword(passwordInputValue)}
-          />
-          <Input
-            type='password'
-            label='密碼確認'
-            placeholder={'請輸入密碼'}
-            value={checkPassword}
-            onChange={(checkPasswordInputValue) =>
-              setCheckPassword(checkPasswordInputValue)
-            }
-          />
-        </div>
-        <div className='buttonContainer'>
-          <PurpleButton text={'註冊'} onClick={handleSubmit}></PurpleButton>
+        <div className='innerContainer'>
+          <div className='loginPrompt'>
+            <p className='regular-16'>您已經有帳號嗎? </p>
+            <p className='link regular-16' onClick={handleNavigate}>
+              立即登入
+            </p>
+          </div>
+          <div className='title'>
+            <img src={logo} alt='' />
+            <h1>i-FUTURES</h1>
+          </div>
+          <p className='subTitle'>立即註冊，開始您今日的操作。祝您投資順利!</p>
+          <div className='inputContainer'>
+            <Input
+              label='帳號'
+              placeholder={'請輸入帳號'}
+              value={account}
+              onChange={(accountInputValue) => setAccount(accountInputValue)}
+            />
+            <Input
+              label='名稱'
+              placeholder={'請輸入名稱'}
+              value={username}
+              onChange={(nameInputValue) => setUserName(nameInputValue)}
+            />
+            <Input
+              label='Email'
+              placeholder={'請輸入Email'}
+              value={email}
+              onChange={(emailInputValue) => setEmail(emailInputValue)}
+            />
+            <Input
+              type='password'
+              label='密碼'
+              placeholder={'請輸入密碼'}
+              value={password}
+              onChange={(passwordInputValue) => setPassword(passwordInputValue)}
+            />
+            <Input
+              type='password'
+              label='密碼確認'
+              placeholder={'請輸入密碼'}
+              value={checkPassword}
+              onChange={(checkPasswordInputValue) =>
+                setCheckPassword(checkPasswordInputValue)
+              }
+            />
+          </div>
+          <div className='buttonContainer'>
+            <PurpleButton text={'註冊'} onClick={handleSubmit}></PurpleButton>
+          </div>
         </div>
       </div>
     </div>
