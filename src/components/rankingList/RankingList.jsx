@@ -34,7 +34,12 @@ const RankingList = () => {
                     item.username.slice(0, 1).toUpperCase() +
                     item.username.slice(1)
                   }`}</p>
-                  <p className='regular-14'>@{item.account}</p>
+                  <p className='regular-14'>
+                    @
+                    {item.account.length > 9
+                      ? item.account.slice(0, 6).padEnd(9, '*')
+                      : item.account}
+                  </p>
                 </span>
               </div>
               <span className='rate bold-18'>
