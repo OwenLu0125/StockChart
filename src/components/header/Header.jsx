@@ -15,7 +15,10 @@ const Header = () => {
     currentMember?.name?.slice(0, 1).toUpperCase() +
     currentMember?.name?.slice(1);
 
-  const userAccount = currentMember?.account;
+  const userAccount =
+    currentMember?.account?.length > 9
+      ? currentMember?.account?.slice(0, 6)?.padEnd(9, '*')
+      : currentMember?.account;
   const userAvatar = currentMember?.avatar;
 
   const daysOfWeek = [
